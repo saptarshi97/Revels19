@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import in.mitrev.revels19.R;
@@ -60,5 +61,30 @@ public class MainActivity extends AppCompatActivity implements
                 .replace(R.id.fragment_container, fragment)
                 .commit();
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_workshops:
+                //open workshops activity
+                return true;
+            case R.id.menu_proshow_portal:
+                //Launch custom chrome tab
+                return true;
+            case R.id.menu_about_us:
+                //Lauch about us activity
+                return true;
+            case R.id.menu_developers:
+                //Open developers activity
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

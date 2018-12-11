@@ -7,6 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -25,6 +28,8 @@ public class ScheduleFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
         if (getActivity() != null) {
             getActivity().setTitle(R.string.bottom_nav_schedule);
             AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
@@ -39,4 +44,24 @@ public class ScheduleFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_schedule, container, false);
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_schedule, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_search:
+                return true;
+            case R.id.menu_filter:
+                return true;
+            case R.id.menu_profile:
+                return true;
+            case R.id.menu_favourites:
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
