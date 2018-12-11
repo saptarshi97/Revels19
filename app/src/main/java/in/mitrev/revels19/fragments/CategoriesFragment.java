@@ -3,6 +3,8 @@ package in.mitrev.revels19.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,17 @@ public class CategoriesFragment extends Fragment {
 
     public CategoriesFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (getActivity() != null) {
+            getActivity().setTitle(R.string.bottom_nav_categories);
+            AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
+            appBarLayout.setExpanded(true, true);
+        }
     }
 
 
