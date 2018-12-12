@@ -1,5 +1,6 @@
 package in.mitrev.revels19.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -73,16 +74,16 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_workshops:
-                //open workshops activity
+                startActivity(new Intent(MainActivity.this, WorkshopsActivity.class));
                 return true;
             case R.id.menu_proshow_portal:
                 //Launch custom chrome tab
                 return true;
             case R.id.menu_about_us:
-                //Lauch about us activity
+                startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
                 return true;
             case R.id.menu_developers:
-                //Open developers activity
+                startActivity(new Intent(MainActivity.this, DevelopersActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);
