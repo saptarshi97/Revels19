@@ -16,6 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.FavouritesActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.AboutUsActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.DevelopersActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.WorkshopsActivity"
+            android:parentActivityName=".activities.MainActivity" />
     </application>
 
 </manifest>
