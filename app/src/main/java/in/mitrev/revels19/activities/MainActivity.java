@@ -1,10 +1,13 @@
 package in.mitrev.revels19.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import in.mitrev.revels19.R;
@@ -14,12 +17,16 @@ import in.mitrev.revels19.fragments.ResultsFragment;
 import in.mitrev.revels19.fragments.RevelsCupFragment;
 import in.mitrev.revels19.fragments.ScheduleFragment;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements
+        BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
@@ -57,4 +64,28 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         return true;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_workshops:
+                startActivity(new Intent(MainActivity.this, WorkshopsActivity.class));
+                return true;
+            case R.id.menu_proshow_portal:
+                //Launch custom chrome tab
+                return true;
+            case R.id.menu_about_us:
+                startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
+                return true;
+            case R.id.menu_developers:
+                startActivity(new Intent(MainActivity.this, DevelopersActivity.class));
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

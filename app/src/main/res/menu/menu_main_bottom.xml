@@ -8,17 +8,17 @@
     <item
         android:id="@+id/action_schedule"
         android:icon="@drawable/ic_schedule"
-        android:title="@string/schedule" />
+        android:title="@string/bottom_nav_schedule" />
     <item
         android:id="@+id/action_categories"
         android:icon="@drawable/ic_categories"
-        android:title="@string/categories" />
+        android:title="@string/bottom_nav_categories" />
     <item
         android:id="@+id/action_revels_cup"
         android:icon="@drawable/ic_revels_cup"
-        android:title="@string/revels_cup" />
+        android:title="@string/bottom_nav_revels_cup" />
     <item
         android:id="@+id/action_results"
         android:icon="@drawable/ic_results"
-        android:title="@string/results" />
+        android:title="@string/bottom_nav_results" />
 </menu>
