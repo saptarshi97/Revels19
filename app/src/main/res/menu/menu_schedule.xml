@@ -3,28 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_search"
+        android:id="@+id/action_search"
         android:icon="@drawable/ic_search"
         android:title="@string/menu_search"
+        android:orderInCategory="1"
         app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/menu_filter"
+        android:id="@+id/action_filter"
         android:icon="@drawable/ic_filter"
         android:title="@string/menu_filter"
-        app:showAsAction="always" />
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/menu_profile"
-        android:orderInCategory="1"
+        android:id="@+id/action_profile"
+        android:icon="@drawable/ic_registrations"
         android:title="@string/menu_profile"
+        android:orderInCategory="3"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_favourites"
-        android:orderInCategory="2"
+        android:id="@+id/action_favourites"
+        android:icon="@drawable/ic_fav_deselected"
         android:title="@string/menu_favourites"
+        android:orderInCategory="4"
         app:showAsAction="never" />
 
 </menu>

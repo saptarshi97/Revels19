@@ -26,4 +26,15 @@
     <string name="facebook_logo">facebook_logo</string>
     <string name="no_data_available">No data available</string>
     <string name="revels_19_logo">Revels 19 logo</string>
+    <string name="pre_revels">Pre Revels</string>
+    <string name="filter_events">Filter</string>
+    <string name="clear_filters">CLEAR FILTERS</string>
+    <string name="select_category">Category :</string>
+    <string name="select_event_type">Event Type :</string>
+    <string name="select_start_time">Start Time :</string>
+    <string name="default_start_time">12:00 PM</string>
+    <string name="select_end_time">End Time :</string>
+    <string name="default_end_time">11:00 PM</string>
+    <string name="select_event_venue">Venue :</string>
+    <string name="apply_filter">APPLY</string>
 </resources>
