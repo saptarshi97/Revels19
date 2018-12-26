@@ -58,10 +58,10 @@ public class RevelsCupFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_refresh:
                 return true;
-            case R.id.menu_profile:
+            case R.id.action_profile:
                 startActivity(new Intent(getActivity(), ProfileActivity.class));
                 return true;
-            case R.id.menu_favourites:
+            case R.id.action_favourites:
                 startActivity(new Intent(getActivity(), FavouritesActivity.class));
                 return true;
         }

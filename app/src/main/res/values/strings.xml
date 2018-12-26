@@ -24,4 +24,17 @@
     <string name="workshops">Workshops</string>
     <string name="about_us_details">And we\'re back! BIGGER and BETTER this time. The most awaited episode of Revels\'19 is almost here and we hope you\'re as excited as we are. It\'s gonna be a hell of a ride next sem.</string>
     <string name="facebook_logo">facebook_logo</string>
+    <string name="no_data_available">No data available</string>
+    <string name="revels_19_logo">Revels 19 logo</string>
+    <string name="pre_revels">Pre Revels</string>
+    <string name="filter_events">Filter</string>
+    <string name="clear_filters">CLEAR FILTERS</string>
+    <string name="select_category">Category :</string>
+    <string name="select_event_type">Event Type :</string>
+    <string name="select_start_time">Start Time :</string>
+    <string name="default_start_time">12:00 PM</string>
+    <string name="select_end_time">End Time :</string>
+    <string name="default_end_time">11:00 PM</string>
+    <string name="select_event_venue">Venue :</string>
+    <string name="apply_filter">APPLY</string>
 </resources>
