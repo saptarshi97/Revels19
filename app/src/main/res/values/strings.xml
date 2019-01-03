@@ -37,4 +37,11 @@
     <string name="default_end_time">11:00 PM</string>
     <string name="select_event_venue">Venue :</string>
     <string name="apply_filter">APPLY</string>
+    <string name="no_data">No Data</string>
+    <string name="no_events_available">No events Available</string>
+    <string name="day_1">Day 1</string>
+    <string name="day_2">Day 2</string>
+    <string name="day_3">Day 3</string>
+    <string name="day_4">Day 4</string>
+    <string name="about_category">About category</string>
 </resources>
