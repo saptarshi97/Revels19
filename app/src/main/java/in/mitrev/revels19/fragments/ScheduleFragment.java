@@ -97,6 +97,10 @@ public class ScheduleFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static ScheduleFragment newInstance(){
+        return new ScheduleFragment();
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
