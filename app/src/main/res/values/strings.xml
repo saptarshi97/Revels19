@@ -37,4 +37,21 @@
     <string name="default_end_time">11:00 PM</string>
     <string name="select_event_venue">Venue :</string>
     <string name="apply_filter">APPLY</string>
+    <string name="no_data">No Data</string>
+    <string name="no_events_available">No events Available</string>
+    <string name="day_1">Day 1</string>
+    <string name="day_2">Day 2</string>
+    <string name="day_3">Day 3</string>
+    <string name="day_4">Day 4</string>
+    <string name="about_category">About category</string>
+    <string name="event_fragment">Events</string>
+    <string name="more">MORE</string>
+    <string name="no_events2">No Events Available</string>
+    <string name="categories">Categories</string>
+    <string name="no_categories">No Categories Available</string>
+    <string name="results">Results</string>
+    <string name="home_insta_title">#Revels19 on Instagram</string>
+    <string name="unable_to_load_insta">Unable to load Instagram feed. Swipe down to retry!</string>
+
+
 </resources>

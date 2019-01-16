@@ -1,13 +1,281 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="in.mitrev.revels19.fragments.HomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/home_swipe_refresh_layout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-</FrameLayout>
+        <android.support.v4.widget.NestedScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--Favourites Card-->
+                <com.daimajia.slider.library.SliderLayout
+                    android:id="@+id/home_image_slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="@dimen/padding_default"
+                            android:layout_marginRight="@dimen/padding_default"
+                            android:paddingTop="@dimen/padding_default">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/event_fragment"
+                                android:textSize="@dimen/typography_title"
+                                android:fontFamily="sans-serif-medium"/>
+
+                            <TextView
+                                android:id="@+id/home_events_more_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0"
+                                android:clickable="true"
+                                android:text="@string/more"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/typography_small"
+                                android:background="?android:attr/selectableItemBackground"/>
+                        </LinearLayout>
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_half"
+                            android:layout_marginLeft="@dimen/padding_half"
+                            android:layout_marginRight="@dimen/padding_half"
+                            android:layout_marginBottom="@dimen/padding_half"
+                            android:paddingTop="@dimen/padding_half"
+                            android:paddingBottom="@dimen/padding_half">
+
+                            <TextView
+                                android:id="@+id/home_events_none_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/no_events2"
+                                android:fontFamily="sans-serif-medium"
+                                android:visibility="gone"
+                                android:layout_margin="15dp"/>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/home_events_recycler_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal" />
+
+
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <!--Categories Card-->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="@dimen/padding_default"
+                            android:layout_marginRight="@dimen/padding_default"
+                            android:paddingTop="@dimen/padding_half">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/categories"
+                                android:textSize="@dimen/typography_title"
+                                android:fontFamily="sans-serif-medium"
+                                android:id="@+id/textView2" />
+
+                            <TextView
+                                android:id="@+id/home_categories_more_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0"
+                                android:clickable="true"
+                                android:text="@string/more"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/typography_small"
+                                android:background="?android:attr/selectableItemBackground"/>
+                        </LinearLayout>
+                        <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_half"
+                            android:layout_marginLeft="@dimen/padding_half"
+                            android:layout_marginRight="@dimen/padding_half"
+                            android:layout_marginBottom="@dimen/padding_half"
+                            android:paddingTop="@dimen/padding_half"
+                            android:paddingBottom="@dimen/padding_half"
+                            >
+                            <TextView
+                                android:id="@+id/home_categories_none_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/no_categories"
+                                android:fontFamily="sans-serif-medium"
+                                android:visibility="gone"
+                                android:layout_margin="15dp"/>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/home_categories_recycler_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal" />
+
+
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+                </FrameLayout>
+                <!--Results Card-->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/home_results_frame"
+                    android:visibility="gone">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="@dimen/padding_default"
+                            android:layout_marginRight="@dimen/padding_default"
+                            android:paddingTop="@dimen/padding_half">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/results"
+                                android:textSize="@dimen/typography_title"
+                                android:fontFamily="sans-serif-medium"/>
+
+                            <TextView
+                                android:id="@+id/home_results_more_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0"
+                                android:clickable="true"
+                                android:text="@string/more"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/typography_small"
+                                android:background="?android:attr/selectableItemBackground"/>
+                        </LinearLayout>
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/home_results_item"
+                            android:visibility="visible"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_half"
+                            android:layout_marginLeft="@dimen/padding_half"
+                            android:layout_marginRight="@dimen/padding_half"
+                            android:layout_marginBottom="@dimen/padding_half"
+                            android:paddingTop="@dimen/padding_half"
+                            android:paddingBottom="@dimen/padding_default">
+                            <TextView
+                                android:id="@+id/home_results_none_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="No Results available!"
+                                android:fontFamily="sans-serif-medium"
+                                android:visibility="gone"
+                                android:layout_margin="15dp"/>
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/home_results_recycler_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal" />
+
+
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
+                </FrameLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/padding_half"
+                    android:layout_marginBottom="@dimen/padding_half"
+                    android:background="@android:drawable/divider_horizontal_bright"/>
+
+                <TextView
+                    android:id="@+id/instagram_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/home_insta_title"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="@dimen/typography_title" />
+                <ProgressBar
+                    android:id="@+id/insta_progress"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:padding="10dp"
+                    android:indeterminateTint="@color/insta_text_grey"/>
+                <TextView
+                    android:id="@+id/insta_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unable_to_load_insta"
+                    android:textSize="@dimen/typography_body"
+                    android:visibility="gone"
+                    android:padding="10dp"/>
+                <!--InstaFeed Recycler View-->
+                <android.support.v7.widget.RecyclerView
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    android:id="@+id/home_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_80dp"
+    android:layout_height="@dimen/_112dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_4dp">
+
+        <ImageView
+            android:id="@+id/cat_event_logo_image_view"
+            android:layout_width="@dimen/_64dp"
+            android:layout_height="@dimen/_64dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_4dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/cat_event_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cat_event_logo_image_view"
+            android:layout_marginTop="@dimen/_4dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            tools:text="Event Name" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
