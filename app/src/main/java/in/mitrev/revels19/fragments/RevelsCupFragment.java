@@ -3,10 +3,6 @@ package in.mitrev.revels19.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,15 +10,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.appbar.AppBarLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.activities.FavouritesActivity;
 import in.mitrev.revels19.activities.ProfileActivity;
+import io.realm.Realm;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class RevelsCupFragment extends Fragment {
 
+    private Realm realm;
+    private View view;
 
     public RevelsCupFragment() {
         // Required empty public constructor
@@ -32,6 +36,8 @@ public class RevelsCupFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        realm = Realm.getDefaultInstance();
 
         if (getActivity() != null) {
             getActivity().setTitle(R.string.bottom_nav_revels_cup);
@@ -44,7 +50,9 @@ public class RevelsCupFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_revels_cup, container, false);
+        view = inflater.inflate(R.layout.fragment_revels_cup, container, false);
+
+        return view;
     }
 
     @Override

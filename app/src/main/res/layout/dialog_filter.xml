@@ -306,39 +306,26 @@
             android:gravity="end|center_vertical"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/filter_cancel_text_view"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filter_cancel_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_16dp"
                 android:fontFamily="sans-serif-medium"
-                android:paddingLeft="@dimen/_16dp"
                 android:paddingTop="@dimen/_8dp"
-                android:paddingRight="@dimen/_16dp"
                 android:paddingBottom="@dimen/_8dp"
-                android:text="@android:string/no"
-                android:textAllCaps="true"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/_14sp" />
+                android:text="@android:string/no"/>
 
-            <TextView
-                android:id="@+id/filter_apply_text_view"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filter_apply_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_16dp"
-                android:background="@drawable/rounded_primary_bg"
                 android:fontFamily="sans-serif-medium"
-                android:gravity="center"
-                android:paddingStart="@dimen/_16dp"
-                android:paddingLeft="@dimen/_16dp"
                 android:paddingTop="@dimen/_8dp"
-                android:paddingEnd="@dimen/_16dp"
-                android:paddingRight="@dimen/_16dp"
                 android:paddingBottom="@dimen/_8dp"
-                android:text="@string/apply_filter"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_14sp" />
+                android:text="@string/apply_filter"/>
 
 
         </LinearLayout>

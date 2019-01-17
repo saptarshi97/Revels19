@@ -1,34 +1,22 @@
 package in.mitrev.revels19.adapters;
 
-import android.app.AlarmManager;
-import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-import io.realm.Realm;
-import io.realm.RealmResults;
-import in.mitrev.revels19.R;
-import in.mitrev.revels19.models.events.EventDetailsModel;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
-import in.mitrev.revels19.views.TabbedDialog;
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * Created by Saptarshi on 12/24/2017.

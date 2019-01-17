@@ -1,23 +1,17 @@
 package in.mitrev.revels19.adapters;
 
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-//import com.squareup.picasso.Picasso;
-
-import in.mitrev.revels19.R;
+import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.models.instagram.InstaFeedModel;
 import in.mitrev.revels19.models.instagram.InstagramFeed;
+
+//import com.squareup.picasso.Picasso;
 
 /**
  * Created by Saptarshi on 12/25/2017.

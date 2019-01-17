@@ -46,4 +46,7 @@
     <dimen name="typography_large_title">20sp</dimen>
     <dimen name="typography_medium_title">18sp</dimen>
     <dimen name="card_corner_radius">4dp</dimen>
+    <dimen name="_250dp">250dp</dimen>
+    <dimen name="_20sp">20sp</dimen>
+    <dimen name="_128dp">128dp</dimen>
 </resources>

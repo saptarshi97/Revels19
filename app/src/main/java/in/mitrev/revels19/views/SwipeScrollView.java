@@ -1,11 +1,12 @@
 package in.mitrev.revels19.views;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+
+import androidx.annotation.NonNull;
+import androidx.core.widget.NestedScrollView;
 
 public class SwipeScrollView extends NestedScrollView {
 

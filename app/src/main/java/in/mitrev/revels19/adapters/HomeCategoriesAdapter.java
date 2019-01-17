@@ -2,9 +2,6 @@ package in.mitrev.revels19.adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -13,8 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import in.mitrev.revels19.R;
-import in.mitrev.revels19.activities.CategoryActivity;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.models.categories.CategoryModel;
 
 /**
@@ -34,12 +31,12 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAd
     }
 
     @Override
-    public HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return null;
     }
 
     @Override
-    public void onBindViewHolder( HomeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
 
     }
     @Override
