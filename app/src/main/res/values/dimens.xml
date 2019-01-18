@@ -49,4 +49,5 @@
     <dimen name="_250dp">250dp</dimen>
     <dimen name="_20sp">20sp</dimen>
     <dimen name="_128dp">128dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
 </resources>
