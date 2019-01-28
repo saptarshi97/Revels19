@@ -5,23 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -33,20 +20,25 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.daimajia.slider.library.SliderLayout;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import io.realm.Realm;
-import io.realm.RealmResults;
-import io.realm.Sort;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.activities.FavouritesActivity;
 import in.mitrev.revels19.activities.LoginActivity;
@@ -55,13 +47,15 @@ import in.mitrev.revels19.activities.ProfileActivity;
 import in.mitrev.revels19.adapters.HomeAdapter;
 import in.mitrev.revels19.adapters.HomeCategoriesAdapter;
 import in.mitrev.revels19.adapters.HomeEventsAdapter;
-import in.mitrev.revels19.fragments.CategoriesFragment;
 import in.mitrev.revels19.models.categories.CategoryModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
 import in.mitrev.revels19.models.instagram.InstagramFeed;
 import in.mitrev.revels19.network.InstaFeedAPIClient;
 import in.mitrev.revels19.utilities.NetworkUtils;
+import io.realm.Realm;
+import io.realm.RealmResults;
+import io.realm.Sort;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -125,7 +119,7 @@ public class HomeFragment extends Fragment {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getActivity().findViewById(R.id.toolbar).setElevation((4 * getResources().getDisplayMetrics().density + 0.5f));
                 getActivity().findViewById(R.id.app_bar).setElevation((4 * getResources().getDisplayMetrics().density + 0.5f));
-                appBarLayout = (AppBarLayout) getActivity().findViewById(R.id.app_bar);
+                appBarLayout = getActivity().findViewById(R.id.app_bar);
                 appBarLayout.setExpanded(true, true);
             }
         } catch (NullPointerException e) {
@@ -145,15 +139,15 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = initViews(inflater, container);
         v = view;
-        progressBar = (ProgressBar) view.findViewById(R.id.insta_progress);
-        instaTextView = (TextView) view.findViewById(R.id.insta_text_view);
+        progressBar = view.findViewById(R.id.insta_progress);
+        instaTextView = view.findViewById(R.id.insta_text_view);
 
        // Checking User's Network Status
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
         if (imageSlider == null)
-            imageSlider = (SliderLayout) view.findViewById(R.id.home_image_slider);
+            imageSlider = view.findViewById(R.id.home_image_slider);
 //        getImageURLSfromFirebase();
 //        sliderInit();
 
@@ -366,20 +360,20 @@ public class HomeFragment extends Fragment {
 
     public View initViews(LayoutInflater inflater, ViewGroup container){
 
-        appBarLayout = (AppBarLayout) container.findViewById(R.id.app_bar);
-        navigation = (BottomNavigationView) container.findViewById(R.id.main_bottom_nav);
+        appBarLayout = container.findViewById(R.id.app_bar);
+        navigation = container.findViewById(R.id.main_bottom_nav);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        homeRV = (RecyclerView) view.findViewById(R.id.home_recycler_view);
-        resultsRV = (RecyclerView) view.findViewById(R.id.home_results_recycler_view);
-        categoriesRV = (RecyclerView) view.findViewById(R.id.home_categories_recycler_view);
-        eventsRV = (RecyclerView) view.findViewById(R.id.home_events_recycler_view);
-        resultsMore = (TextView) view.findViewById(R.id.home_results_more_text_view);
-        categoriesMore = (TextView) view.findViewById(R.id.home_categories_more_text_view);
-        eventsMore = (TextView) view.findViewById(R.id.home_events_more_text_view);
-        resultsNone = (TextView) view.findViewById(R.id.home_results_none_text_view);
-        homeResultsItem=(FrameLayout) view.findViewById(R.id.home_results_frame);
-        instaTextView = (TextView) view.findViewById(R.id.instagram_textview);
-        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.home_swipe_refresh_layout);
+        homeRV = view.findViewById(R.id.home_recycler_view);
+        resultsRV = view.findViewById(R.id.home_results_recycler_view);
+        categoriesRV = view.findViewById(R.id.home_categories_recycler_view);
+        eventsRV = view.findViewById(R.id.home_events_recycler_view);
+        resultsMore = view.findViewById(R.id.home_results_more_text_view);
+        categoriesMore = view.findViewById(R.id.home_categories_more_text_view);
+        eventsMore = view.findViewById(R.id.home_events_more_text_view);
+        resultsNone = view.findViewById(R.id.home_results_none_text_view);
+        homeResultsItem = view.findViewById(R.id.home_results_frame);
+        instaTextView = view.findViewById(R.id.instagram_textview);
+        swipeRefreshLayout = view.findViewById(R.id.home_swipe_refresh_layout);
 //
         return view;
     }

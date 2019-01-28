@@ -32,7 +32,10 @@
         <activity
             android:name=".activities.WorkshopsActivity"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.LoginActivity" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait">
+        </activity>
         <activity android:name=".activities.CategoryActivity"
             android:parentActivityName=".activities.MainActivity"/>
     </application>

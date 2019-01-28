@@ -52,6 +52,12 @@
     <string name="results">Results</string>
     <string name="home_insta_title">#Revels19 on Instagram</string>
     <string name="unable_to_load_insta">Unable to load Instagram feed. Swipe down to retry!</string>
-
+    <string name="no_connection">No connection</string>
+    <string name="no_results">No Results available!</string>
+    <string name="email2">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_as_guest">Continue as Guest</string>
+    <string name="sign_up">Sign up</string>
 
 </resources>

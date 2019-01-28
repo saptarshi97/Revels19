@@ -2,26 +2,25 @@ package in.mitrev.revels19.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.bottomnavigation.LabelVisibilityMode;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.fragments.CategoriesFragment;
 import in.mitrev.revels19.fragments.HomeFragment;
 import in.mitrev.revels19.fragments.ResultsFragment;
 import in.mitrev.revels19.fragments.RevelsCupFragment;
 import in.mitrev.revels19.fragments.ScheduleFragment;
-import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -40,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
+        View activeLabel = bottomNavigationView.findViewById(com.google.android.material.R.id.largeLabel);
+        if (activeLabel != null && activeLabel instanceof TextView)
+            activeLabel.setPadding(0, 0, 0, 0);
+
         setFragment(new HomeFragment());
     }
 
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
         switch (menuItem.getItemId()) {
                 case R.id.action_home:
                     return setFragment(new HomeFragment());
