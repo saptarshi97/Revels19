@@ -103,6 +103,7 @@ public class CategoriesFragment extends Fragment {
             categoriesList.clear();
             List<CategoryModel> categoryResults = database.copyFromRealm(database
                     .where(CategoryModel.class)
+                    .notEqualTo("type", "SUPPORTING")
                     .findAll()
                     .sort("categoryName")
             );
@@ -171,6 +172,7 @@ public class CategoriesFragment extends Fragment {
         if (database != null) {
             List<CategoryModel> categoryResults = database.copyFromRealm(database
                     .where(CategoryModel.class)
+                    .notEqualTo("type", "SUPPORTING")
                     .findAll()
                     .sort("categoryName")
             );
