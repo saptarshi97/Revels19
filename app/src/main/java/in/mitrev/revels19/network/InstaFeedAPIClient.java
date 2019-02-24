@@ -1,10 +1,10 @@
 package in.mitrev.revels19.network;
 
 import in.mitrev.revels19.models.instagram.InstagramFeed;
-import retrofit.GsonConverterFactory;
+//import retrofit2.GsonConverterFactory;
 import retrofit2.Call;
 import retrofit2.Retrofit;
-//import retrofit2.Converter.gson.GsonConverterFactory;
+//import retrofit2.Converter.GsonConverterFactory;
 import retrofit2.http.GET;
 
 /**

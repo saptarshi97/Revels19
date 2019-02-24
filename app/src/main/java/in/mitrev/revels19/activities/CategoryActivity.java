@@ -51,9 +51,9 @@ public class CategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
-        categoryName = getIntent().getStringExtra("catName");
-        categoryID = getIntent().getStringExtra("catID");
-        categoryDesc = getIntent().getStringExtra("catDesc");
+        categoryName = getIntent().getStringExtra("name");
+        categoryID = getIntent().getStringExtra("id");
+        categoryDesc = getIntent().getStringExtra("description");
         if (categoryName == null) categoryName = "";
         if (categoryID == null) categoryID = "";
         if (categoryDesc == null) categoryDesc = "";
@@ -118,7 +118,7 @@ public class CategoryActivity extends AppCompatActivity {
             return;
 
         RealmResults<ScheduleModel> scheduleRealmResults = database.where(ScheduleModel.class)
-                .equalTo("catID", categoryID).findAll().sort("startTime");
+                .equalTo("id", categoryID).findAll().sort("startTime");
         scheduleResults = database.copyFromRealm(scheduleRealmResults);
 
         for(ScheduleModel schedule : scheduleResults) {

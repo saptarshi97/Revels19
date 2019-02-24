@@ -8,12 +8,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.fragments.CategoriesFragment;
@@ -21,18 +25,28 @@ import in.mitrev.revels19.fragments.HomeFragment;
 import in.mitrev.revels19.fragments.ResultsFragment;
 import in.mitrev.revels19.fragments.RevelsCupFragment;
 import in.mitrev.revels19.fragments.ScheduleFragment;
+import in.mitrev.revels19.models.categories.CategoryModel;
+import in.mitrev.revels19.models.categories.CategoriesListModel;
+import in.mitrev.revels19.network.APIClient;
+import in.mitrev.revels19.utilities.NetworkUtils;
+import io.realm.Realm;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     String TAG = "MainActivity";
     BottomNavigationView bottomNavigationView;
+    private FragmentManager fm;
+    private Realm mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      //  mDatabase = Realm.getDefaultInstance();
+        mDatabase = Realm.getDefaultInstance();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -43,31 +57,32 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         if (activeLabel != null && activeLabel instanceof TextView)
             activeLabel.setPadding(0, 0, 0, 0);
 
+        boolean isConnected = NetworkUtils.isInternetConnected(this);
+        if (isConnected) {
+            loadAllFromInternet();
+            Log.i(TAG, "onCreate: Connected and background updated");
+        }
+
         setFragment(new HomeFragment());
     }
-
-
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         switch (menuItem.getItemId()) {
-                case R.id.action_home:
-                    return setFragment(new HomeFragment());
-                case R.id.action_schedule:
-                    return setFragment(new ScheduleFragment());
-                case R.id.action_categories:
-                    return setFragment(new CategoriesFragment());
-                case R.id.action_revels_cup:
-                    return setFragment(new RevelsCupFragment());
-                case R.id.action_results:
-                    return setFragment(new ResultsFragment());
-            }
-            return false;
+            case R.id.action_home:
+                return setFragment(new HomeFragment());
+            case R.id.action_schedule:
+                return setFragment(new ScheduleFragment());
+            case R.id.action_categories:
+                return setFragment(new CategoriesFragment());
+            case R.id.action_revels_cup:
+                return setFragment(new RevelsCupFragment());
+            case R.id.action_results:
+                return setFragment(new ResultsFragment());
         }
-
-
+        return false;
+    }
 
     /**
      * Set the fragment for this activity
@@ -120,5 +135,39 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadAllFromInternet() {
+       // loadResultsFromInternet();
+       // loadEventsFromInternet();
+      //  loadSchedulesFromInternet();
+        loadCategoriesFromInternet();
+    }
+
+    private void loadCategoriesFromInternet() {
+        try {
+            Call<CategoriesListModel> categoriesCall = APIClient.getAPIInterface().getCategoriesList();
+            categoriesCall.enqueue(new Callback<CategoriesListModel>() {
+                @Override
+                public void onResponse(@NonNull Call<CategoriesListModel> call, @NonNull Response<CategoriesListModel> response) {
+                    if (response.isSuccessful() && response.body() != null && mDatabase != null) {
+                        mDatabase.beginTransaction();
+                        mDatabase.where(CategoryModel.class).findAll().deleteAllFromRealm();
+                        mDatabase.copyToRealmOrUpdate(response.body().getCategoriesList());
+                        //mDatabase.copyToRealmOrUpdate(response.body().getCategoriesList());
+                        //mDatabase.where(CategoryModel.class).equalTo("categoryName", "minimilitia").or().equalTo("categoryName", "Mini Militia").or().equalTo("categoryName", "Minimilitia").or().equalTo("categoryName", "MiniMilitia").or().equalTo("categoryName", "MINIMILITIA").or().equalTo("categoryName", "MINI MILITIA").findAll().deleteAllFromRealm();
+                        mDatabase.commitTransaction();
+                        Log.d(TAG, response.body().getCategoriesList().size() + "Categories updated in background");
+                    }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<CategoriesListModel> call, @NonNull Throwable t) {
+                    Log.d(TAG, "onFailure: Categories not updated");
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
