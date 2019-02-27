@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     mDatabase.where(ResultModel.class).findAll().deleteAllFromRealm();
                     mDatabase.copyToRealm(results);
                     mDatabase.commitTransaction();
-                    Log.d(TAG, "Results updated in the background");
+                    Log.d(TAG, "Results updated in the background" + results.size());
                 }
             }
 
