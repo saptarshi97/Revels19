@@ -29,6 +29,8 @@ import in.mitrev.revels19.models.categories.CategoriesListModel;
 import in.mitrev.revels19.models.categories.CategoryModel;
 import in.mitrev.revels19.models.events.EventDetailsModel;
 import in.mitrev.revels19.models.events.EventsListModel;
+import in.mitrev.revels19.models.events.ScheduleListModel;
+import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.results.ResultModel;
 import in.mitrev.revels19.models.results.ResultsListModel;
 import in.mitrev.revels19.network.APIClient;
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private void loadAllFromInternet() {
         loadResultsFromInternet();
         loadEventsFromInternet();
-//        loadSchedulesFromInternet();
+        loadSchedulesFromInternet();
         loadCategoriesFromInternet();
     }
 
@@ -196,6 +198,27 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
     }
 
+    private void loadSchedulesFromInternet() {
+        Call<ScheduleListModel> schedulesCall = APIClient.getAPIInterface().getScheduleList();
+        schedulesCall.enqueue(new Callback<ScheduleListModel>() {
+            @Override
+            public void onResponse(Call<ScheduleListModel> call, Response<ScheduleListModel> response) {
+                if (response.isSuccessful() && response.body() != null && mDatabase != null) {
+                    mDatabase.beginTransaction();
+                    mDatabase.where(ScheduleModel.class).findAll().deleteAllFromRealm();
+                    mDatabase.copyToRealm(response.body().getData());
+                    mDatabase.commitTransaction();
+                    Log.d(TAG, "Schedule updated in background");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ScheduleListModel> call, Throwable t) {
+                Log.d(TAG, "onFailure: Schedules not updated ");
+            }
+        });
+    }
+
     private void loadResultsFromInternet() {
         Call<ResultsListModel> resultsCall = APIClient.getAPIInterface().getResultsList();
         resultsCall.enqueue(new Callback<ResultsListModel>() {
@@ -210,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     mDatabase.where(ResultModel.class).findAll().deleteAllFromRealm();
                     mDatabase.copyToRealm(results);
                     mDatabase.commitTransaction();
-                    Log.d(TAG, "Results updated in the background");
+                    Log.d(TAG, "Results updated in the background" + results.size());
                 }
             }
 

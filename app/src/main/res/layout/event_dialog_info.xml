@@ -299,6 +299,7 @@
                         android:paddingRight="@dimen/padding_default"
                         android:text="TextView"
                         android:textColor="@color/colorAccent" />
+
                 </LinearLayout>
             </LinearLayout>
         </FrameLayout>

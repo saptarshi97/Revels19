@@ -3,7 +3,10 @@ package in.mitrev.revels19.models.results;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import in.mitrev.revels19.models.events.EventDetailsModel;
+import io.realm.Realm;
 import io.realm.RealmObject;
+import io.realm.RealmQuery;
 
 
 public class ResultModel extends RealmObject {
@@ -16,6 +19,8 @@ public class ResultModel extends RealmObject {
     private String catName;
     @SerializedName("event")
     @Expose
+    private String eventID;
+
     private String eventName;
     @SerializedName("round")
     @Expose
@@ -41,6 +46,11 @@ public class ResultModel extends RealmObject {
     }
 
     public String getEventName() {
+        RealmQuery<EventDetailsModel> eventQuery;
+        Realm db = Realm.getDefaultInstance();
+        eventQuery = db.where(EventDetailsModel.class);
+        eventName = eventQuery.equalTo("eventID", eventID)
+                .findFirst().getEventName();
         return eventName;
     }
 
@@ -64,4 +74,11 @@ public class ResultModel extends RealmObject {
         this.position = position;
     }
 
+    public String getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(String eventID) {
+        this.eventID = eventID;
+    }
 }

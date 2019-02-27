@@ -3,43 +3,47 @@ package in.mitrev.revels19.models.events;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import in.mitrev.revels19.models.categories.CategoryModel;
+import io.realm.Realm;
 import io.realm.RealmObject;
+import io.realm.RealmQuery;
 
 public class EventDetailsModel extends RealmObject {
 
-    @SerializedName("ename")
+    @SerializedName("name")
     @Expose
     private String eventName;
-    @SerializedName("eid")
+    @SerializedName("id")
     @Expose
     private String eventID;
-    @SerializedName("edesc")
+    @SerializedName("short_desc")
     @Expose
     private String eventDesc;
-    @SerializedName("emaxteamsize")
+    @SerializedName("max_size")
     @Expose
     private String eventMaxTeamSize;
-    @SerializedName("cid")
+    @SerializedName("category")
     @Expose
     private String catId;
-    @SerializedName("cname")
-    @Expose
+
     private String catName;
-    @SerializedName("cntctName")
-    @Expose
+
     private String contactName;
-    @SerializedName("cntctno")
-    @Expose
+
     private String contactNo;
-    @SerializedName("type")
-    @Expose
+
     private String type;
-    @SerializedName("hash")
-    @Expose
-    private String hash;
-    @SerializedName("day")
-    @Expose
+
+    //private String hash;
+
     private String day;
+
+
+    public EventDetailsModel() {
+        Realm db = Realm.getDefaultInstance();
+        RealmQuery<CategoryModel> eventQuery;
+        eventQuery = db.where(CategoryModel.class);
+    }
 
     public String getEventName() {
         return eventName;
@@ -82,6 +86,12 @@ public class EventDetailsModel extends RealmObject {
     }
 
     public String getCatName() {
+        Realm db = Realm.getDefaultInstance();
+        RealmQuery<CategoryModel> eventQuery;
+        eventQuery = db.where(CategoryModel.class);
+        catName = eventQuery.equalTo("categoryID", catId)
+                .findFirst()
+                .getCategoryName();
         return catName;
     }
 
@@ -90,6 +100,12 @@ public class EventDetailsModel extends RealmObject {
     }
 
     public String getContactName() {
+        Realm db = Realm.getDefaultInstance();
+        RealmQuery<CategoryModel> eventQuery;
+        eventQuery = db.where(CategoryModel.class);
+        contactName = eventQuery.equalTo("categoryID", catId)
+                .findFirst()
+                .getCc1_name();
         return contactName;
     }
 
@@ -98,6 +114,12 @@ public class EventDetailsModel extends RealmObject {
     }
 
     public String getContactNo() {
+        Realm db = Realm.getDefaultInstance();
+        RealmQuery<CategoryModel> eventQuery;
+        eventQuery = db.where(CategoryModel.class);
+        contactNo = eventQuery.equalTo("categoryID", catId)
+                .findFirst()
+                .getCc1_contact();
         return contactNo;
     }
 
@@ -106,6 +128,12 @@ public class EventDetailsModel extends RealmObject {
     }
 
     public String getType() {
+        Realm db = Realm.getDefaultInstance();
+        RealmQuery<CategoryModel> eventQuery;
+        eventQuery = db.where(CategoryModel.class);
+        type = eventQuery.equalTo("categoryID", catId)
+                .findFirst()
+                .getType();
         return type;
     }
 
@@ -113,15 +141,19 @@ public class EventDetailsModel extends RealmObject {
         this.type = type;
     }
 
-    public String getHash() {
-        return hash;
-    }
-
-    public void setHash(String hash) {
-        this.hash = hash;
-    }
+//    public String getHash() {
+//        return hash;
+//    }
+//
+//    public void setHash(String hash) {
+//        this.hash = hash;
+//    }
 
     public String getDay() {
+        Realm db = Realm.getDefaultInstance();
+        ScheduleModel scheduleResult = db.where(ScheduleModel.class)
+                .equalTo("eventId", eventID).findFirst();
+        day = scheduleResult.getDay();
         return day;
     }
 

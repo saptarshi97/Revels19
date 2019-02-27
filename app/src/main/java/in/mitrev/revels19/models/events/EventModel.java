@@ -35,7 +35,7 @@ public class EventModel extends RealmObject {
             contactName = eventDetails.getContactName();
             contactNumber = eventDetails.getContactNo();
             eventType = eventDetails.getType();
-            hashTag = eventDetails.getHash();
+            //hashTag = eventDetails.getHash();
         }
 
         if(schedule != null) {
