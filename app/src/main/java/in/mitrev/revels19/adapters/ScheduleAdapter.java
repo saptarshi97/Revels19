@@ -163,7 +163,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
             return;
         }
         if (isRevelsSTR.contains("1")) {
-            int eventDate = EVENT_DAY_ZERO + Integer.parseInt(event.getDay());   //event dates start from 07th March
+            int eventDate = EVENT_DAY_ZERO + Integer.parseInt(event.getDay());   //event dates start from 06th March
             Calendar calendar1 = Calendar.getInstance();
             calendar1.setTime(d);
             calendar1.set(Calendar.MONTH, EVENT_MONTH);
@@ -294,36 +294,48 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
         public void onBind(final ScheduleModel event, final EventClickListener eventClickListener, final EventLongPressListener eventLongPressListener, final FavouriteClickListener favouriteListener) {
             eventDate.setText(event.getDate());
             eventName.setText(event.getEventName());
-            eventTime.setText(event.getStartTime() + " - " + event.getEndTime());
+            String startTime = event.getStartTime().substring(11, 16);
+            String endTime = event.getEndTime().substring(11, 16);
+            try {
+                SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm");
+                Date startDate = sdf_24h.parse(startTime);
+                Date endDate = sdf_24h.parse(endTime);
+                SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa");
+                startTime = sdf_12h.format(startDate);
+                endTime = sdf_12h.format(endDate);
+            } catch (final ParseException e) {
+                e.printStackTrace();
+            }
+            eventTime.setText(startTime + " - " + endTime);
             eventVenue.setText(event.getVenue());
             eventRound.setText("R".concat(event.getRound()));
 //            IconCollection icons = new IconCollection();
 //            eventIcon.setImageResource(icons.getIconResource(activity, event.getCatName()));
-            if (isFavourite(event)) {
-                favIcon.setImageResource(R.drawable.ic_fav_selected);
-                favIcon.setTag("selected");
-            } else {
-                favIcon.setImageResource(R.drawable.ic_fav_deselected);
-                favIcon.setTag("deselected");
-            }
-            favIcon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //Favourites Clicked
-                    String favTag = favIcon.getTag().toString();
-                    if (favTag.equals("deselected")) {
-                        favIcon.setTag("selected");
-                        favIcon.setImageResource(R.drawable.ic_fav_selected);
-                        addFavourite(event);
-                        favouriteListener.onItemClick(event, true);
-                    } else {
-                        favIcon.setTag("deselected");
-                        favIcon.setImageResource(R.drawable.ic_fav_deselected);
-                        removeFavourite(event);
-                        favouriteListener.onItemClick(event, false);
-                    }
-                }
-            });
+//            if (isFavourite(event)) {
+//                favIcon.setImageResource(R.drawable.ic_fav_selected);
+//                favIcon.setTag("selected");
+//            } else {
+//                favIcon.setImageResource(R.drawable.ic_fav_deselected);
+//                favIcon.setTag("deselected");
+//            }
+//            favIcon.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    //Favourites Clicked
+//                    String favTag = favIcon.getTag().toString();
+//                    if (favTag.equals("deselected")) {
+//                        favIcon.setTag("selected");
+//                        favIcon.setImageResource(R.drawable.ic_fav_selected);
+//                        addFavourite(event);
+//                        favouriteListener.onItemClick(event, true);
+//                    } else {
+//                        favIcon.setTag("deselected");
+//                        favIcon.setImageResource(R.drawable.ic_fav_deselected);
+//                        removeFavourite(event);
+//                        favouriteListener.onItemClick(event, false);
+//                    }
+//                }
+//            });
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
