@@ -107,10 +107,15 @@ public class CategoriesFragment extends Fragment {
     private void displayData() {
         if (mDatabase != null) {
             categoriesList.clear();
+
             List<CategoryModel> categoryResults = mDatabase.copyFromRealm(mDatabase
                     .where(CategoryModel.class)
                     .equalTo("categoryType", "CULTURAL")
                     .findAll().sort("categoryName"));
+            categoryResults.addAll(mDatabase.copyFromRealm(mDatabase
+                    .where(CategoryModel.class)
+                    .equalTo("categoryType", "OPEN")
+                    .findAll().sort("categoryName")));
             if (!categoryResults.isEmpty()) {
                 Log.d(TAG, "displayData: categorysize : " + categoryResults.size());
                 categoriesList.clear();
