@@ -2,7 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/_80dp"
-    android:layout_height="@dimen/_112dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="@dimen/_112dp"
+    android:layout_margin="@dimen/_6dp"
+    android:elevation="@dimen/_2dp"
+    app:cardCornerRadius="@dimen/_6dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,16 +21,23 @@
             android:layout_marginTop="@dimen/_4dp"
             android:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/cat_event_name_text_view"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cat_event_logo_image_view"
-            android:layout_marginTop="@dimen/_4dp"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="2"
-            tools:text="Event Name" />
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/cat_event_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                tools:text="Event Name" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
