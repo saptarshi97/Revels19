@@ -8,10 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +25,12 @@ import in.mitrev.revels19.fragments.HomeFragment;
 import in.mitrev.revels19.fragments.ResultsFragment;
 import in.mitrev.revels19.fragments.RevelsCupFragment;
 import in.mitrev.revels19.fragments.ScheduleFragment;
-import in.mitrev.revels19.models.categories.CategoryModel;
 import in.mitrev.revels19.models.categories.CategoriesListModel;
+import in.mitrev.revels19.models.categories.CategoryModel;
+import in.mitrev.revels19.models.events.EventDetailsModel;
+import in.mitrev.revels19.models.events.EventsListModel;
+import in.mitrev.revels19.models.results.ResultModel;
+import in.mitrev.revels19.models.results.ResultsListModel;
 import in.mitrev.revels19.network.APIClient;
 import in.mitrev.revels19.utilities.NetworkUtils;
 import io.realm.Realm;
@@ -138,10 +142,33 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     private void loadAllFromInternet() {
-       // loadResultsFromInternet();
-       // loadEventsFromInternet();
-      //  loadSchedulesFromInternet();
+        loadResultsFromInternet();
+        loadEventsFromInternet();
+//        loadSchedulesFromInternet();
         loadCategoriesFromInternet();
+    }
+
+    private void loadEventsFromInternet() {
+
+        Call<EventsListModel> eventsCall = APIClient.getAPIInterface().getEventsList();
+        eventsCall.enqueue(new Callback<EventsListModel>() {
+            @Override
+            public void onResponse(Call<EventsListModel> call, Response<EventsListModel> response) {
+                if (response.isSuccessful() && response.body() != null && mDatabase != null) {
+                    Log.d(TAG, "onResponse: Loading events....");
+                    mDatabase.beginTransaction();
+                    mDatabase.where(EventDetailsModel.class).findAll().deleteAllFromRealm();
+                    mDatabase.copyToRealm(response.body().getEvents());
+                    mDatabase.commitTransaction();
+                    Log.d(TAG, "Events updated in background");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EventsListModel> call, Throwable t) {
+                Log.d(TAG, "onFailure: Events not updated ");
+            }
+        });
     }
 
     private void loadCategoriesFromInternet() {
@@ -154,8 +181,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         mDatabase.beginTransaction();
                         mDatabase.where(CategoryModel.class).findAll().deleteAllFromRealm();
                         mDatabase.copyToRealmOrUpdate(response.body().getCategoriesList());
-                        //mDatabase.copyToRealmOrUpdate(response.body().getCategoriesList());
-                        //mDatabase.where(CategoryModel.class).equalTo("categoryName", "minimilitia").or().equalTo("categoryName", "Mini Militia").or().equalTo("categoryName", "Minimilitia").or().equalTo("categoryName", "MiniMilitia").or().equalTo("categoryName", "MINIMILITIA").or().equalTo("categoryName", "MINI MILITIA").findAll().deleteAllFromRealm();
                         mDatabase.commitTransaction();
                         Log.d(TAG, response.body().getCategoriesList().size() + "Categories updated in background");
                     }
@@ -169,5 +194,30 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void loadResultsFromInternet() {
+        Call<ResultsListModel> resultsCall = APIClient.getAPIInterface().getResultsList();
+        resultsCall.enqueue(new Callback<ResultsListModel>() {
+            List<ResultModel> results = new ArrayList<ResultModel>();
+
+            @Override
+            public void onResponse(@NonNull Call<ResultsListModel> call,
+                                   @NonNull Response<ResultsListModel> response) {
+                if (response.isSuccessful() && response.body() != null && mDatabase != null) {
+                    results = response.body().getData();
+                    mDatabase.beginTransaction();
+                    mDatabase.where(ResultModel.class).findAll().deleteAllFromRealm();
+                    mDatabase.copyToRealm(results);
+                    mDatabase.commitTransaction();
+                    Log.d(TAG, "Results updated in the background");
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ResultsListModel> call, @NonNull Throwable t) {
+                Log.d(TAG, "onFailure: Results not updated");
+            }
+        });
     }
 }

@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.SearchView;
 
 import com.google.android.material.appbar.AppBarLayout;
 
@@ -26,6 +25,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,60 +37,66 @@ import in.mitrev.revels19.adapters.CategoriesAdapter;
 import in.mitrev.revels19.application.Revels19;
 import in.mitrev.revels19.models.categories.CategoryModel;
 import io.realm.Realm;
+import io.realm.RealmResults;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CategoriesFragment extends Fragment {
 
-    AppBarLayout appBarLayout;
+    private static final int LOAD_CATEGORIES = 0;
+    private static final int UPDATE_CATEGORIES = 1;
     private List<CategoryModel> categoriesList = new ArrayList<>();
-    private Realm database;
-    private RecyclerView categoriesRecyclerView;
-    private LinearLayout noDataLayout;
-    private CategoriesAdapter categoriesAdapter;
+    AppBarLayout appBarLayout;
+    private Realm mDatabase;
+    private CategoriesAdapter adapter;
     private ProgressDialog dialog;
-    private String TAG = CategoriesFragment.class.getSimpleName();
+    private MenuItem searchItem;
+    private RecyclerView categoriesRecyclerView;
+    private String TAG = "CategoriesFragment";
+    private LinearLayout noDataLayout;
 
     public CategoriesFragment() {
-        // Required empty public constructor
     }
 
     public static CategoriesFragment newInstance() {
-        return new CategoriesFragment();
+        CategoriesFragment fragment = new CategoriesFragment();
+        return fragment;
     }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        database = Realm.getDefaultInstance();
-
+        getActivity().setTitle(R.string.categories);
+        mDatabase = Realm.getDefaultInstance();
+        Log.d(TAG, "onCreate: mDatabase" + mDatabase);
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getActivity().setTitle(R.string.bottom_nav_categories);
+                getActivity().findViewById(R.id.toolbar)
+                        .setElevation((4 * getResources().getDisplayMetrics().density + 0.5f));
+                getActivity().findViewById(R.id.app_bar)
+                        .setElevation((4 * getResources().getDisplayMetrics().density + 0.5f));
                 appBarLayout = getActivity().findViewById(R.id.app_bar);
                 appBarLayout.setExpanded(true, true);
             }
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-    }
 
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_categories, container, false);
         categoriesRecyclerView = view.findViewById(R.id.categories_recycler_view);
         noDataLayout = view.findViewById(R.id.no_category_data_layout);
-        categoriesAdapter = new CategoriesAdapter(categoriesList, getActivity());
-        categoriesRecyclerView.setAdapter(categoriesAdapter);
+        adapter = new CategoriesAdapter(categoriesList, getActivity());
+        categoriesRecyclerView.setAdapter(adapter);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 4);
         categoriesRecyclerView.setLayoutManager(gridLayoutManager);
+        //categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(categoriesRecyclerView.getContext(),DividerItemDecoration.VERTICAL);
+        //categoriesRecyclerView.addItemDecoration(dividerItemDecoration);
 
-        if (database.where(CategoryModel.class).findAll().size() != 0) {
+        if (mDatabase.where(CategoryModel.class).findAll().size() != 0) {
             displayData();
         } else {
             Log.i(TAG, "onCreateView: No categories in realm");
@@ -99,18 +105,15 @@ public class CategoriesFragment extends Fragment {
     }
 
     private void displayData() {
-        if (database != null) {
+        if (mDatabase != null) {
             categoriesList.clear();
-            List<CategoryModel> categoryResults = database.copyFromRealm(database
-                    .where(CategoryModel.class)
-                    .notEqualTo("type", "SUPPORTING")
-                    .findAll()
-                    .sort("categoryName")
-            );
+            List<CategoryModel> categoryResults = mDatabase.copyFromRealm(mDatabase
+                    .where(CategoryModel.class).findAll().sort("categoryName"));
             if (!categoryResults.isEmpty()) {
+                Log.d(TAG, "displayData: categorysize : " + categoryResults.size());
                 categoriesList.clear();
                 categoriesList.addAll(categoryResults);
-                categoriesAdapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
                 if (categoriesRecyclerView.getVisibility() == View.GONE) {
                     categoriesRecyclerView.setVisibility(View.VISIBLE);
                     noDataLayout.setVisibility(View.GONE);
@@ -129,31 +132,54 @@ public class CategoriesFragment extends Fragment {
         }
     }
 
+    private void displaySearchData(String text) {
+        /*if(text.equals("Memelord")){
+            Intent intent = new Intent(getContext(),EasterEggActivity.class);
+            startActivity(intent);
+        }*/
+        text = text.toLowerCase();
+        if (mDatabase != null) {
+            RealmResults<CategoryModel> categoryResults = mDatabase.where(CategoryModel.class)
+                    .findAll().sort("categoryName");
+            List<CategoryModel> temp = mDatabase.copyFromRealm(categoryResults);
+            categoriesList.clear();
+            for (int i = 0; i < temp.size(); i++) {
+                if (temp.get(i).getCategoryName().toLowerCase().contains(text)) {
+                    categoriesList.add(temp.get(i));
+                }
+            }
+            adapter.notifyDataSetChanged();
+        }
+    }
+
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onDestroy() {
+        super.onDestroy();
+        if (mDatabase != null) {
+            mDatabase.close();
+            mDatabase = null;
+        }
+        if (dialog != null && dialog.isShowing())
+            dialog.hide();
+    }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_categories, menu);
-        MenuItem searchItem = menu.findItem(R.id.action_search);
+        searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) searchItem.getActionView();
-        SearchManager searchManager = null;
-        if (getActivity() != null) {
-            searchManager = (SearchManager) getActivity()
-                    .getSystemService(Context.SEARCH_SERVICE);
-        }
-        if (searchManager != null) {
-            searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
-        }
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
         searchView.setSubmitButtonEnabled(false);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                displaySearchData(query);
+            public boolean onQueryTextSubmit(String text) {
+                displaySearchData(text);
                 Revels19.searchOpen = 1;
                 return false;
             }
-
             @Override
-            public boolean onQueryTextChange(String newText) {
-                displaySearchData(newText);
+            public boolean onQueryTextChange(String text) {
+                displaySearchData(text);
                 Revels19.searchOpen = 1;
                 return false;
             }
@@ -167,43 +193,24 @@ public class CategoriesFragment extends Fragment {
         });
     }
 
-    private void displaySearchData(String text) {
-        text = text.toLowerCase();
-        if (database != null) {
-            List<CategoryModel> categoryResults = database.copyFromRealm(database
-                    .where(CategoryModel.class)
-                    .notEqualTo("type", "SUPPORTING")
-                    .findAll()
-                    .sort("categoryName")
-            );
-            categoriesList.clear();
-            for (int i = 0; i < categoryResults.size(); i++) {
-                if (categoryResults.get(i).getCategoryName().toLowerCase().contains(text)) {
-                    categoriesList.add(categoryResults.get(i));
-                }
-            }
-            categoriesAdapter.notifyDataSetChanged();
-        }
-    }
-
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_profile:
-                SharedPreferences sharedPreferences = PreferenceManager
-                        .getDefaultSharedPreferences(getActivity());
-                if (sharedPreferences.getBoolean("loggedIn", false)) {
-                    startActivity(new Intent(getActivity(), ProfileActivity.class));
-                } else {
+            case R.id.menu_profile: {
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                if (sp.getBoolean("loggedIn", false)) startActivity(new Intent(getActivity(),
+                        ProfileActivity.class));
+                else {
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }
                 return true;
-
-            case R.id.action_favourites:
+            }
+            case R.id.menu_favourites: {
                 startActivity(new Intent(getActivity(), FavouritesActivity.class));
                 return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -214,24 +221,9 @@ public class CategoriesFragment extends Fragment {
         setHasOptionsMenu(false);
         setMenuVisibility(false);
     }
-
     @Override
     public void onResume() {
         super.onResume();
-        categoriesAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-
-        if (database != null) {
-            database.close();
-            database = null;
-        }
-
-        if (dialog != null && dialog.isShowing()) {
-            dialog.hide();
-        }
+        adapter.notifyDataSetChanged();
     }
 }

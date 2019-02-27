@@ -20,9 +20,7 @@ import in.mitrev.revels19.activities.FavouritesActivity;
 import in.mitrev.revels19.activities.ProfileActivity;
 import io.realm.Realm;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class RevelsCupFragment extends Fragment {
 
     private Realm realm;
@@ -56,13 +54,13 @@ public class RevelsCupFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_results, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_refresh:
                 return true;

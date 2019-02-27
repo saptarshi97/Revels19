@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash_root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/splash_no_connection_layout"
+        layout="@layout/layout_no_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/padding_half"
+        android:layout_marginLeft="@dimen/padding_half"
+        android:layout_marginRight="@dimen/padding_half"
+        android:layout_marginTop="@dimen/padding_half"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:paddingLeft="@dimen/padding_2x"
+        android:paddingRight="@dimen/padding_2x">
+
+        <ImageView
+            android:id="@+id/splash_left_revels_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <ImageView
+            android:id="@+id/splash_right_revels_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher_round"
+            android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/splash_revels_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher_round"
+            android:visibility="gone" />
+
+    </FrameLayout>
+</RelativeLayout>
