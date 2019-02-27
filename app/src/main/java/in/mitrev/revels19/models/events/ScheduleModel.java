@@ -115,7 +115,7 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getIsRevels() {
-        return "1";
+        return "0";
     }
 
     public void setIsRevels(String isRevels) {
@@ -163,7 +163,7 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getDate() {
-        date = startTime.substring(0, 11);
+        date = startTime.substring(0, 10);
         return date;
     }
 

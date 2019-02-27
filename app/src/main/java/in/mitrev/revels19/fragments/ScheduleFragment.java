@@ -493,8 +493,8 @@ public class ScheduleFragment extends Fragment {
         Log.d(TAG, "dayFilter 1: " + day);
         if (day == PREREVELS_DAY) {
             for (int i = 0; i < events.size(); i++) {
-                Log.d(TAG, "dayFilter Value: " + events.get(i).getIsRevels());
-                if (events.get(i).getIsRevels().contains("0")) {
+                Log.d(TAG, "dayFilter Value: " + events.get(i).getDay());
+                if (events.get(i).getDay().contains("0")) {
                     currentDayEvents.add(events.get(i));
                 }
             }

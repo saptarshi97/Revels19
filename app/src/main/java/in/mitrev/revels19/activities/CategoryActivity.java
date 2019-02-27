@@ -102,6 +102,7 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
     public void displayEvents() {
+        Log.d(TAG, "displayEvents: Hello");
         List<EventModel> preRevelsList = new ArrayList<>();
         List<EventModel> day1List = new ArrayList<>();
         List<EventModel> day2List = new ArrayList<>();
@@ -120,9 +121,11 @@ public class CategoryActivity extends AppCompatActivity {
         RealmResults<ScheduleModel> scheduleRealmResults = database.where(ScheduleModel.class)
                 .equalTo("catId", categoryID).findAll().sort("startTime");
         scheduleResults = database.copyFromRealm(scheduleRealmResults);
+        Log.d(TAG, "displayEvents: categoryId" + categoryID);
+        Log.d(TAG, "displayEvents: no of events " + scheduleRealmResults.size());
 
         for(ScheduleModel schedule : scheduleResults) {
-            if(schedule.getIsRevels().contains("0")) {
+            if (schedule.getDay().contains("0")) {
                 Log.d(TAG, "displayEvents: PreRevels");
                 EventDetailsModel eventDetails = database.where(EventDetailsModel.class)
                         .equalTo("eventID", schedule.getEventId()).findFirst();
