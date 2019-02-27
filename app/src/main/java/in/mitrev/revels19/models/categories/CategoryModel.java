@@ -23,6 +23,38 @@ public class CategoryModel extends RealmObject {
     @Expose
     private String categoryDescription;
 
+    @SerializedName("cc1_name")
+    @Expose
+    private String cc1_name;
+
+    @SerializedName("cc1_contact")
+    @Expose
+    private String cc1_contact;
+
+    public String getCategoryType() {
+        return categoryType;
+    }
+
+    public void setCategoryType(String categoryType) {
+        this.categoryType = categoryType;
+    }
+
+    public String getCc1_name() {
+        return cc1_name;
+    }
+
+    public void setCc1_name(String cc1_name) {
+        this.cc1_name = cc1_name;
+    }
+
+    public String getCc1_contact() {
+        return cc1_contact;
+    }
+
+    public void setCc1_contact(String cc1_contact) {
+        this.cc1_contact = cc1_contact;
+    }
+
     public CategoryModel() {
     }
 

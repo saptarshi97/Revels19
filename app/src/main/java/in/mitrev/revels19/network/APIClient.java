@@ -2,6 +2,7 @@ package in.mitrev.revels19.network;
 
 import in.mitrev.revels19.models.categories.CategoriesListModel;
 import in.mitrev.revels19.models.events.EventsListModel;
+import in.mitrev.revels19.models.events.ScheduleListModel;
 import in.mitrev.revels19.models.results.ResultsListModel;
 import in.mitrev.revels19.models.sports.SportsListModel;
 import retrofit2.Call;
@@ -37,10 +38,10 @@ public class APIClient {
         @GET("results")
         Call<ResultsListModel> getResultsList();
 
-        //
-//         @GET("schedule")
-//         Call<ScheduleListModel> getScheduleList();
-//
+
+        @GET("schedule")
+        Call<ScheduleListModel> getScheduleList();
+
 //         @GET("workshops")
 //         Call<WorkshopListModel> getWorkshopsList();
 //

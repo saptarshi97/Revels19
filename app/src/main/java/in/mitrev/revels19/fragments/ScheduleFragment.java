@@ -455,10 +455,10 @@ public class ScheduleFragment extends Fragment {
 
     private void setCurrentDay() {
         Calendar cal = Calendar.getInstance();
-        Calendar day1 = new GregorianCalendar(2018, 2, 8);
-        Calendar day2 = new GregorianCalendar(2018, 2, 9);
-        Calendar day3 = new GregorianCalendar(2018, 2, 10);
-        Calendar day4 = new GregorianCalendar(2018, 2, 11);
+        Calendar day1 = new GregorianCalendar(2018, 3, 6);
+        Calendar day2 = new GregorianCalendar(2018, 3, 7);
+        Calendar day3 = new GregorianCalendar(2018, 3, 8);
+        Calendar day4 = new GregorianCalendar(2018, 3, 9);
         Calendar curDay = new GregorianCalendar(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
         if (curDay.getTimeInMillis() < day2.getTimeInMillis()) {
@@ -586,9 +586,7 @@ public class ScheduleFragment extends Fragment {
                 c4.set(Calendar.MILLISECOND, c2.get(Calendar.MILLISECOND));
 
                 if (!((c1.getTimeInMillis() >= c3.getTimeInMillis()) && (c2.getTimeInMillis() <= c4.getTimeInMillis()))) {
-                    if (tempList.contains(event)) {
-                        tempList.remove(event);
-                    }
+                    tempList.remove(event);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

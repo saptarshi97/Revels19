@@ -3,53 +3,53 @@ package in.mitrev.revels19.models.events;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import in.mitrev.revels19.models.categories.CategoryModel;
+import io.realm.Realm;
 import io.realm.RealmObject;
+import io.realm.RealmQuery;
 
 public class ScheduleModel extends RealmObject {
 
-    @SerializedName("eid")
+    @SerializedName("event")
     @Expose
     private String eventId;
 
-    @SerializedName("ename")
-    @Expose
     private String eventName;
 
-    @SerializedName("catid")
-    @Expose
     private String catId;
 
-    @SerializedName("catname")
-    @Expose
     private String catName;
 
     @SerializedName("round")
     @Expose
     private String round;
 
-    @SerializedName("venue")
+    @SerializedName("location")
     @Expose
     private String venue;
 
-    @SerializedName("isRevels")
-    @Expose
     private String isRevels;
 
-    @SerializedName("stime")
+    @SerializedName("start")
     @Expose
     private String startTime;
 
-    @SerializedName("etime")
+    @SerializedName("end")
     @Expose
     private String endTime;
 
-    @SerializedName("day")
-    @Expose
     private String day;
 
-    @SerializedName("date")
-    @Expose
     private String date;
+
+
+    public ScheduleModel() {
+        RealmQuery<CategoryModel> categoryQuery;
+        RealmQuery<EventDetailsModel> eventQuery;
+        Realm db = Realm.getDefaultInstance();
+        eventQuery = db.where(EventDetailsModel.class);
+        categoryQuery = db.where(CategoryModel.class);
+    }
 
     public String getEventId() {
         return eventId;
@@ -60,6 +60,11 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getEventName() {
+        RealmQuery<EventDetailsModel> eventQuery;
+        Realm db = Realm.getDefaultInstance();
+        eventQuery = db.where(EventDetailsModel.class);
+        eventName = eventQuery.equalTo("eventID", eventId)
+                .findFirst().getEventName();
         return eventName;
     }
 
@@ -68,6 +73,11 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getCatId() {
+        RealmQuery<EventDetailsModel> eventQuery;
+        Realm db = Realm.getDefaultInstance();
+        eventQuery = db.where(EventDetailsModel.class);
+        catId = eventQuery.equalTo("eventID", eventId)
+                .findFirst().getCatId();
         return catId;
     }
 
@@ -76,6 +86,11 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getCatName() {
+        RealmQuery<CategoryModel> categoryQuery;
+        Realm db = Realm.getDefaultInstance();
+        categoryQuery = db.where(CategoryModel.class);
+        catName = categoryQuery.equalTo("categoryID", getCatId())
+                .findFirst().getCategoryName();
         return catName;
     }
 
@@ -100,7 +115,7 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getIsRevels() {
-        return isRevels;
+        return "1";
     }
 
     public void setIsRevels(String isRevels) {
@@ -124,6 +139,22 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getDay() {
+        switch (getDate()) {
+            case "2019-02-26":
+                day = "0";
+                break;
+            case "2019-02-27":
+                day = "0";
+                break;
+            case "2019-02-28":
+                day = "3";
+                break;
+            case "2019-02-29":
+                day = "4";
+                break;
+            default:
+                day = "0";
+        }
         return day;
     }
 
@@ -132,6 +163,7 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getDate() {
+        date = startTime.substring(0, 11);
         return date;
     }
 
