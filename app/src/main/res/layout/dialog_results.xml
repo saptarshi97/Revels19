@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:paddingLeft="@dimen/padding_default"
+    android:paddingRight="@dimen/padding_default"
+    android:paddingTop="20dp"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:id="@+id/event_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_half">
+
+
+        <TextView
+            android:id="@+id/result_dialog_event_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:layout_weight="4"
+
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+
+            android:paddingRight="16dp"
+            android:text="Event Name"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/typography_title"
+
+            tools:text="Category Name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Round : "
+            android:textColor="@color/black"
+            android:textSize="@dimen/typography_title" />
+
+        <TextView
+            android:id="@+id/result_dialog_round_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/typography_subheading"
+            tools:text="Round" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/padding_default"
+        android:layout_marginTop="@dimen/padding_default"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/result_dialog_teams_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

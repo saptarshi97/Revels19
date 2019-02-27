@@ -118,7 +118,7 @@ public class CategoryActivity extends AppCompatActivity {
             return;
 
         RealmResults<ScheduleModel> scheduleRealmResults = database.where(ScheduleModel.class)
-                .equalTo("id", categoryID).findAll().sort("startTime");
+                .equalTo("catId", categoryID).findAll().sort("startTime");
         scheduleResults = database.copyFromRealm(scheduleRealmResults);
 
         for(ScheduleModel schedule : scheduleResults) {

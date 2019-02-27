@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="@dimen/padding_5x"
+    android:layout_height="120dp"
+    android:layout_margin="@dimen/padding_quarter"
+    android:background="@drawable/rounded_corner_grey">
+
+
+    <RelativeLayout
+        android:id="@+id/results_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/selectableItemBackground">
+
+
+        <ImageView
+            android:id="@+id/result_cat_logo_image_view"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/padding_quarter"
+            android:background="@drawable/background_circle"
+            android:foregroundGravity="center"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/res_event_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/result_cat_logo_image_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/padding_quarter"
+            android:layout_marginTop="@dimen/padding_quarter"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingLeft="@dimen/padding_quarter"
+            android:paddingRight="@dimen/padding_quarter"
+            android:textColor="@color/black"
+            android:textSize="@dimen/typography_body"
+            tools:text="Event Name" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/res_event_name_text_view"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_quarter"
+                android:layout_marginRight="@dimen/padding_quarter"
+                android:text="Round "
+                android:textSize="@dimen/typography_body" />
+
+            <TextView
+                android:id="@+id/res_round_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/typography_body"
+                tools:text="Category" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+

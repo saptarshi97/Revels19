@@ -60,10 +60,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomeFragment extends Fragment {
     private InstagramFeed feed;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -117,8 +113,10 @@ public class HomeFragment extends Fragment {
 
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getActivity().findViewById(R.id.toolbar).setElevation((4 * getResources().getDisplayMetrics().density + 0.5f));
-                getActivity().findViewById(R.id.app_bar).setElevation((4 * getResources().getDisplayMetrics().density + 0.5f));
+                getActivity().findViewById(R.id.toolbar)
+                        .setElevation((4 * getResources().getDisplayMetrics().density + 0.5f));
+                getActivity().findViewById(R.id.app_bar)
+                        .setElevation((4 * getResources().getDisplayMetrics().density + 0.5f));
                 appBarLayout = getActivity().findViewById(R.id.app_bar);
                 appBarLayout.setExpanded(true, true);
             }
@@ -165,24 +163,20 @@ public class HomeFragment extends Fragment {
         catch (NullPointerException e){
             categoriesMore.setVisibility(View.INVISIBLE);
         }
-        categoriesMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //MORE Clicked - Take user to Categories Fragment
-                Log.i(TAG, "onClick: Categories More");
-                try {
-                    ((MainActivity) getActivity()).changeFragment(CategoriesFragment.newInstance());
-                }
-                catch (NullPointerException e){
-                    Log.i(TAG, "Required Fragment does not have data yet.");
-                }
+        categoriesMore.setOnClickListener(v -> {
+            //MORE Clicked - Take user to Categories Fragment
+            Log.i(TAG, "onClick: Categories More");
+            try {
+                ((MainActivity) getActivity()).changeFragment(CategoriesFragment.newInstance());
+            } catch (NullPointerException e) {
+                Log.i(TAG, "Required Fragment does not have data yet.");
+            }
 //                Fragment fragment = new CategoriesFragment();
 //                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 //                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 //                fragmentTransaction.replace(R.id.fragment_container, fragment);
 //                fragmentTransaction.addToBackStack(null);
 //                fragmentTransaction.commit();
-            }
         });
         if (categoriesList.size() == 0) {
             view.findViewById(R.id.home_categories_none_text_view).setVisibility(View.VISIBLE);
@@ -217,7 +211,8 @@ public class HomeFragment extends Fragment {
         //PreRevels events
         if (dayOfEvent == 0) {
             try {
-                List<ScheduleModel> eventsRealmResults = mDatabase.copyFromRealm((mDatabase.where(ScheduleModel.class).findAll()));
+                List<ScheduleModel> eventsRealmResults = mDatabase
+                        .copyFromRealm((mDatabase.where(ScheduleModel.class).findAll()));
                 for (int i = 0; i < eventsRealmResults.size(); i++) {
                     Log.d(TAG, "dayFilter Value: " + eventsRealmResults.get(i).getIsRevels());
                     if (eventsRealmResults.get(i).getIsRevels().contains("0")) {
@@ -245,11 +240,11 @@ public class HomeFragment extends Fragment {
                 }
             }
         }
+        Log.i(TAG, "onCreateView: eventsList size" + eventsList.size());
         if (eventsList.size() > 10) {
             eventsList.subList(10, eventsList.size()).clear();
         }
         eventsAdapter = new HomeEventsAdapter(eventsList, null, getActivity());
-        Log.i(TAG, "onCreateView: eventsList size" + eventsList.size());
         eventsRV.setAdapter(eventsAdapter);
         eventsRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         eventsAdapter.notifyDataSetChanged();
@@ -257,46 +252,36 @@ public class HomeFragment extends Fragment {
         catch (NullPointerException e){
             eventsMore.setVisibility(View.INVISIBLE);
         }
-        eventsMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //MORE Clicked - Take user to Events Fragment
-                Log.i(TAG, "onClick: Events More");
-                try{((MainActivity) getActivity()).changeFragment(ScheduleFragment.newInstance());}
-                catch (NullPointerException e){
+        eventsMore.setOnClickListener(v -> {
+            //MORE Clicked - Take user to Events Fragment
+            Log.i(TAG, "onClick: Events More");
+            try {
+                ((MainActivity) getActivity()).changeFragment(ScheduleFragment.newInstance());
+            } catch (NullPointerException e) {
 //                    Fragment fragment = new ScheduleFragment();
 //                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 //                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 //                    fragmentTransaction.replace(R.id.fragment_container, fragment);
 //                    fragmentTransaction.addToBackStack(null);
 //                    fragmentTransaction.commit();
-                    Log.i(TAG, "Required Fragment does not have data yet.");
-                  //  setFragment(new ScheduleFragment());
-                }
+                Log.i(TAG, "Required Fragment does not have data yet.");
+                //  setFragment(new ScheduleFragment());
             }
         });
         if (eventsList.size() == 0) {
             view.findViewById(R.id.home_events_none_text_view).setVisibility(View.VISIBLE);
         }
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                boolean isConnectedTemp = NetworkUtils.isInternetConnected(getContext());
-                if (isConnectedTemp) {
-                    displayInstaFeed();
-                    fetchResults();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            swipeRefreshLayout.setRefreshing(false);
-                        }
-                    }, 5000);
-                } else {
-                    Snackbar.make(view, "Check connection!", Snackbar.LENGTH_SHORT).show();
-                    swipeRefreshLayout.setRefreshing(false);
-                }
-
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            boolean isConnectedTemp = NetworkUtils.isInternetConnected(getContext());
+            if (isConnectedTemp) {
+                displayInstaFeed();
+                fetchResults();
+                new Handler().postDelayed(() -> swipeRefreshLayout.setRefreshing(false), 5000);
+            } else {
+                Snackbar.make(view, "Check connection!", Snackbar.LENGTH_SHORT).show();
+                swipeRefreshLayout.setRefreshing(false);
             }
+
         });
         return view;
     }
@@ -321,7 +306,8 @@ public class HomeFragment extends Fragment {
         processes ++;
         call.enqueue(new Callback<InstagramFeed>() {
             @Override
-            public void onResponse(Call<InstagramFeed> call, Response<InstagramFeed> response) {
+            public void onResponse(@NonNull Call<InstagramFeed> call,
+                                   @NonNull Response<InstagramFeed> response) {
                 if (initialLoad) progressBar.setVisibility(View.GONE);
                 if(response.isSuccessful()){
                     feed = response.body();
@@ -336,7 +322,7 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<InstagramFeed> call, Throwable t) {
+            public void onFailure(@NonNull Call<InstagramFeed> call, @NonNull Throwable t) {
                 if (initialLoad) progressBar.setVisibility(View.GONE);
                 instaTextView.setVisibility(View.VISIBLE);
                 Log.i(TAG, "onFailure: Error Fetching insta feed ");
@@ -379,13 +365,13 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_home, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.action_profile:{
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -428,73 +414,3 @@ public class HomeFragment extends Fragment {
     }
 }
 
-
-
-//package in.mitrev.revels19.fragments;
-//
-//
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.support.annotation.NonNull;
-//import android.support.annotation.Nullable;
-//import android.support.design.widget.AppBarLayout;
-//import android.support.v4.app.Fragment;
-//import android.view.LayoutInflater;
-//import android.view.Menu;
-//import android.view.MenuInflater;
-//import android.view.MenuItem;
-//import android.view.View;
-//import android.view.ViewGroup;
-//
-//import in.mitrev.revels19.R;
-//import in.mitrev.revels19.activities.FavouritesActivity;
-//import in.mitrev.revels19.activities.ProfileActivity;
-//
-///**
-// * A simple {@link Fragment} subclass.
-// */
-//public class HomeFragment extends Fragment {
-//
-//
-//    public HomeFragment() {
-//        // Required empty public constructor
-//    }
-//
-//    @Override
-//    public void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setHasOptionsMenu(true);
-//
-//        if (getActivity() != null) {
-//            getActivity().setTitle(R.string.app_name);
-//            AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
-//            appBarLayout.setExpanded(true, true);
-//        }
-//    }
-//
-//    @Override
-//    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_home, container, false);
-//    }
-//
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        inflater.inflate(R.menu.menu_home, menu);
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_profile:
-//                startActivity(new Intent(getActivity(), ProfileActivity.class));
-//                return true;
-//            case R.id.action_favourites:
-//                startActivity(new Intent(getActivity(), FavouritesActivity.class));
-//                return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-//}

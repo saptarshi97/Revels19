@@ -1,14 +1,13 @@
 package in.mitrev.revels19.network;
 
-import android.util.Log;
-
 import in.mitrev.revels19.models.categories.CategoriesListModel;
+import in.mitrev.revels19.models.events.EventsListModel;
+import in.mitrev.revels19.models.results.ResultsListModel;
+import in.mitrev.revels19.models.sports.SportsListModel;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-
-import static android.content.ContentValues.TAG;
 
 
 public class APIClient {
@@ -29,22 +28,25 @@ public class APIClient {
         return retrofit.create(APIInterface.class);
     }
     public interface APIInterface{
-        // @GET("events")
-        // Call<EventsListModel> getEventsList();
+        @GET("events")
+        Call<EventsListModel> getEventsList();
 
         @GET("categories")
         Call<CategoriesListModel> getCategoriesList();
 
-        // @GET("results")
-        // Call<ResultsListModel> getResultsList();
+        @GET("results")
+        Call<ResultsListModel> getResultsList();
 
-        // @GET("schedule")
-        // Call<ScheduleListModel> getScheduleList();
-
-        // @GET("workshops")
-        // Call<WorkshopsListModel> getWorkshopsList();
+        //
+//         @GET("schedule")
+//         Call<ScheduleListModel> getScheduleList();
+//
+//         @GET("workshops")
+//         Call<WorkshopListModel> getWorkshopsList();
+//
+        @GET("sports")
+        Call<SportsListModel> getSportsResults();
 
     }
-
 }
 

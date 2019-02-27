@@ -59,5 +59,11 @@
     <string name="login">Login</string>
     <string name="login_as_guest">Continue as Guest</string>
     <string name="sign_up">Sign up</string>
+    <string name="no_connection_text">Please connect to the internet and retry</string>
+    <string name="retry">Retry</string>
+    <string name="action_search">Search</string>
+    <string name="drawer_favourites">Favourites</string>
+    <string name="team_position">0</string>
+    <string name="no_results_2">The results are not out yet</string>
 
 </resources>

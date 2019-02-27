@@ -13,12 +13,23 @@ public class FavouritesModel extends RealmObject {
     private String day;
     private String startTime;
     private String endTime;
-    private String maxTeamSize;
+    private String participants;
     private String contactName;
-    private String contactNo;
+    private String contactNumber;
     private String catName;
     private String description;
     private String isRevels;
+
+    public FavouritesModel() {
+    }
+
+    public String getIsRevels() {
+        return isRevels;
+    }
+
+    public void setIsRevels(String isRevels) {
+        this.isRevels = isRevels;
+    }
 
     public String getId() {
         return id;
@@ -92,12 +103,12 @@ public class FavouritesModel extends RealmObject {
         this.endTime = endTime;
     }
 
-    public String getMaxTeamSize() {
-        return maxTeamSize;
+    public String getParticipants() {
+        return participants;
     }
 
-    public void setMaxTeamSize(String maxTeamSize) {
-        this.maxTeamSize = maxTeamSize;
+    public void setParticipants(String participants) {
+        this.participants = participants;
     }
 
     public String getContactName() {
@@ -108,12 +119,12 @@ public class FavouritesModel extends RealmObject {
         this.contactName = contactName;
     }
 
-    public String getContactNo() {
-        return contactNo;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public String getCatName() {
@@ -131,13 +142,4 @@ public class FavouritesModel extends RealmObject {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public String getIsRevels() {
-        return isRevels;
-    }
-
-    public void setIsRevels(String isRevels) {
-        this.isRevels = isRevels;
-    }
 }
-
