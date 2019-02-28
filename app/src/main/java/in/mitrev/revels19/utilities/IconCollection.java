@@ -35,7 +35,7 @@ public class IconCollection {
     }
 
     public int getIconResource(Context context, String catName) {
-        if (catName == null) return R.mipmap.ic_launcher;
+        if (catName == null) return R.drawable.revels_logo_trans;
 
         switch (catName.toLowerCase()) {
             case "crescendo":
