@@ -65,5 +65,10 @@
     <string name="drawer_favourites">Favourites</string>
     <string name="team_position">0</string>
     <string name="no_results_2">The results are not out yet</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="clear">CLEAR</string>
+    <string name="no_favourites">No Favourites</string>
+    <string name="action_delete_all">Delete All</string>
 
 </resources>
