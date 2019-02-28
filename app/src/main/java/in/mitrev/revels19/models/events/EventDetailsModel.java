@@ -89,10 +89,9 @@ public class EventDetailsModel extends RealmObject {
         Realm db = Realm.getDefaultInstance();
         RealmQuery<CategoryModel> eventQuery;
         eventQuery = db.where(CategoryModel.class);
-        catName = eventQuery.equalTo("categoryID", catId)
+        return eventQuery.equalTo("categoryID", catId)
                 .findFirst()
                 .getCategoryName();
-        return catName;
     }
 
     public void setCatName(String catName) {
@@ -103,10 +102,9 @@ public class EventDetailsModel extends RealmObject {
         Realm db = Realm.getDefaultInstance();
         RealmQuery<CategoryModel> eventQuery;
         eventQuery = db.where(CategoryModel.class);
-        contactName = eventQuery.equalTo("categoryID", catId)
+        return eventQuery.equalTo("categoryID", catId)
                 .findFirst()
                 .getCc1_name();
-        return contactName;
     }
 
     public void setContactName(String contactName) {
@@ -117,10 +115,9 @@ public class EventDetailsModel extends RealmObject {
         Realm db = Realm.getDefaultInstance();
         RealmQuery<CategoryModel> eventQuery;
         eventQuery = db.where(CategoryModel.class);
-        contactNo = eventQuery.equalTo("categoryID", catId)
+        return eventQuery.equalTo("categoryID", catId)
                 .findFirst()
                 .getCc1_contact();
-        return contactNo;
     }
 
     public void setContactNo(String contactNo) {
@@ -131,10 +128,9 @@ public class EventDetailsModel extends RealmObject {
         Realm db = Realm.getDefaultInstance();
         RealmQuery<CategoryModel> eventQuery;
         eventQuery = db.where(CategoryModel.class);
-        type = eventQuery.equalTo("categoryID", catId)
+        return eventQuery.equalTo("categoryID", catId)
                 .findFirst()
                 .getType();
-        return type;
     }
 
     public void setType(String type) {
@@ -153,8 +149,7 @@ public class EventDetailsModel extends RealmObject {
         Realm db = Realm.getDefaultInstance();
         ScheduleModel scheduleResult = db.where(ScheduleModel.class)
                 .equalTo("eventId", eventID).findFirst();
-        day = scheduleResult.getDay();
-        return day;
+        return scheduleResult.getDay();
     }
 
     public void setDay(String day) {

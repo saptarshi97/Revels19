@@ -26,18 +26,19 @@ import in.mitrev.revels19.models.events.EventDetailsModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
 import in.mitrev.revels19.receivers.NotificationReceiver;
+import in.mitrev.revels19.utilities.IconCollection;
 import in.mitrev.revels19.views.TabbedDialog;
 import io.realm.Realm;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventViewHolder> {
     private final int PRE_REVELS_DAY_ZERO = 18;
-    private final int EVENT_DAY_ZERO = 6;
+    private final int EVENT_DAY_ZERO = 26;
     private final int PRE_REVELS_EVENT_MONTH = Calendar.FEBRUARY;
-    private final int EVENT_MONTH = Calendar.MARCH;
+    private final int EVENT_MONTH = Calendar.FEBRUARY;
     private final EventClickListener eventListener;
     private final FavouriteClickListener favouriteListener;
     private final EventLongPressListener eventLongPressListener;
-    String TAG = "EventsAdapter";
+    String TAG = "ScheduleAdapter";
     Realm realm = Realm.getDefaultInstance();
     private PendingIntent pendingIntent1 = null;
     private PendingIntent pendingIntent2 = null;
@@ -247,29 +248,41 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
         alarmManager.cancel(pendingIntent2);
     }
 
+    private String getDurationString(String startTime, String endTime) {
+        try {
+            SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm", Locale.getDefault());
+            Date startDate = sdf_24h.parse(startTime);
+            Date endDate = sdf_24h.parse(endTime);
+            SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
+            startTime = sdf_12h.format(startDate);
+            endTime = sdf_12h.format(endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "";
+        }
+        return startTime + " - " + endTime;
+    }
+
     private void displayEventDialog(final ScheduleModel event, Context context) {
-
-
         final View view = View.inflate(context, R.layout.event_dialog_info, null);
         final Dialog dialog = new Dialog(context);
         TabbedDialog td = new TabbedDialog();
         final String eventID = event.getEventId();
-        final EventDetailsModel schedule = realm.where(EventDetailsModel.class).equalTo("eventID", eventID).findFirst();
-        TabbedDialog.EventFragment.DialogFavouriteClickListener fcl = new TabbedDialog.EventFragment.DialogFavouriteClickListener() {
-            @Override
-            public void onItemClick(boolean add) {
-                //TODO: App crashes when snackbar is displayed(Currently commented out).Fix crash
+        final EventDetailsModel schedule = realm.where(EventDetailsModel.class)
+                .equalTo("eventID", eventID).findFirst();
+        TabbedDialog.EventFragment.DialogFavouriteClickListener fcl =
+                add -> {
+                    //TODO: App crashes when snackbar is displayed(Currently commented out).Fix crash
 
-                if (add) {
-                    addFavourite(event);
-                    //Snackbar.make(view, event.getEventName()+" Added to Favourites", Snackbar.LENGTH_LONG).show();
-                } else {
-                    removeFavourite(event);
-                    //Snackbar.make(view, event.getEventName()+" removed from Favourites", Snackbar.LENGTH_LONG).show();
-                }
-                notifyDataSetChanged();
-            }
-        };
+                    if (add) {
+                        addFavourite(event);
+                        //Snackbar.make(view, event.getEventName()+" Added to Favourites", Snackbar.LENGTH_LONG).show();
+                    } else {
+                        removeFavourite(event);
+                        //Snackbar.make(view, event.getEventName()+" removed from Favourites", Snackbar.LENGTH_LONG).show();
+                    }
+                    notifyDataSetChanged();
+                };
         td.setValues(event, fcl, isFavourite(event), schedule);
         td.show(activity.getSupportFragmentManager(), "tag");
     }
@@ -296,53 +309,38 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
             eventName.setText(event.getEventName());
             String startTime = event.getStartTime().substring(11, 16);
             String endTime = event.getEndTime().substring(11, 16);
-            try {
-                SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm");
-                Date startDate = sdf_24h.parse(startTime);
-                Date endDate = sdf_24h.parse(endTime);
-                SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa");
-                startTime = sdf_12h.format(startDate);
-                endTime = sdf_12h.format(endDate);
-            } catch (final ParseException e) {
-                e.printStackTrace();
-            }
-            eventTime.setText(startTime + " - " + endTime);
+            String duration = getDurationString(startTime, endTime);
+            eventTime.setText(duration);
             eventVenue.setText(event.getVenue());
             eventRound.setText("R".concat(event.getRound()));
-//            IconCollection icons = new IconCollection();
-//            eventIcon.setImageResource(icons.getIconResource(activity, event.getCatName()));
-//            if (isFavourite(event)) {
-//                favIcon.setImageResource(R.drawable.ic_fav_selected);
-//                favIcon.setTag("selected");
-//            } else {
-//                favIcon.setImageResource(R.drawable.ic_fav_deselected);
-//                favIcon.setTag("deselected");
-//            }
-//            favIcon.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    //Favourites Clicked
-//                    String favTag = favIcon.getTag().toString();
-//                    if (favTag.equals("deselected")) {
-//                        favIcon.setTag("selected");
-//                        favIcon.setImageResource(R.drawable.ic_fav_selected);
-//                        addFavourite(event);
-//                        favouriteListener.onItemClick(event, true);
-//                    } else {
-//                        favIcon.setTag("deselected");
-//                        favIcon.setImageResource(R.drawable.ic_fav_deselected);
-//                        removeFavourite(event);
-//                        favouriteListener.onItemClick(event, false);
-//                    }
-//                }
-//            });
-            container.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.i(TAG, "onClick: Event clicked" + event.getEventName());
-                    displayEventDialog(event, view.getContext());
-
+            IconCollection icons = new IconCollection();
+            eventIcon.setImageResource(icons.getIconResource(activity, event.getCatName()));
+            if (isFavourite(event)) {
+                favIcon.setImageResource(R.drawable.ic_fav_selected);
+                favIcon.setTag("selected");
+            } else {
+                favIcon.setImageResource(R.drawable.ic_fav_deselected);
+                favIcon.setTag("deselected");
+            }
+            favIcon.setOnClickListener(view -> {
+                //Favourites Clicked
+                String favTag = favIcon.getTag().toString();
+                if (favTag.equals("deselected")) {
+                    favIcon.setTag("selected");
+                    favIcon.setImageResource(R.drawable.ic_fav_selected);
+                    addFavourite(event);
+                    favouriteListener.onItemClick(event, true);
+                } else {
+                    favIcon.setTag("deselected");
+                    favIcon.setImageResource(R.drawable.ic_fav_deselected);
+                    removeFavourite(event);
+                    favouriteListener.onItemClick(event, false);
                 }
+            });
+            container.setOnClickListener(view -> {
+                Log.i(TAG, "onClick: Event clicked" + event.getEventName());
+                displayEventDialog(event, view.getContext());
+
             });
         }
     }

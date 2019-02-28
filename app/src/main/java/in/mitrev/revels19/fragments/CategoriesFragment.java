@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -110,16 +111,13 @@ public class CategoriesFragment extends Fragment {
 
             List<CategoryModel> categoryResults = mDatabase.copyFromRealm(mDatabase
                     .where(CategoryModel.class)
-                    .equalTo("categoryType", "CULTURAL")
+                    .notEqualTo("categoryType", "SUPPORTING")
                     .findAll().sort("categoryName"));
-            categoryResults.addAll(mDatabase.copyFromRealm(mDatabase
-                    .where(CategoryModel.class)
-                    .equalTo("categoryType", "OPEN")
-                    .findAll().sort("categoryName")));
             if (!categoryResults.isEmpty()) {
                 Log.d(TAG, "displayData: categorysize : " + categoryResults.size());
                 categoriesList.clear();
                 categoriesList.addAll(categoryResults);
+                Collections.sort(categoriesList, (a, b) -> a.getCategoryName().compareTo(b.getCategoryName()));
                 adapter.notifyDataSetChanged();
                 if (categoriesRecyclerView.getVisibility() == View.GONE) {
                     categoriesRecyclerView.setVisibility(View.VISIBLE);
@@ -147,7 +145,9 @@ public class CategoriesFragment extends Fragment {
         text = text.toLowerCase();
         if (mDatabase != null) {
             RealmResults<CategoryModel> categoryResults = mDatabase.where(CategoryModel.class)
-                    .findAll().sort("categoryName");
+                    .notEqualTo("categoryType", "SUPPORTING")
+                    .findAll()
+                    .sort("categoryName");
             List<CategoryModel> temp = mDatabase.copyFromRealm(categoryResults);
             categoriesList.clear();
             for (int i = 0; i < temp.size(); i++) {

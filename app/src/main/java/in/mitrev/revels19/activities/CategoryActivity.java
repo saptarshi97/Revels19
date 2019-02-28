@@ -14,7 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -45,7 +44,7 @@ public class CategoryActivity extends AppCompatActivity {
     private TextView noEventsDay2TextView;
     private TextView noEventsDay3TextView;
     private TextView noEventsDay4TextView;
-    private List<ScheduleModel> scheduleResults;
+    private List<ScheduleModel> scheduleResults = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +53,7 @@ public class CategoryActivity extends AppCompatActivity {
         categoryName = getIntent().getStringExtra("name");
         categoryID = getIntent().getStringExtra("id");
         categoryDesc = getIntent().getStringExtra("description");
+        Log.d(TAG, "onCreate: " + categoryName);
         if (categoryName == null) categoryName = "";
         if (categoryID == null) categoryID = "";
         if (categoryDesc == null) categoryDesc = "";
@@ -86,6 +86,9 @@ public class CategoryActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
             case R.id.about_category:
                 View view = View.inflate(this, R.layout.dialog_about_category, null);
                 final Dialog dialog = new Dialog(this);
@@ -96,7 +99,7 @@ public class CategoryActivity extends AppCompatActivity {
                 catNameTextView.setText(categoryName);
                 catDescTextView.setText(categoryDesc);
                 dialog.show();
-                break;
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -118,11 +121,17 @@ public class CategoryActivity extends AppCompatActivity {
         if(database == null)
             return;
 
-        RealmResults<ScheduleModel> scheduleRealmResults = database.where(ScheduleModel.class)
-                .equalTo("catId", categoryID).findAll().sort("startTime");
-        scheduleResults = database.copyFromRealm(scheduleRealmResults);
+        RealmResults<ScheduleModel> scheduleModelRealmResults = database.where(ScheduleModel.class)
+                .findAll().sort("startTime");
+        List<ScheduleModel> tempscheduleResults = database.copyFromRealm(scheduleModelRealmResults);
+        for (int i = 0; i < scheduleModelRealmResults.size(); i++) {
+            ScheduleModel scheduleModel = tempscheduleResults.get(i);
+            if(scheduleModel.getCatId().equals(categoryID))
+                scheduleResults.add(scheduleModel);
+        }
+
         Log.d(TAG, "displayEvents: categoryId" + categoryID);
-        Log.d(TAG, "displayEvents: no of events " + scheduleRealmResults.size());
+        Log.d(TAG, "displayEvents: no of events " + scheduleResults.size());
 
         for(ScheduleModel schedule : scheduleResults) {
             if (schedule.getDay().contains("0")) {
@@ -136,6 +145,7 @@ public class CategoryActivity extends AppCompatActivity {
                 EventDetailsModel eventDetails = database.where(EventDetailsModel.class)
                         .equalTo("eventID", schedule.getEventId()).findFirst();
                 EventModel event = new EventModel(eventDetails, schedule);
+                Log.d(TAG, "displayEvents: " + event.getEventName() + " " + event.getDay());
                 switch (event.getDay()) {
                     case "1":
                         day1List.add(event);
@@ -220,83 +230,77 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
     private void eventSort(List<EventModel> eventsList) {
-        Collections.sort(eventsList, new Comparator<EventModel>() {
-            @Override
-            public int compare(EventModel o1, EventModel o2) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm aa", Locale.US);
+        Collections.sort(eventsList, (o1, o2) -> {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm aa", Locale.US);
 
-                try {
-                    Date d1 = simpleDateFormat.parse(o1.getDay());
-                    Date d2 = simpleDateFormat.parse(o2.getDay());
+            try {
+                Date d1 = simpleDateFormat.parse(o1.getDay());
+                Date d2 = simpleDateFormat.parse(o2.getDay());
 
-                    Calendar c1 = Calendar.getInstance();
-                    c1.setTime(d1);
-                    Calendar c2 = Calendar.getInstance();
-                    c2.setTime(d2);
+                Calendar c1 = Calendar.getInstance();
+                c1.setTime(d1);
+                Calendar c2 = Calendar.getInstance();
+                c2.setTime(d2);
 
-                    long diff = c1.getTimeInMillis() - c2.getTimeInMillis();
-                    if(diff > 0) return 1;
-                    else if(diff < 0) return -1;
+                long diff = c1.getTimeInMillis() - c2.getTimeInMillis();
+                if(diff > 0) return 1;
+                else if(diff < 0) return -1;
+                else {
+                    int catDiff = o1.getCatName().compareTo(o2.getCatName());
+
+                    if(catDiff > 0) return 1;
+                    else if(catDiff < 0) return -1;
                     else {
-                        int catDiff = o1.getCatName().compareTo(o2.getCatName());
+                        int eventDiff = o1.getEventName().compareTo(o2.getEventName());
 
-                        if(catDiff > 0) return 1;
-                        else if(catDiff < 0) return -1;
-                        else {
-                            int eventDiff = o1.getEventName().compareTo(o2.getEventName());
-
-                            if(eventDiff > 0) return 1;
-                            else if(eventDiff < 0) return -1;
-                            else return 0;
-                        }
+                        if(eventDiff > 0) return 1;
+                        else if(eventDiff < 0) return -1;
+                        else return 0;
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
-                return 0;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return 0;
         });
     }
 
     private void preRevelsEventSort(List<EventModel> eventsList) {
 
-        Collections.sort(eventsList, new Comparator<EventModel>() {
-            @Override
-            public int compare(EventModel o1, EventModel o2) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm aa", Locale.US);
+        Collections.sort(eventsList, (o1, o2) -> {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm aa", Locale.US);
 
-                try {
-                    Date d1 = simpleDateFormat.parse(o1.getDay());
-                    Date d2 = simpleDateFormat.parse(o2.getDay());
+            try {
+                Date d1 = simpleDateFormat.parse(o1.getDay());
+                Date d2 = simpleDateFormat.parse(o2.getDay());
 
-                    Calendar c1 = Calendar.getInstance();
-                    c1.setTime(d1);
-                    Calendar c2 = Calendar.getInstance();
-                    c2.setTime(d2);
+                Calendar c1 = Calendar.getInstance();
+                c1.setTime(d1);
+                Calendar c2 = Calendar.getInstance();
+                c2.setTime(d2);
 
-                    long diff = c1.getTimeInMillis() - c2.getTimeInMillis();
-                    if(diff > 0) return 1;
-                    else if(diff < 0) return -1;
-                    else {
-                        Date d3 = simpleDateFormat.parse(o1.getStartTime());
-                        Date d4 = simpleDateFormat.parse(o2.getStartTime());
+                long diff = c1.getTimeInMillis() - c2.getTimeInMillis();
+                if(diff > 0) return 1;
+                else if(diff < 0) return -1;
+                else {
+                    Date d3 = simpleDateFormat.parse(o1.getStartTime());
+                    Date d4 = simpleDateFormat.parse(o2.getStartTime());
 
-                        Calendar c3 = Calendar.getInstance();
-                        c1.setTime(d3);
-                        Calendar c4 = Calendar.getInstance();
-                        c2.setTime(d4);
+                    Calendar c3 = Calendar.getInstance();
+                    c1.setTime(d3);
+                    Calendar c4 = Calendar.getInstance();
+                    c2.setTime(d4);
 
-                        long diff2 = c3.getTimeInMillis() - c4.getTimeInMillis();
+                    long diff2 = c3.getTimeInMillis() - c4.getTimeInMillis();
 
-                        if(diff2 > 0) return 1;
-                        else if(diff2 < 0) return -1;
-                        else return 0;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    if(diff2 > 0) return 1;
+                    else if(diff2 < 0) return -1;
+                    else return 0;
                 }
-                return 0;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return 0;
         });
     }
 

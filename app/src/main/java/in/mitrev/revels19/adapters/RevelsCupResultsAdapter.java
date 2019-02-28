@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.models.sports.SportsResultModel;
+import in.mitrev.revels19.utilities.IconCollection;
 
 public class RevelsCupResultsAdapter extends RecyclerView.Adapter<RevelsCupResultsAdapter.ResultViewHolder> {
 
@@ -41,7 +42,7 @@ public class RevelsCupResultsAdapter extends RecyclerView.Adapter<RevelsCupResul
 
         holder.eventName.setText(result.eventName);
         holder.eventRound.setText(result.eventRound);
-//        holder.catLogo.setImageResource(new IconCollection().getIconResource(context,"sports"));
+        holder.catLogo.setImageResource(new IconCollection().getIconResource(context, "sports"));
     }
 
     @Override

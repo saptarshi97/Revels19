@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.activities.CategoryActivity;
 import in.mitrev.revels19.models.categories.CategoryModel;
+import in.mitrev.revels19.utilities.IconCollection;
 //import in.mitrev.revels19.utilities.IconCollection;
 
 public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAdapter. HomeViewHolder> {
@@ -43,8 +44,8 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAd
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
         CategoryModel category = categoriesList.get(position);
         holder.onBind(category);
-//        IconCollection icons = new IconCollection();
-//        holder.categoryLogo.setImageResource(icons.getIconResource(activity, category.getCategoryName()));
+        IconCollection icons = new IconCollection();
+        holder.categoryLogo.setImageResource(icons.getIconResource(activity, category.getCategoryName()));
     }
     @Override
     public int getItemCount() {
@@ -63,9 +64,9 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAd
             categoryName.setText(category.getCategoryName());
             categoryItem.setOnClickListener(v -> {
                 Intent intent = new Intent(context, CategoryActivity.class);
-                intent.putExtra("catName", category.getCategoryName());
-                intent.putExtra("catID", category.getCategoryID());
-                intent.putExtra("catDesc", category.getCategoryDescription());
+                intent.putExtra("name", category.getCategoryName());
+                intent.putExtra("id", category.getCategoryID());
+                intent.putExtra("description", category.getCategoryDescription());
                 context.startActivity(intent);
             });
         }

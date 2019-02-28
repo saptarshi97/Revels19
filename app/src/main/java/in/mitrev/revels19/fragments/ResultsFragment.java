@@ -72,6 +72,7 @@ public class ResultsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_results, container, false);
+        getActivity().setTitle(R.string.results);
         rootLayout = view.findViewById(R.id.results_root_layout);
         resultsAvailable = view.findViewById(R.id.results_available);
         noResultsLayout = view.findViewById(R.id.no_results_layout);
