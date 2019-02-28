@@ -26,6 +26,7 @@ import in.mitrev.revels19.models.events.EventDetailsModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
 import in.mitrev.revels19.receivers.NotificationReceiver;
+import in.mitrev.revels19.utilities.IconCollection;
 import in.mitrev.revels19.views.TabbedDialog;
 import io.realm.Realm;
 
@@ -312,8 +313,8 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
             eventTime.setText(duration);
             eventVenue.setText(event.getVenue());
             eventRound.setText("R".concat(event.getRound()));
-//            IconCollection icons = new IconCollection();
-//            eventIcon.setImageResource(icons.getIconResource(activity, event.getCatName()));
+            IconCollection icons = new IconCollection();
+            eventIcon.setImageResource(icons.getIconResource(activity, event.getCatName()));
             if (isFavourite(event)) {
                 favIcon.setImageResource(R.drawable.ic_fav_selected);
                 favIcon.setTag("selected");

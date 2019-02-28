@@ -34,7 +34,7 @@ public class RevelsCupFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
+        getActivity().setTitle(R.string.revels_cup);
         realm = Realm.getDefaultInstance();
 
         if (getActivity() != null) {

@@ -14,7 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -29,7 +28,6 @@ import in.mitrev.revels19.models.events.EventDetailsModel;
 import in.mitrev.revels19.models.events.EventModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import io.realm.Realm;
-import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 public class CategoryActivity extends AppCompatActivity {
@@ -88,6 +86,9 @@ public class CategoryActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
             case R.id.about_category:
                 View view = View.inflate(this, R.layout.dialog_about_category, null);
                 final Dialog dialog = new Dialog(this);
@@ -98,7 +99,7 @@ public class CategoryActivity extends AppCompatActivity {
                 catNameTextView.setText(categoryName);
                 catDescTextView.setText(categoryDesc);
                 dialog.show();
-                break;
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

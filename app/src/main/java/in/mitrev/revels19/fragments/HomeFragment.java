@@ -151,7 +151,10 @@ public class HomeFragment extends Fragment {
 //        sliderInit();
 
         //Display Categories
-        RealmResults<CategoryModel> categoriesRealmList = mDatabase.where(CategoryModel.class).sort("categoryName").findAll();
+        RealmResults<CategoryModel> categoriesRealmList = mDatabase.where(CategoryModel.class)
+                .sort("categoryName")
+                .notEqualTo("categoryType", "SUPPORTING")
+                .findAll();
         categoriesList = mDatabase.copyFromRealm(categoriesRealmList);
         if (categoriesList.size() > 10) {
             categoriesList.subList(10, categoriesList.size()).clear();

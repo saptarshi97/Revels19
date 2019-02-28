@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.activities.CategoryActivity;
 import in.mitrev.revels19.models.categories.CategoryModel;
+import in.mitrev.revels19.utilities.IconCollection;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder> {
 
@@ -37,8 +38,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, int position) {
         CategoryModel category = categoriesList.get(position);
         categoryViewHolder.catName.setText(category.getCategoryName());
-        // TODO: Replace this
-        categoryViewHolder.catLogo.setImageResource(R.mipmap.ic_launcher);
+        IconCollection icons = new IconCollection();
+        categoryViewHolder.catLogo.setImageResource(icons.getIconResource(activity, category.getCategoryName()));
 
     }
 
