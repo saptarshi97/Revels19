@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
      *
      * @param fragment to set
      */
-    private boolean setFragment(Fragment fragment) {
+    public boolean setFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container, fragment)

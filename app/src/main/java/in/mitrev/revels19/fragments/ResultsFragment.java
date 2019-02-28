@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -66,6 +67,10 @@ public class ResultsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mDatabase = Realm.getDefaultInstance();
         setHasOptionsMenu(true);
+        if (getActivity() != null) {
+            AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
+            appBarLayout.setExpanded(true, true);
+        }
     }
 
     @Override

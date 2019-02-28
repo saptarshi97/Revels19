@@ -48,10 +48,15 @@ import in.mitrev.revels19.activities.ProfileActivity;
 import in.mitrev.revels19.adapters.HomeAdapter;
 import in.mitrev.revels19.adapters.HomeCategoriesAdapter;
 import in.mitrev.revels19.adapters.HomeEventsAdapter;
+import in.mitrev.revels19.adapters.HomeResultsAdapter;
 import in.mitrev.revels19.models.categories.CategoryModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
 import in.mitrev.revels19.models.instagram.InstagramFeed;
+import in.mitrev.revels19.models.results.EventResultModel;
+import in.mitrev.revels19.models.results.ResultModel;
+import in.mitrev.revels19.models.results.ResultsListModel;
+import in.mitrev.revels19.network.APIClient;
 import in.mitrev.revels19.network.InstaFeedAPIClient;
 import in.mitrev.revels19.utilities.NetworkUtils;
 import io.realm.Realm;
@@ -66,6 +71,7 @@ public class HomeFragment extends Fragment {
     SwipeRefreshLayout swipeRefreshLayout;
     private HomeAdapter instaAdapter;
     View v;
+    private List<EventResultModel> resultsList = new ArrayList<>();
     private HomeCategoriesAdapter categoriesAdapter;
     private HomeEventsAdapter eventsAdapter;
     private RecyclerView homeRV;
@@ -84,6 +90,7 @@ public class HomeFragment extends Fragment {
     private boolean initialLoad = true;
     private boolean firstLoad = true;
     private int processes = 0;
+    private HomeResultsAdapter resultsAdapter;
     private SliderLayout imageSlider;
     String TAG = "HomeFragment";
     private Realm mDatabase;
@@ -93,7 +100,7 @@ public class HomeFragment extends Fragment {
 
     private List<CategoryModel> categoriesList = new ArrayList<>();
     private List<ScheduleModel> eventsList = new ArrayList<>();
-  // private FirebaseRemoteConfig firebaseRemoteConfig;
+    // private FirebaseRemoteConfig firebaseRemoteConfig;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -141,7 +148,7 @@ public class HomeFragment extends Fragment {
         progressBar = view.findViewById(R.id.insta_progress);
         instaTextView = view.findViewById(R.id.insta_text_view);
 
-       // Checking User's Network Status
+        // Checking User's Network Status
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
@@ -149,6 +156,15 @@ public class HomeFragment extends Fragment {
             imageSlider = view.findViewById(R.id.home_image_slider);
 //        getImageURLSfromFirebase();
 //        sliderInit();
+
+        resultsAdapter = new HomeResultsAdapter(resultsList, getActivity());
+        resultsRV.setAdapter(resultsAdapter);
+        resultsRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        updateResultsList();
+        resultsMore.setOnClickListener(v -> {
+            //MORE Clicked - Take user to Results Fragment
+            ((MainActivity) getActivity()).setFragment(ResultsTabsFragment.newInstance());
+        });
 
         //Display Categories
         RealmResults<CategoryModel> categoriesRealmList = mDatabase.where(CategoryModel.class)
@@ -163,24 +179,9 @@ public class HomeFragment extends Fragment {
         categoriesRV.setAdapter(categoriesAdapter);
         categoriesRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         categoriesAdapter.notifyDataSetChanged();
-        try{((MainActivity) getActivity()).changeFragment(ScheduleFragment.newInstance());}
-        catch (NullPointerException e){
-            categoriesMore.setVisibility(View.INVISIBLE);
-        }
         categoriesMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Categories Fragment
-            Log.i(TAG, "onClick: Categories More");
-            try {
-                ((MainActivity) getActivity()).changeFragment(CategoriesFragment.newInstance());
-            } catch (NullPointerException e) {
-                Log.i(TAG, "Required Fragment does not have data yet.");
-            }
-//                Fragment fragment = new CategoriesFragment();
-//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.fragment_container, fragment);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
+            ((MainActivity) getActivity()).setFragment(CategoriesFragment.newInstance());
         });
         if (categoriesList.size() == 0) {
             view.findViewById(R.id.home_categories_none_text_view).setVisibility(View.VISIBLE);
@@ -261,25 +262,10 @@ public class HomeFragment extends Fragment {
         eventsRV.setAdapter(eventsAdapter);
         eventsRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         eventsAdapter.notifyDataSetChanged();
-        try{((MainActivity) getActivity()).changeFragment(ScheduleFragment.newInstance());}
-        catch (NullPointerException e){
-            eventsMore.setVisibility(View.INVISIBLE);
-        }
         eventsMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Events Fragment
-            Log.i(TAG, "onClick: Events More");
-            try {
-                ((MainActivity) getActivity()).changeFragment(ScheduleFragment.newInstance());
-            } catch (NullPointerException e) {
-//                    Fragment fragment = new ScheduleFragment();
-//                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                    fragmentTransaction.replace(R.id.fragment_container, fragment);
-//                    fragmentTransaction.addToBackStack(null);
-//                    fragmentTransaction.commit();
-                Log.i(TAG, "Required Fragment does not have data yet.");
-                //  setFragment(new ScheduleFragment());
-            }
+            ((MainActivity) getActivity()).setFragment(ScheduleFragment.newInstance());
+
         });
         if (eventsList.size() == 0) {
             view.findViewById(R.id.home_events_none_text_view).setVisibility(View.VISIBLE);
@@ -299,7 +285,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void sliderInit(){   //Updating the SliderLayout with images
+    private void sliderInit() {   //Updating the SliderLayout with images
         //Animation type
         imageSlider.setPresetTransformer(SliderLayout.Transformer.Default);
         //Setting the Transition time and Interpolator for the Animation
@@ -311,20 +297,20 @@ public class HomeFragment extends Fragment {
         imageSlider.setVisibility(View.GONE);
     }
 
-    public void displayInstaFeed(){
+    public void displayInstaFeed() {
         if (initialLoad) progressBar.setVisibility(View.VISIBLE);
         homeRV.setVisibility(View.GONE);
         instaTextView.setVisibility(View.GONE);
         Call<InstagramFeed> call = InstaFeedAPIClient.getInterface().getInstagramFeed();
-        processes ++;
+        processes++;
         call.enqueue(new Callback<InstagramFeed>() {
             @Override
             public void onResponse(@NonNull Call<InstagramFeed> call,
                                    @NonNull Response<InstagramFeed> response) {
                 if (initialLoad) progressBar.setVisibility(View.GONE);
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     feed = response.body();
-                    instaAdapter =  new HomeAdapter(feed);
+                    instaAdapter = new HomeAdapter(feed);
                     homeRV.setAdapter(instaAdapter);
                     homeRV.setLayoutManager(new LinearLayoutManager(getContext()));
                     ViewCompat.setNestedScrollingEnabled(homeRV, false);
@@ -344,20 +330,93 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    public void updateResultsList(){
-        //After results fragment in made
+    public void updateResultsList() {
+        RealmResults<ResultModel> results = mDatabase.where(ResultModel.class)
+                .findAll()
+                .sort("eventName", Sort.ASCENDING, "position", Sort.ASCENDING);
+        List<ResultModel> resultsArrayList;
+        resultsArrayList = mDatabase.copyFromRealm(results);
+        if (!resultsArrayList.isEmpty()) {
+            resultsList.clear();
+            List<String> eventNamesList = new ArrayList<>();
+            for (ResultModel result : resultsArrayList) {
+                String eventName = result.getEventName() + " " + result.getRound();
+                if (eventNamesList.contains(eventName)) {
+                    resultsList.get(eventNamesList.indexOf(eventName)).eventResultsList.add(result);
+                } else {
+                    EventResultModel eventResult = new EventResultModel();
+                    eventResult.eventName = result.getEventName();
+                    eventResult.eventRound = result.getRound();
+                    eventResult.eventCategory = result.getCatName();
+                    eventResult.eventResultsList.add(result);
+                    resultsList.add(eventResult);
+                    eventNamesList.add(eventName);
+                }
+            }
+        }
+        Log.i(TAG, "displayResults: resultsList size:" + resultsList.size());
+        //Moving favourite results to top
+        for (int i = 0; i < resultsList.size(); i++) {
+            EventResultModel result = resultsList.get(i);
+            if (isFavourite(result)) {
+                resultsList.remove(result);
+                resultsList.add(0, result);
+            }
+        }
+        //Picking first 10 results to display
+        if (resultsList.size() > 10) {
+            resultsList.subList(10, resultsList.size()).clear();
+        }
+        resultsAdapter.notifyDataSetChanged();
+
+        if (resultsList.size() == 0) {
+            homeResultsItem.setVisibility(View.GONE);
+        } else {
+            homeResultsItem.setVisibility(View.VISIBLE);
+        }
     }
 
-    public void fetchResults(){
-        //After Results fragment in made
+    public void fetchResults() {
+        processes++;
+        Call<ResultsListModel> callResultsList = APIClient.getAPIInterface().getResultsList();
+        callResultsList.enqueue(new Callback<ResultsListModel>() {
+            List<ResultModel> results = new ArrayList<>();
+
+            @Override
+            public void onResponse(Call<ResultsListModel> call, Response<ResultsListModel> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    results = response.body().getData();
+                    mDatabase.beginTransaction();
+                    mDatabase.where(ResultModel.class).findAll().deleteAllFromRealm();
+                    mDatabase.copyToRealm(results);
+                    mDatabase.commitTransaction();
+                    //homeResultsItem.setVisibility(View.VISIBLE);
+                    updateResultsList();
+                    resultsNone.setVisibility(View.GONE);
+                    resultsNone.setText("");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResultsListModel> call, Throwable t) {
+                if (homeResultsItem.getVisibility() == View.VISIBLE)
+                    //homeResultsItem.setVisibility(View.GONE);
+                    processes--;
+            }
+        });
     }
 
-    public boolean isFavourite(ScheduleModel event){
-        RealmResults<FavouritesModel> favouritesRealmList = mDatabase.where(FavouritesModel.class).equalTo("id",event.getEventId()).contains("day", event.getDay()).equalTo("round", event.getRound()).findAll();
-        return (favouritesRealmList.size()!=0);
+    public boolean isFavourite(ScheduleModel event) {
+        RealmResults<FavouritesModel> favouritesRealmList = mDatabase.where(FavouritesModel.class).equalTo("id", event.getEventId()).contains("day", event.getDay()).equalTo("round", event.getRound()).findAll();
+        return (favouritesRealmList.size() != 0);
     }
 
-    public View initViews(LayoutInflater inflater, ViewGroup container){
+    public boolean isFavourite(EventResultModel result) {
+        RealmResults<FavouritesModel> favouritesRealmList = mDatabase.where(FavouritesModel.class).equalTo("eventName", result.eventName).findAll();
+        return (favouritesRealmList.size() != 0);
+    }
+
+    public View initViews(LayoutInflater inflater, ViewGroup container) {
 
         appBarLayout = container.findViewById(R.id.app_bar);
         navigation = container.findViewById(R.id.main_bottom_nav);
@@ -373,7 +432,6 @@ public class HomeFragment extends Fragment {
         homeResultsItem = view.findViewById(R.id.home_results_frame);
         instaTextView = view.findViewById(R.id.instagram_textview);
         swipeRefreshLayout = view.findViewById(R.id.home_swipe_refresh_layout);
-//
         return view;
     }
 
@@ -385,11 +443,12 @@ public class HomeFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.action_profile:{
+        switch (item.getItemId()) {
+            case R.id.action_profile: {
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                if (sp.getBoolean("loggedIn", false)) startActivity(new Intent(getActivity(), ProfileActivity.class));
-                else{
+                if (sp.getBoolean("loggedIn", false))
+                    startActivity(new Intent(getActivity(), ProfileActivity.class));
+                else {
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
@@ -403,7 +462,6 @@ public class HomeFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     @Override
