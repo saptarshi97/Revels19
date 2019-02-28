@@ -25,8 +25,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/padding_quarter"
             android:background="@drawable/background_circle"
+            android:backgroundTint="@color/black"
             android:foregroundGravity="center"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/revels_logo_trans" />
 
         <TextView
             android:id="@+id/res_event_name_text_view"
