@@ -21,6 +21,8 @@ import android.widget.LinearLayout;
 import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -120,6 +122,7 @@ public class CategoriesFragment extends Fragment {
                 Log.d(TAG, "displayData: categorysize : " + categoryResults.size());
                 categoriesList.clear();
                 categoriesList.addAll(categoryResults);
+                Collections.sort(categoriesList, (a, b) -> a.getCategoryName().compareTo(b.getCategoryName()));
                 adapter.notifyDataSetChanged();
                 if (categoriesRecyclerView.getVisibility() == View.GONE) {
                     categoriesRecyclerView.setVisibility(View.VISIBLE);

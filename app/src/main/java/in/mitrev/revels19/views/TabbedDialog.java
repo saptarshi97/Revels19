@@ -8,6 +8,11 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
@@ -156,6 +161,21 @@ public class TabbedDialog extends DialogFragment {
 
         }
 
+        private String getDurationString(String startTime, String endTime) {
+            try {
+                SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm", Locale.getDefault());
+                Date startDate = sdf_24h.parse(startTime);
+                Date endDate = sdf_24h.parse(endTime);
+                SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
+                startTime = sdf_12h.format(startDate);
+                endTime = sdf_12h.format(endDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                return "";
+            }
+            return startTime + " - " + endTime;
+        }
+
         private void initViews(View view) {
 
             TextView eventRound = view.findViewById(R.id.event_round);
@@ -165,7 +185,9 @@ public class TabbedDialog extends DialogFragment {
             eventDate.setText(event.getDate());
 
             TextView eventTime = view.findViewById(R.id.event_time);
-            eventTime.setText(event.getStartTime() + " - " + event.getEndTime());
+            String duration = getDurationString(event.getStartTime().substring(11, 16),
+                    event.getEndTime().substring(11, 16));
+            eventTime.setText(duration);
 
             TextView eventVenue = view.findViewById(R.id.event_venue);
             eventVenue.setText(event.getVenue());

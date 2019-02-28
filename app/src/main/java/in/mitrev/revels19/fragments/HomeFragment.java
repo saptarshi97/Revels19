@@ -29,6 +29,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -184,10 +185,10 @@ public class HomeFragment extends Fragment {
 
         //Display Events of current day
         Calendar cal = Calendar.getInstance();
-        Calendar day1 = new GregorianCalendar(2019, 2, 7);
-        Calendar day2 = new GregorianCalendar(2019, 2, 8);
-        Calendar day3 = new GregorianCalendar(2019, 2, 9);
-        Calendar day4 = new GregorianCalendar(2019, 2, 10);
+        Calendar day1 = new GregorianCalendar(2019, 1, 26);
+        Calendar day2 = new GregorianCalendar(2019, 1, 27);
+        Calendar day3 = new GregorianCalendar(2019, 1, 28);
+        Calendar day4 = new GregorianCalendar(2019, 2, 1);
         Calendar curDay = new GregorianCalendar(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
         int dayOfEvent;
@@ -230,7 +231,17 @@ public class HomeFragment extends Fragment {
         //Main Revels Events
         else {
             eventsList.clear();
-            eventsList = mDatabase.copyFromRealm(mDatabase.where(ScheduleModel.class).equalTo("isRevels", "1").equalTo("day", dayOfEvent + "").sort(sortCriteria, sortOrder).findAll());
+            List<ScheduleModel> tempEventsList = mDatabase.where(ScheduleModel.class).findAll();
+
+            for (int i = 0; i < tempEventsList.size(); i++) {
+                ScheduleModel scheduleModel = tempEventsList.get(i);
+                if (scheduleModel.getDay().equals("2")) {
+                    eventsList.add(scheduleModel);
+                }
+            }
+
+            Collections.sort(eventsList, (a, b) -> a.getEventName().compareTo(b.getEventName()));
+
             for (int i = 0; i < eventsList.size(); i++) {
                 ScheduleModel event = eventsList.get(i);
                 if (isFavourite(event)) {
@@ -240,7 +251,6 @@ public class HomeFragment extends Fragment {
                 }
             }
         }
-        Log.i(TAG, "onCreateView: eventsList size" + eventsList.size());
         if (eventsList.size() > 10) {
             eventsList.subList(10, eventsList.size()).clear();
         }
@@ -274,7 +284,7 @@ public class HomeFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(() -> {
             boolean isConnectedTemp = NetworkUtils.isInternetConnected(getContext());
             if (isConnectedTemp) {
-                displayInstaFeed();
+//                displayInstaFeed();
                 fetchResults();
                 new Handler().postDelayed(() -> swipeRefreshLayout.setRefreshing(false), 5000);
             } else {
