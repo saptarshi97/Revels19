@@ -235,7 +235,8 @@ public class HomeFragment extends Fragment {
         //Main Revels Events
         else {
             eventsList.clear();
-            List<ScheduleModel> tempEventsList = mDatabase.where(ScheduleModel.class).findAll();
+            List<ScheduleModel> tempEventsList = mDatabase
+                    .copyFromRealm(mDatabase.where(ScheduleModel.class).findAll());
 
             for (int i = 0; i < tempEventsList.size(); i++) {
                 ScheduleModel scheduleModel = tempEventsList.get(i);
