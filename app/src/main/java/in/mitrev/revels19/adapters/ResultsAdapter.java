@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.models.results.EventResultModel;
+import in.mitrev.revels19.utilities.IconCollection;
 
 public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultsViewHolder> {
 
@@ -41,8 +42,8 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultsV
         EventResultModel result = resultsList.get(position);
         holder.eventName.setText(result.eventName);
         holder.eventRound.setText(result.eventRound);
-//        IconCollection icons = new IconCollection();
-//        holder.eventLogo.setImageResource(icons.getIconResource(activity, result.eventCategory));
+        IconCollection icons = new IconCollection();
+        holder.eventLogo.setImageResource(icons.getIconResource(activity, result.eventCategory));
     }
 
     @Override

@@ -14,6 +14,7 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
+import in.mitrev.revels19.utilities.IconCollection;
 
 public class FavouritesEventsAdapter extends RecyclerView.Adapter<FavouritesEventsAdapter.EventViewHolder> {
 
@@ -39,11 +40,11 @@ public class FavouritesEventsAdapter extends RecyclerView.Adapter<FavouritesEven
     public void onBindViewHolder(EventViewHolder holder, int position) {
         FavouritesModel event = favourites.get(position);
         holder.onBind(event);
-//        IconCollection icons = new IconCollection();
+        IconCollection icons = new IconCollection();
         Log.d(TAG, "onBindViewHolder: "
                 + event.getCatName());
         try {
-//            holder.eventLogo.setImageResource(icons.getIconResource(activity, event.getCatName()));
+            holder.eventLogo.setImageResource(icons.getIconResource(activity, event.getCatName()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,12 +76,9 @@ public class FavouritesEventsAdapter extends RecyclerView.Adapter<FavouritesEven
         public void onBind(final FavouritesModel event) {
             eventName.setText(event.getEventName());
             eventRound.setText("R".concat(event.getRound()));
-            eventItem.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (eventListener != null) {
-                        eventListener.onItemClick(event);
-                    }
+            eventItem.setOnClickListener(v -> {
+                if (eventListener != null) {
+                    eventListener.onItemClick(event);
                 }
             });
         }

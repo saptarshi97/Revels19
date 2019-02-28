@@ -11,12 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.models.instagram.InstaFeedModel;
 import in.mitrev.revels19.models.instagram.InstagramFeed;
 
-//import com.squareup.picasso.Picasso;
-
-/**
- * Created by Saptarshi on 12/25/2017.
- */
-
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter. HomeViewHolder> {
     String TAG = "HomeAdapter";
     private InstagramFeed feed;

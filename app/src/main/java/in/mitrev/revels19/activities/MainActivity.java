@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             loadAllFromInternet();
             Log.i(TAG, "onCreate: Connected and background updated");
         }
-
+        Log.d(TAG, "onCreate: " + "home!");
         setFragment(new HomeFragment());
     }
 

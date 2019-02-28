@@ -107,7 +107,6 @@ public class ScheduleFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
         categoriesList.add("All");
         eventTypeList.add("All");
         venueList.add("All");

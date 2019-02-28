@@ -29,11 +29,12 @@ import in.mitrev.revels19.models.events.EventDetailsModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
 import in.mitrev.revels19.receivers.NotificationReceiver;
+import in.mitrev.revels19.utilities.IconCollection;
 import in.mitrev.revels19.views.TabbedDialog;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-//import in.mitrev.revels19.utilities.IconCollection;
+
 
 public class HomeEventsAdapter extends RecyclerView.Adapter<HomeEventsAdapter.EventViewHolder> {
 
@@ -75,8 +76,8 @@ public class HomeEventsAdapter extends RecyclerView.Adapter<HomeEventsAdapter.Ev
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
         ScheduleModel event = events.get(position);
         holder.onBind(event);
-//        IconCollection icons = new IconCollection();
-//        holder.eventLogo.setImageResource(icons.getIconResource(activity, event.getCatName()));
+        IconCollection icons = new IconCollection();
+        holder.eventLogo.setImageResource(icons.getIconResource(activity, event.getCatName()));
     }
 
     @Override
