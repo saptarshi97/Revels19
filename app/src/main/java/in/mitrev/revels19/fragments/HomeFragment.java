@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.net.Uri;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -35,6 +36,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -78,6 +81,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView resultsRV;
     private RecyclerView categoriesRV;
     private RecyclerView eventsRV;
+    private View blogButton, newsletterButton;
     private TextView resultsMore;
     private TextView categoriesMore;
     private TextView eventsMore;
@@ -145,8 +149,46 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = initViews(inflater, container);
         v = view;
-        progressBar = view.findViewById(R.id.insta_progress);
-        instaTextView = view.findViewById(R.id.insta_text_view);
+//        progressBar = view.findViewById(R.id.insta_progress);
+//        instaTextView = view.findViewById(R.id.insta_text_view);
+
+        blogButton = view.findViewById(R.id.home_blog);
+        newsletterButton = view.findViewById(R.id.home_newsletter);
+        blogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchCCT("https://themitpost.com/revels19-liveblog/", getContext());
+            }
+        });
+
+        newsletterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar c = Calendar.getInstance();
+                int today = c.get(Calendar.DATE);
+                final int startDate = 6;
+                int dayOfFest = today - startDate;
+                String URL ;
+                int current_hour = c.get(Calendar.HOUR_OF_DAY);
+
+                if (dayOfFest == 0 || (dayOfFest == 1 && current_hour < 8))
+                    URL = "https://themitpost.com/revels19-newsletter-day-0/";
+
+                else if ((dayOfFest == 1 && current_hour >= 8) || (dayOfFest == 2 && current_hour < 8))
+                    URL = "https://themitpost.com/revels19-newsletter-day-1/";
+
+                else if ((dayOfFest == 2 && current_hour >= 8) || (dayOfFest == 3 && current_hour < 8))
+                    URL = "https://themitpost.com/revels19-newsletter-day-2/";
+
+                else if ((dayOfFest == 3 && current_hour >= 8))
+                    URL = "https://themitpost.com/revels19-newsletter-day-3/";
+
+                else
+                    URL = "https://themitpost.com/";
+                
+                launchCCT(URL, getContext());
+            }
+        });
 
         // Checking User's Network Status
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -462,6 +504,17 @@ public class HomeFragment extends Fragment {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void launchCCT(String url, Context context){
+
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        builder.setToolbarColor(ContextCompat.getColor(context, R.color.mitpost));
+// set toolbar color and/or setting custom actions before invoking build()
+// Once ready, call CustomTabsIntent.Builder.build() to create a CustomTabsIntent
+        CustomTabsIntent customTabsIntent = builder.build();
+// and launch the desired Url with CustomTabsIntent.launchUrl()
+        customTabsIntent.launchUrl(context, Uri.parse(url));
     }
 
 
