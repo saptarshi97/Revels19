@@ -63,9 +63,9 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAd
             categoryName.setText(category.getCategoryName());
             categoryItem.setOnClickListener(v -> {
                 Intent intent = new Intent(context, CategoryActivity.class);
-                intent.putExtra("catName", category.getCategoryName());
-                intent.putExtra("catID", category.getCategoryID());
-                intent.putExtra("catDesc", category.getCategoryDescription());
+                intent.putExtra("name", category.getCategoryName());
+                intent.putExtra("id", category.getCategoryID());
+                intent.putExtra("description", category.getCategoryDescription());
                 context.startActivity(intent);
             });
         }

@@ -3,6 +3,11 @@ package in.mitrev.revels19.models.events;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import in.mitrev.revels19.models.categories.CategoryModel;
 import io.realm.Realm;
 import io.realm.RealmObject;
@@ -63,9 +68,8 @@ public class ScheduleModel extends RealmObject {
         RealmQuery<EventDetailsModel> eventQuery;
         Realm db = Realm.getDefaultInstance();
         eventQuery = db.where(EventDetailsModel.class);
-        eventName = eventQuery.equalTo("eventID", eventId)
+        return eventQuery.equalTo("eventID", eventId)
                 .findFirst().getEventName();
-        return eventName;
     }
 
     public void setEventName(String eventName) {
@@ -76,9 +80,8 @@ public class ScheduleModel extends RealmObject {
         RealmQuery<EventDetailsModel> eventQuery;
         Realm db = Realm.getDefaultInstance();
         eventQuery = db.where(EventDetailsModel.class);
-        catId = eventQuery.equalTo("eventID", eventId)
+        return eventQuery.equalTo("eventID", eventId)
                 .findFirst().getCatId();
-        return catId;
     }
 
     public void setCatId(String catId) {
@@ -89,9 +92,8 @@ public class ScheduleModel extends RealmObject {
         RealmQuery<CategoryModel> categoryQuery;
         Realm db = Realm.getDefaultInstance();
         categoryQuery = db.where(CategoryModel.class);
-        catName = categoryQuery.equalTo("categoryID", getCatId())
+        return categoryQuery.equalTo("categoryID", getCatId())
                 .findFirst().getCategoryName();
-        return catName;
     }
 
     public void setCatName(String catName) {
@@ -115,7 +117,7 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getIsRevels() {
-        return "0";
+        return "1";
     }
 
     public void setIsRevels(String isRevels) {
@@ -140,22 +142,17 @@ public class ScheduleModel extends RealmObject {
 
     public String getDay() {
         switch (getDate()) {
-            case "2019-02-26":
-                day = "0";
-                break;
-            case "2019-02-27":
-                day = "0";
-                break;
-            case "2019-02-28":
-                day = "3";
-                break;
-            case "2019-02-29":
-                day = "4";
-                break;
+            case "26 Feb 2019":
+                return "1";
+            case "27 Feb 2019":
+                return "2";
+            case "28 Feb 2019":
+                return "3";
+            case "01 Mar 2019":
+                return "4";
             default:
-                day = "0";
+                return "1";
         }
-        return day;
     }
 
     public void setDay(String day) {
@@ -163,8 +160,14 @@ public class ScheduleModel extends RealmObject {
     }
 
     public String getDate() {
-        date = startTime.substring(0, 10);
-        return date;
+        String dateString = startTime.substring(0, 10);
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(date);
     }
 
     public void setDate(String date) {

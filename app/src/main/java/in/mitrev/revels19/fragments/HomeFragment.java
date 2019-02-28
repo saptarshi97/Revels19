@@ -184,10 +184,10 @@ public class HomeFragment extends Fragment {
 
         //Display Events of current day
         Calendar cal = Calendar.getInstance();
-        Calendar day1 = new GregorianCalendar(2019, 2, 7);
-        Calendar day2 = new GregorianCalendar(2019, 2, 8);
-        Calendar day3 = new GregorianCalendar(2019, 2, 9);
-        Calendar day4 = new GregorianCalendar(2019, 2, 10);
+        Calendar day1 = new GregorianCalendar(2019, 1, 26);
+        Calendar day2 = new GregorianCalendar(2019, 1, 27);
+        Calendar day3 = new GregorianCalendar(2019, 1, 28);
+        Calendar day4 = new GregorianCalendar(2019, 2, 1);
         Calendar curDay = new GregorianCalendar(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
         int dayOfEvent;
@@ -274,7 +274,7 @@ public class HomeFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(() -> {
             boolean isConnectedTemp = NetworkUtils.isInternetConnected(getContext());
             if (isConnectedTemp) {
-                displayInstaFeed();
+//                displayInstaFeed();
                 fetchResults();
                 new Handler().postDelayed(() -> swipeRefreshLayout.setRefreshing(false), 5000);
             } else {

@@ -10,7 +10,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
@@ -57,6 +61,7 @@ public class CategoryEventsAdapter extends
     @Override
     public void onBindViewHolder(@NonNull CategoryEventsViewHolder categoryEventsViewHolder, int position) {
         event = eventsList.get(position);
+        categoryEventsViewHolder.bind(event);
     }
 
     @Override
@@ -102,6 +107,26 @@ public class CategoryEventsAdapter extends
                     .equalTo("eventID", eventID).equalTo("day", dayOfEvent)
                     .findFirst();
             //TabbedDialog
+        }
+
+        private String getStartTime(String startTime) {
+            try {
+                SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm", Locale.getDefault());
+                Date startDate = sdf_24h.parse(startTime);
+                SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
+                startTime = sdf_12h.format(startDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                return "";
+            }
+            return startTime;
+        }
+
+        public void bind(EventModel eventModel) {
+            eventName.setText(eventModel.getEventName());
+            eventTime.setText(getStartTime(eventModel.getStartTime().substring(11,16)));
+            eventRound.setText(eventModel.getRound());
+
         }
 
     }

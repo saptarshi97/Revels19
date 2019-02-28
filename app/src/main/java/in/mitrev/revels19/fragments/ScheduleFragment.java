@@ -131,6 +131,7 @@ public class ScheduleFragment extends Fragment {
         initViews(view);
 
         events = realm.copyFromRealm(realm.where(ScheduleModel.class).findAll().sort(sortCriteria, sortOrder));
+        Log.d(TAG, "onCreateView: " + events.size());
 
         if (events.size() != 0) {
             ScheduleAdapter.FavouriteClickListener favouriteClickListener = (event, add) -> {
@@ -168,7 +169,7 @@ public class ScheduleFragment extends Fragment {
         scheduleLayout = view.findViewById(R.id.schedule_linear_layout);
         scheduleRecyclerView = view.findViewById(R.id.schedule_recycler_view);
         noScheduleDataLayout = view.findViewById(R.id.no_schedule_data_layout);
-        tabs.addTab(tabs.newTab().setText(R.string.pre_revels));
+//        tabs.addTab(tabs.newTab().setText(R.string.pre_revels));
         for (int i = 0; i < NUM_DAYS - 1; i++)
             tabs.addTab(tabs.newTab().setText("Day " + (i + 1)));
         DayTabListener tabListener = new DayTabListener();
@@ -421,8 +422,10 @@ public class ScheduleFragment extends Fragment {
     }
 
     private void getAllCategories() {
-        RealmResults<ScheduleModel> scheduleResult = realm.where(ScheduleModel.class).findAll().sort(sortCriteria, sortOrder);
+        RealmResults<ScheduleModel> scheduleResult = realm.where(ScheduleModel.class).findAll()
+                .sort(sortCriteria, sortOrder);
         List<ScheduleModel> scheduleResultList = realm.copyFromRealm(scheduleResult);
+
         for (int i = 0; i < scheduleResultList.size(); i++) {
             String cat = scheduleResultList.get(i).getCatName();
             if (!categoriesList.contains(cat)) {
@@ -432,7 +435,8 @@ public class ScheduleFragment extends Fragment {
     }
 
     private void getAllEvents() {
-        RealmResults<ScheduleModel> scheduleResult = realm.where(ScheduleModel.class).findAll().sort(sortCriteria, sortOrder);
+        RealmResults<ScheduleModel> scheduleResult = realm.where(ScheduleModel.class).findAll()
+                .sort(sortCriteria, sortOrder);
         List<ScheduleModel> scheduleResultList = realm.copyFromRealm(scheduleResult);
         for (int i = 0; i < scheduleResultList.size(); i++) {
             String event = scheduleResultList.get(i).getEventName();
@@ -445,8 +449,10 @@ public class ScheduleFragment extends Fragment {
     private void getAllVenues() {
         RealmResults<ScheduleModel> scheduleResult = realm.where(ScheduleModel.class).findAll().sort(sortCriteria, sortOrder);
         List<ScheduleModel> scheduleResultList = realm.copyFromRealm(scheduleResult);
+        Log.d(TAG, "getAllVenues: " + scheduleResultList);
         for (int i = 0; i < scheduleResultList.size(); i++) {
             String venue = scheduleResultList.get(i).getVenue();
+            Log.d(TAG, "getAllVenues: " + venue);
             if (!venueList.contains(venue)) {
                 venueList.add(venue);
             }
@@ -455,30 +461,29 @@ public class ScheduleFragment extends Fragment {
 
     private void setCurrentDay() {
         Calendar cal = Calendar.getInstance();
-        Calendar day1 = new GregorianCalendar(2018, 3, 6);
-        Calendar day2 = new GregorianCalendar(2018, 3, 7);
-        Calendar day3 = new GregorianCalendar(2018, 3, 8);
-        Calendar day4 = new GregorianCalendar(2018, 3, 9);
+        Calendar day1 = new GregorianCalendar(2019, 1, 26);
+        Calendar day2 = new GregorianCalendar(2019, 1, 27);
+        Calendar day3 = new GregorianCalendar(2019, 1, 28);
+        Calendar day4 = new GregorianCalendar(2019, 2, 1);
         Calendar curDay = new GregorianCalendar(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
+        Log.d(TAG, "setCurrentDay: " + curDay.get(Calendar.DAY_OF_MONTH));
+        Log.d(TAG, "Day2: " + day2.get(Calendar.DAY_OF_MONTH));
+
         if (curDay.getTimeInMillis() < day2.getTimeInMillis()) {
-            tabNumber = 1;
+            tabNumber = 0;
         } else if (curDay.getTimeInMillis() < day3.getTimeInMillis()) {
-            tabNumber = 2;
+            tabNumber = 1;
         } else if (curDay.getTimeInMillis() < day4.getTimeInMillis()) {
-            tabNumber = 3;
+            tabNumber = 2;
         } else {
-            tabNumber = 4;
+            tabNumber = 3;
         }
         try {
             TabLayout.Tab tabz = tabs.getTabAt(tabNumber);
-            if (tabNumber == 0) {
-                dayFilter(PREREVELS_DAY);
-                applyFilters();
-            } else {
-                dayFilter(tabNumber + 1);
-                applyFilters();
-            }
+            Log.d(TAG, "setCurrentDay: " + (tabNumber + 1));
+            dayFilter(tabNumber + 1);
+            applyFilters();
             if (tabz != null) {
                 tabz.select();
             }
@@ -512,7 +517,7 @@ public class ScheduleFragment extends Fragment {
         }
         // Filtering the remaining events
         for (int i = 0; i < events.size(); i++) {
-            if (events.get(i).getDay().contains((day - 1) + "") && events.get(i).getIsRevels().contains("1")) {
+            if (events.get(i).getDay().contains(day + "") && events.get(i).getIsRevels().contains("1")) {
                 currentDayEvents.add(events.get(i));
             }
         }
@@ -534,11 +539,11 @@ public class ScheduleFragment extends Fragment {
         Date endDate;
         // Adding all the events of the current day to the currentDayEvents List and filtering those
         // If this step is not done then the filtering is done on the list that has already been filtered
-        if (tabs.getSelectedTabPosition() == 0) {
-            dayFilter(PREREVELS_DAY);// PreRevels
-        } else {
+//        if (tabs.getSelectedTabPosition() == 0) {
+//            dayFilter(PREREVELS_DAY);// PreRevels
+//        } else {
             dayFilter(tabs.getSelectedTabPosition() + 1);
-        }
+//        }
         List<ScheduleModel> tempList = new ArrayList<>(currentDayEvents);
 
         for (ScheduleModel event : currentDayEvents) {
@@ -615,9 +620,9 @@ public class ScheduleFragment extends Fragment {
         public void onTabSelected(TabLayout.Tab tab) {
             Log.d(TAG, "onTabSelected: TabPos : " + tab.getPosition());
             int day = tab.getPosition() + 1;
-            if (tab.getPosition() == 0) {
-                day = PREREVELS_DAY;
-            }
+//            if (tab.getPosition() == 0) {
+//                day = PREREVELS_DAY;
+//            }
             Log.d(TAG, "onTabSelected: day = " + day);
             dayFilter(day);
             applyFilters();
@@ -632,9 +637,9 @@ public class ScheduleFragment extends Fragment {
         @Override
         public void onTabReselected(TabLayout.Tab tab) {
             int day = tab.getPosition() + 1;
-            if (tab.getPosition() == 0) {
-                day = PREREVELS_DAY;
-            }
+//            if (tab.getPosition() == 0) {
+//                day = PREREVELS_DAY;
+//            }
             Log.d(TAG, "onTabReselected: day = " + day);
             dayFilter(day);
             applyFilters();

@@ -59,7 +59,7 @@
                     android:textSize="@dimen/typography_subheading" />
 
                 <ImageView
-                    android:id="@+id/event_fav_ico"
+                    android:id="@+id/event_fav_icon"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_alignParentEnd="true"
