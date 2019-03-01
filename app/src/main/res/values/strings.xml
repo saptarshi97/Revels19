@@ -1,4 +1,39 @@
 <resources>
+
+    <string-array name="college_names">
+        <item>Manipal Institute of Technology</item>
+        <item>Department of European Studies</item>
+        <item>Department of Atomic and Molecular Physics</item>
+        <item>Department of Commerce</item>
+        <item>Department of Geopolitics &amp; International Relations</item>
+        <item>Department of Library &amp; Information Science</item>
+        <item>Department of Public Health</item>
+        <item>Department of Sciences</item>
+        <item>Department of Statistics</item>
+        <item>Department of Virus Research</item>
+        <item>Faculty of Architecture</item>
+        <item>Gandhian Centre for Philosophical Arts and Sciences</item>
+        <item>International Centre for Applied Sciences</item>
+        <item>Kasturba Medical College, Mangalore</item>
+        <item>Kasturba Medical College, Manipal</item>
+        <item>Manipal Centre for Humanities</item>
+        <item>Manipal Centre for Natural Sciences</item>
+        <item>Manipal College of Dental Sciences, Mangalore</item>
+        <item>Manipal College of Pharmaceutical Sciences</item>
+        <item>Manipal College of Dental Sciences, Manipal</item>
+        <item>Manipal College of Nursing, Manipal</item>
+        <item>Manipal ProLearn</item>
+        <item>Melaka Manipal Medical College, Manipal</item>
+        <item>School of Allied Health Sciences</item>
+        <item>School of Communication</item>
+        <item>School of Information Science</item>
+        <item>School of Life Sciences</item>
+        <item>School of Management</item>
+        <item>School of Regenerative Medicine</item>
+        <item>Welcomgroup Graduate School of Hotel Administration</item>
+        <item>Other College</item>
+    </string-array>
+
     <string name="app_name">Revels19</string>
     <string name="home">Home</string>
     <string name="bottom_nav_schedule">Schedule</string>
@@ -71,5 +106,9 @@
     <string name="no_favourites">No Favourites</string>
     <string name="action_delete_all">Delete All</string>
     <string name="revels_cup">Revels Cup</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="registration_hint">Registration Number/Faculty ID</string>
+    <string name="referral">Referral code (Optional)</string>
 
 </resources>
