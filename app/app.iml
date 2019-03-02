@@ -146,6 +146,7 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid:17.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.daimajia.slider:library:1.1.5@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: javax.inject:javax.inject:1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-safetynet:16.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.slidingpanelayout:slidingpanelayout:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-abt:16.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-flags:16.0.1@aar" level="project" />
