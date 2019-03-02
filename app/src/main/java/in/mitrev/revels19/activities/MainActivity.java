@@ -22,8 +22,7 @@ import androidx.fragment.app.FragmentTransaction;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.fragments.CategoriesFragment;
 import in.mitrev.revels19.fragments.HomeFragment;
-import in.mitrev.revels19.fragments.ResultsTabsFragment;
-import in.mitrev.revels19.fragments.RevelsCupFragment;
+import in.mitrev.revels19.fragments.ResultsFragment;
 import in.mitrev.revels19.fragments.ScheduleFragment;
 import in.mitrev.revels19.models.categories.CategoriesListModel;
 import in.mitrev.revels19.models.categories.CategoryModel;
@@ -82,10 +81,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return setFragment(new ScheduleFragment());
             case R.id.action_categories:
                 return setFragment(new CategoriesFragment());
-            case R.id.action_revels_cup:
-                return setFragment(new RevelsCupFragment());
+//            case R.id.action_revels_cup:
+//                return setFragment(new RevelsCupFragment());
             case R.id.action_results:
-                return setFragment(new ResultsTabsFragment());
+                return setFragment(new ResultsFragment());
         }
         return false;
     }
@@ -127,12 +126,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_workshops:
-                startActivity(new Intent(MainActivity.this, WorkshopsActivity.class));
-                return true;
-            case R.id.menu_proshow_portal:
-                //Launch custom chrome tab
-                return true;
+//            case R.id.menu_workshops:
+//                startActivity(new Intent(MainActivity.this, WorkshopsActivity.class));
+//                return true;
+//            case R.id.menu_proshow_portal:
+//                //Launch custom chrome tab
+//                return true;
             case R.id.menu_about_us:
                 startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
                 return true;

@@ -204,7 +204,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 //MORE Clicked - Take user to Results Fragment
                 ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_results);
-                ((MainActivity) getActivity()).setFragment(ResultsTabsFragment.newInstance());
+                ((MainActivity) getActivity()).setFragment(ResultsFragment.newInstance());
             }
         });
 
