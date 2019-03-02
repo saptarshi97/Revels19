@@ -106,9 +106,21 @@
     <string name="no_favourites">No Favourites</string>
     <string name="action_delete_all">Delete All</string>
     <string name="revels_cup">Revels Cup</string>
+    <string name="revels19">Revels19</string>
+    <string name="revels19_on_the_mit_post">Revels19 on The MIT Post</string>
     <string name="name">Name</string>
     <string name="phone_number">Phone Number</string>
     <string name="registration_hint">Registration Number/Faculty ID</string>
     <string name="referral">Referral code (Optional)</string>
-
+    <string name="delegate_id">Delegate ID :</string>
+    <string name="registration_number">Registration No :</string>
+    <string name="phone">Phone :</string>
+    <string name="email">Email ID :</string>
+    <string name="college">College :</string>
+    <string name="delegate_qr">Delegate QR :</string>
+    <string name="event_registrations">Event Registration</string>
+    <string name="event_name">Event Name</string>
+    <string name="team_id">Team ID</string>
+    <string name="no_events">No Events</string>
+    <string name="logout">Logout</string>
 </resources>

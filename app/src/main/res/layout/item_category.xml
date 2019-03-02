@@ -19,8 +19,8 @@
             android:layout_height="@dimen/_64dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_4dp"
-            android:background="@drawable/background_circle"
             android:backgroundTint="@color/black"
+            android:background="@drawable/background_circle"
             android:src="@mipmap/ic_launcher" />
 
         <RelativeLayout

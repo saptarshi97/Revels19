@@ -23,6 +23,7 @@ import androidx.viewpager.widget.ViewPager;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.models.events.EventDetailsModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
+import in.mitrev.revels19.utilities.IconCollection;
 
 
 public class TabbedDialog extends DialogFragment {
@@ -80,9 +81,9 @@ public class TabbedDialog extends DialogFragment {
         ImageView deleteIcon = view.findViewById(R.id.event_delete_icon);
         deleteIcon.setVisibility(View.GONE);
 
-//        IconCollection icons = new IconCollection();
+        IconCollection icons = new IconCollection();
         try {
-//            eventLogo1.setImageResource(icons.getIconResource(getActivity(), event.getCatName()));
+            eventLogo1.setImageResource(icons.getIconResource(getActivity(), event.getCatName()));
             eventName.setText(event.getEventName());
         } catch (Exception e) {
             e.printStackTrace();

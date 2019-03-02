@@ -184,8 +184,8 @@ public class FavouritesActivity extends AppCompatActivity {
             }
 
             case android.R.id.home: {
-                finish();
-                break;
+                onBackPressed();
+                return true;
             }
         }
         return super.onOptionsItemSelected(item);

@@ -142,13 +142,13 @@ public class ScheduleModel extends RealmObject {
 
     public String getDay() {
         switch (getDate()) {
-            case "26 Feb 2019":
+            case "06 Mar 2019":
                 return "1";
-            case "27 Feb 2019":
+            case "07 Mar 2019":
                 return "2";
-            case "28 Feb 2019":
+            case "08 Mar 2019":
                 return "3";
-            case "01 Mar 2019":
+            case "09 Mar 2019":
                 return "4";
             default:
                 return "1";

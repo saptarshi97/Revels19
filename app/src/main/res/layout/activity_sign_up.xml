@@ -32,7 +32,7 @@
                 android:layout_width="137dp"
                 android:layout_height="122dp"
                 android:layout_marginBottom="@dimen/_8dp"
-                android:src="@drawable/revels_text"/>
+                android:src="@drawable/excelsior_logo_white" />
 
             <LinearLayout
                 android:id="@+id/login_child_linear_layout"
@@ -163,7 +163,7 @@
                     android:layout_marginTop="@dimen/_16dp"
                     android:paddingBottom="@dimen/_10dp"
                     android:paddingTop="@dimen/_10dp"
-                    android:text="@string/login"
+                    android:text="@string/sign_up"
                     android:textSize="@dimen/typography_title"
                     android:onClick="requestSignUp"/>
 

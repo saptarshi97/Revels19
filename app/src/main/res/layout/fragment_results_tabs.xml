@@ -7,15 +7,9 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/events_tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_3x"
-        android:background="@color/colorPrimary"
-        android:elevation="@dimen/padding_quarter"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@color/white"
-        app:tabIndicatorHeight="3dp"
-        app:tabMaxWidth="0dp"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/white" />
+        style="@style/Widget.MaterialComponents.TabLayout.Colored"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/events_view_pager"

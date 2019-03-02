@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="@dimen/_250dp"
         android:layout_height="@dimen/_250dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/excelsior_logo_white" />
 
     <TextView
         android:layout_width="wrap_content"
