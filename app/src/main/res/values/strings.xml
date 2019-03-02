@@ -71,5 +71,7 @@
     <string name="no_favourites">No Favourites</string>
     <string name="action_delete_all">Delete All</string>
     <string name="revels_cup">Revels Cup</string>
+    <string name="revels19">Revels19</string>
+    <string name="revels19_on_the_mit_post">Revels19 on The MIT Post</string>
 
 </resources>

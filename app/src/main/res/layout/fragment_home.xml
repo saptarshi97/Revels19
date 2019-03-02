@@ -263,7 +263,7 @@
                             android:layout_weight="1"
                             android:padding="10dp"
                             android:fontFamily="sans-serif-medium"
-                            android:text="Lorem Ipsum"
+                            android:text="@string/revels19_on_the_mit_post"
                             android:textSize="@dimen/typography_title" />
 
                         <androidx.cardview.widget.CardView
@@ -296,7 +296,7 @@
                                         android:layout_height="wrap_content" />
                                     <ImageView
                                         android:padding="8dp"
-                                        android:src="@drawable/ic_results"
+                                        android:src="@drawable/ic_navigate_next"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:maxWidth="30dp"/>
@@ -324,7 +324,7 @@
                                         android:layout_height="wrap_content" />
                                     <ImageView
                                         android:padding="8dp"
-                                        android:src="@drawable/ic_results"
+                                        android:src="@drawable/ic_navigate_next"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:maxWidth="30dp"/>

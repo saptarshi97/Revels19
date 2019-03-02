@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.net.Uri;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -118,8 +118,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //use string from resource later on instead of hardcoding
-        getActivity().setTitle("Revels19");
+        getActivity().setTitle(R.string.revels19);
         setHasOptionsMenu(true);
         mDatabase = Realm.getDefaultInstance();
 
@@ -161,33 +160,30 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        newsletterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar c = Calendar.getInstance();
-                int today = c.get(Calendar.DATE);
-                final int startDate = 6;
-                int dayOfFest = today - startDate;
-                String URL ;
-                int current_hour = c.get(Calendar.HOUR_OF_DAY);
+        newsletterButton.setOnClickListener(v -> {
+            Calendar c = Calendar.getInstance();
+            int today = c.get(Calendar.DATE);
+            final int startDate = 6;
+            int dayOfFest = today - startDate;
+            String URL;
+            int current_hour = c.get(Calendar.HOUR_OF_DAY);
 
-                if (dayOfFest == 0 || (dayOfFest == 1 && current_hour < 8))
-                    URL = "https://themitpost.com/revels19-newsletter-day-0/";
+            if (dayOfFest == 0 || (dayOfFest == 1 && current_hour < 8))
+                URL = "https://themitpost.com/revels19-newsletter-day-0/";
 
-                else if ((dayOfFest == 1 && current_hour >= 8) || (dayOfFest == 2 && current_hour < 8))
-                    URL = "https://themitpost.com/revels19-newsletter-day-1/";
+            else if ((dayOfFest == 1 && current_hour >= 8) || (dayOfFest == 2 && current_hour < 8))
+                URL = "https://themitpost.com/revels19-newsletter-day-1/";
 
-                else if ((dayOfFest == 2 && current_hour >= 8) || (dayOfFest == 3 && current_hour < 8))
-                    URL = "https://themitpost.com/revels19-newsletter-day-2/";
+            else if ((dayOfFest == 2 && current_hour >= 8) || (dayOfFest == 3 && current_hour < 8))
+                URL = "https://themitpost.com/revels19-newsletter-day-2/";
 
-                else if ((dayOfFest == 3 && current_hour >= 8))
-                    URL = "https://themitpost.com/revels19-newsletter-day-3/";
+            else if ((dayOfFest == 3 && current_hour >= 8))
+                URL = "https://themitpost.com/revels19-newsletter-day-3/";
 
-                else
-                    URL = "https://themitpost.com/";
-                
-                launchCCT(URL, getContext());
-            }
+            else
+                URL = "https://themitpost.com/";
+
+            launchCCT(URL, getContext());
         });
 
         // Checking User's Network Status
@@ -203,9 +199,13 @@ public class HomeFragment extends Fragment {
         resultsRV.setAdapter(resultsAdapter);
         resultsRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         updateResultsList();
-        resultsMore.setOnClickListener(v -> {
-            //MORE Clicked - Take user to Results Fragment
-            ((MainActivity) getActivity()).setFragment(ResultsTabsFragment.newInstance());
+        resultsMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //MORE Clicked - Take user to Results Fragment
+                ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_results);
+                ((MainActivity) getActivity()).setFragment(ResultsTabsFragment.newInstance());
+            }
         });
 
         //Display Categories
@@ -223,6 +223,7 @@ public class HomeFragment extends Fragment {
         categoriesAdapter.notifyDataSetChanged();
         categoriesMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Categories Fragment
+            ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_categories);
             ((MainActivity) getActivity()).setFragment(CategoriesFragment.newInstance());
         });
         if (categoriesList.size() == 0) {
@@ -307,6 +308,7 @@ public class HomeFragment extends Fragment {
         eventsAdapter.notifyDataSetChanged();
         eventsMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Events Fragment
+            ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_schedule);
             ((MainActivity) getActivity()).setFragment(ScheduleFragment.newInstance());
 
         });

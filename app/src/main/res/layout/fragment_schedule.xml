@@ -25,18 +25,18 @@
             android:layout_weight="1"
             app:tabMode="fixed" />
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipChildren="false"
-            android:clipToPadding="false"
-            android:orientation="vertical">
+            android:clipToPadding="false">
 
             <include
                 android:id="@+id/no_schedule_data_layout"
                 layout="@layout/no_data"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -47,7 +47,7 @@
                 android:clipToPadding="false"
                 android:nestedScrollingEnabled="false" />
 
-        </LinearLayout>
+        </FrameLayout>
 
     </LinearLayout>
 
