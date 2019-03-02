@@ -28,6 +28,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.activities.FavouritesActivity;
 import in.mitrev.revels19.activities.LoginActivity;
+import in.mitrev.revels19.activities.MainActivity;
 import in.mitrev.revels19.activities.ProfileActivity;
 import in.mitrev.revels19.adapters.ResultsAdapter;
 import in.mitrev.revels19.models.results.EventResultModel;
@@ -74,6 +75,8 @@ public class ResultsFragment extends Fragment {
             AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
             appBarLayout.setExpanded(true, true);
         }
+
+        ((MainActivity) getActivity()).fragmentIndex = 3;
     }
 
     @Override
