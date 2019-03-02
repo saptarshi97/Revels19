@@ -1,10 +1,12 @@
 package in.mitrev.revels19.fragments;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,6 +37,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -52,12 +56,12 @@ import in.mitrev.revels19.adapters.HomeResultsAdapter;
 import in.mitrev.revels19.models.categories.CategoryModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
-import in.mitrev.revels19.models.instagram.InstagramFeed;
 import in.mitrev.revels19.models.results.EventResultModel;
 import in.mitrev.revels19.models.results.ResultModel;
 import in.mitrev.revels19.models.results.ResultsListModel;
+import in.mitrev.revels19.models.revels_live.RevelsLiveListModel;
 import in.mitrev.revels19.network.APIClient;
-import in.mitrev.revels19.network.InstaFeedAPIClient;
+import in.mitrev.revels19.network.RevelsLiveAPIClient;
 import in.mitrev.revels19.utilities.NetworkUtils;
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -67,7 +71,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
-    private InstagramFeed feed;
+    private RevelsLiveListModel feed;
     SwipeRefreshLayout swipeRefreshLayout;
     private HomeAdapter instaAdapter;
     View v;
@@ -78,6 +82,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView resultsRV;
     private RecyclerView categoriesRV;
     private RecyclerView eventsRV;
+    private View newsletterButton;
     private TextView resultsMore;
     private TextView categoriesMore;
     private TextView eventsMore;
@@ -86,7 +91,7 @@ public class HomeFragment extends Fragment {
     private ProgressBar progressBar;
     private BottomNavigationView navigation;
     private AppBarLayout appBarLayout;
-    private TextView instaTextView;
+    private TextView revelsLiveTextView;
     private boolean initialLoad = true;
     private boolean firstLoad = true;
     private int processes = 0;
@@ -114,8 +119,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //use string from resource later on instead of hardcoding
-        getActivity().setTitle("Revels19");
+        getActivity().setTitle(R.string.revels19);
         setHasOptionsMenu(true);
         mDatabase = Realm.getDefaultInstance();
 
@@ -131,7 +135,7 @@ public class HomeFragment extends Fragment {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-
+        ((MainActivity) getActivity()).fragmentIndex = 0;
     }
 
     @Override
@@ -145,8 +149,36 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = initViews(inflater, container);
         v = view;
-        progressBar = view.findViewById(R.id.insta_progress);
-        instaTextView = view.findViewById(R.id.insta_text_view);
+        progressBar = view.findViewById(R.id.revels_live_progress);
+        revelsLiveTextView = view.findViewById(R.id.revels_live_error_text_view);
+
+        newsletterButton = view.findViewById(R.id.home_newsletter);
+
+        newsletterButton.setOnClickListener(v -> {
+            Calendar c = Calendar.getInstance();
+            int today = c.get(Calendar.DATE);
+            final int startDate = 6;
+            int dayOfFest = today - startDate;
+            String URL;
+            int current_hour = c.get(Calendar.HOUR_OF_DAY);
+
+            if (dayOfFest == 0 || (dayOfFest == 1 && current_hour < 8))
+                URL = "https://themitpost.com/revels19-newsletter-day-0/";
+
+            else if ((dayOfFest == 1 && current_hour >= 8) || (dayOfFest == 2 && current_hour < 8))
+                URL = "https://themitpost.com/revels19-newsletter-day-1/";
+
+            else if ((dayOfFest == 2 && current_hour >= 8) || (dayOfFest == 3 && current_hour < 8))
+                URL = "https://themitpost.com/revels19-newsletter-day-2/";
+
+            else if ((dayOfFest == 3 && current_hour >= 8))
+                URL = "https://themitpost.com/revels19-newsletter-day-3/";
+
+            else
+                URL = "https://themitpost.com/";
+
+            launchCCT(URL, getContext());
+        });
 
         // Checking User's Network Status
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -161,9 +193,13 @@ public class HomeFragment extends Fragment {
         resultsRV.setAdapter(resultsAdapter);
         resultsRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         updateResultsList();
-        resultsMore.setOnClickListener(v -> {
-            //MORE Clicked - Take user to Results Fragment
-            ((MainActivity) getActivity()).setFragment(ResultsTabsFragment.newInstance());
+        resultsMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //MORE Clicked - Take user to Results Fragment
+                ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_results);
+                ((MainActivity) getActivity()).setFragment(ResultsFragment.newInstance());
+            }
         });
 
         //Display Categories
@@ -181,6 +217,7 @@ public class HomeFragment extends Fragment {
         categoriesAdapter.notifyDataSetChanged();
         categoriesMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Categories Fragment
+            ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_categories);
             ((MainActivity) getActivity()).setFragment(CategoriesFragment.newInstance());
         });
         if (categoriesList.size() == 0) {
@@ -235,7 +272,8 @@ public class HomeFragment extends Fragment {
         //Main Revels Events
         else {
             eventsList.clear();
-            List<ScheduleModel> tempEventsList = mDatabase.where(ScheduleModel.class).findAll();
+            List<ScheduleModel> tempEventsList = mDatabase
+                    .copyFromRealm(mDatabase.where(ScheduleModel.class).findAll());
 
             for (int i = 0; i < tempEventsList.size(); i++) {
                 ScheduleModel scheduleModel = tempEventsList.get(i);
@@ -264,6 +302,7 @@ public class HomeFragment extends Fragment {
         eventsAdapter.notifyDataSetChanged();
         eventsMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Events Fragment
+            ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_schedule);
             ((MainActivity) getActivity()).setFragment(ScheduleFragment.newInstance());
 
         });
@@ -273,7 +312,7 @@ public class HomeFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(() -> {
             boolean isConnectedTemp = NetworkUtils.isInternetConnected(getContext());
             if (isConnectedTemp) {
-//                displayInstaFeed();
+                displayRevelsLiveFeed();
                 fetchResults();
                 new Handler().postDelayed(() -> swipeRefreshLayout.setRefreshing(false), 5000);
             } else {
@@ -297,16 +336,16 @@ public class HomeFragment extends Fragment {
         imageSlider.setVisibility(View.GONE);
     }
 
-    public void displayInstaFeed() {
+    public void displayRevelsLiveFeed() {
         if (initialLoad) progressBar.setVisibility(View.VISIBLE);
         homeRV.setVisibility(View.GONE);
-        instaTextView.setVisibility(View.GONE);
-        Call<InstagramFeed> call = InstaFeedAPIClient.getInterface().getInstagramFeed();
+        revelsLiveTextView.setVisibility(View.GONE);
+        Call<RevelsLiveListModel> call = RevelsLiveAPIClient.getInterface().getRevelsLiveFeed();
         processes++;
-        call.enqueue(new Callback<InstagramFeed>() {
+        call.enqueue(new Callback<RevelsLiveListModel>() {
             @Override
-            public void onResponse(@NonNull Call<InstagramFeed> call,
-                                   @NonNull Response<InstagramFeed> response) {
+            public void onResponse(@NonNull Call<RevelsLiveListModel> call,
+                                   @NonNull Response<RevelsLiveListModel> response) {
                 if (initialLoad) progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     feed = response.body();
@@ -321,10 +360,10 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(@NonNull Call<InstagramFeed> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<RevelsLiveListModel> call, @NonNull Throwable t) {
                 if (initialLoad) progressBar.setVisibility(View.GONE);
-                instaTextView.setVisibility(View.VISIBLE);
-                Log.i(TAG, "onFailure: Error Fetching insta feed ");
+                revelsLiveTextView.setVisibility(View.VISIBLE);
+                Log.i(TAG, "onFailure: Error code " + t.getMessage());
                 initialLoad = false;
             }
         });
@@ -430,7 +469,7 @@ public class HomeFragment extends Fragment {
         eventsMore = view.findViewById(R.id.home_events_more_text_view);
         resultsNone = view.findViewById(R.id.home_results_none_text_view);
         homeResultsItem = view.findViewById(R.id.home_results_frame);
-        instaTextView = view.findViewById(R.id.instagram_textview);
+        revelsLiveTextView = view.findViewById(R.id.revels_live_textview);
         swipeRefreshLayout = view.findViewById(R.id.home_swipe_refresh_layout);
         return view;
     }
@@ -461,6 +500,17 @@ public class HomeFragment extends Fragment {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void launchCCT(String url, Context context) {
+
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        builder.setToolbarColor(ContextCompat.getColor(context, R.color.mitpost));
+// set toolbar color and/or setting custom actions before invoking build()
+// Once ready, call CustomTabsIntent.Builder.build() to create a CustomTabsIntent
+        CustomTabsIntent customTabsIntent = builder.build();
+// and launch the desired Url with CustomTabsIntent.launchUrl()
+        customTabsIntent.launchUrl(context, Uri.parse(url));
     }
 
 

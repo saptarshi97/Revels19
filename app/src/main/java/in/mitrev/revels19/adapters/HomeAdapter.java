@@ -1,91 +1,68 @@
 package in.mitrev.revels19.adapters;
 
-import android.content.Context;
+
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
-import in.mitrev.revels19.models.instagram.InstaFeedModel;
-import in.mitrev.revels19.models.instagram.InstagramFeed;
+import com.squareup.picasso.Picasso;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter. HomeViewHolder> {
+import androidx.recyclerview.widget.RecyclerView;
+import in.mitrev.revels19.R;
+import in.mitrev.revels19.models.revels_live.RevelsLiveListModel;
+import in.mitrev.revels19.models.revels_live.RevelsLiveModel;
+
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
     String TAG = "HomeAdapter";
-    private InstagramFeed feed;
-    private Context context;
-    public HomeAdapter(InstagramFeed feed) {
+    private RevelsLiveListModel feed;
+
+    public HomeAdapter(RevelsLiveListModel feed) {
         this.feed = feed;
     }
 
     @Override
     public HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_revels_live, parent, false);
+        return new HomeViewHolder(view);
     }
+
     @Override
-    public void onBindViewHolder( HomeViewHolder holder, int position) {
-        InstaFeedModel instaItem = feed.getFeed().get(position);
-        holder.onBind(instaItem);
+    public void onBindViewHolder(HomeViewHolder holder, int position) {
+        RevelsLiveModel revelsLiveItem = feed.getRevelsLiveList().get(position);
+        holder.onBind(revelsLiveItem);
     }
+
     @Override
     public int getItemCount() {
-        return feed.getFeed().size();
+        return feed.getRevelsLiveList().size();
     }
 
-    public class  HomeViewHolder extends RecyclerView.ViewHolder {
-        public ImageView instaImage;
-        public ImageView instaDP;
-        public TextView instaName;
-        public TextView instaDescription;
-        public TextView instaLikes;
-        public TextView instaComments;
-        public LinearLayout instaItem;
+    public class HomeViewHolder extends RecyclerView.ViewHolder {
+        public ImageView image;
+        public TextView author;
+        public TextView content;
+        public TextView timestamps;
 
-        public  HomeViewHolder(View view) {
+        public HomeViewHolder(View view) {
             super(view);
             initializeViews(view);
         }
-        public void onBind(final InstaFeedModel instaItem) {
 
+        public void onBind(final RevelsLiveModel revelsLiveModel) {
+            author.setText(revelsLiveModel.getAuthor());
+            content.setText(revelsLiveModel.getContent());
+            timestamps.setText(revelsLiveModel.getTimestamps());
+            Picasso.get().load(revelsLiveModel.getImageURL()).into(image);
         }
-        public void initializeViews(View view){
 
+        public void initializeViews(View view) {
+            image = view.findViewById(R.id.revels_live_image_view);
+            author = view.findViewById(R.id.author_text_view);
+            content = view.findViewById(R.id.content_text_view);
+            timestamps = view.findViewById(R.id.timestamp_text_view);
         }
-    }
-    public void launchInstagramImage(InstaFeedModel instaItem){
-//        try {
-//            Uri uri = Uri.parse(instaItem.getLink());
-//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//            intent.setPackage("com.instagram.android");
-//            context.startActivity(intent);
-//        } catch (ActivityNotFoundException e) {
-//            Log.e(TAG, e.getMessage()+"\n Perhaps user does not have Instagram installed ");
-//            //Launching in Browser
-//            try {
-//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(instaItem.getLink()));
-//                context.startActivity(browserIntent);
-//            }catch(ActivityNotFoundException e2){
-//                Log.e(TAG, e2.getMessage()+"\n Perhaps user does not have Instagram installed ");
-//            }
-//        }
-    }
-    public void launchInstagramUser(InstaFeedModel instaItem){
-//        String userURL = "https://instagram.com/_u/"+instaItem.getUser().getUsername().toString();
-//        try {
-//            Uri uri = Uri.parse(userURL);
-//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//            intent.setPackage("com.instagram.android");
-//            context.startActivity(intent);
-//        } catch (ActivityNotFoundException e) {
-//            Log.e(TAG, e.getMessage() + "\n Perhaps user does not have Instagram installed ");
-//            //Launching in Browser
-//            try {
-//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(userURL));
-//                context.startActivity(browserIntent);
-//            }catch(ActivityNotFoundException e2){
-//                Log.e(TAG, e2.getMessage()+"\n Perhaps user does not have a Browser installed ");
-//            }
-//        }
     }
 }

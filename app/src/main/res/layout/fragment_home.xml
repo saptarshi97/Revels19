@@ -68,7 +68,7 @@
                                 android:focusable="true" />
                         </LinearLayout>
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/padding_half"
@@ -94,7 +94,7 @@
                                 android:orientation="horizontal" />
 
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
                 </FrameLayout>
 
@@ -139,7 +139,7 @@
                                 android:focusable="true" />
                         </LinearLayout>
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/padding_half"
@@ -165,7 +165,7 @@
                                 android:orientation="horizontal" />
 
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
                 </FrameLayout>
                 <!--Results Card-->
@@ -211,7 +211,7 @@
                                 android:focusable="true" />
                         </LinearLayout>
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/home_results_item"
                             android:visibility="visible"
                             android:layout_width="match_parent"
@@ -237,8 +237,7 @@
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal" />
 
-
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
                 </FrameLayout>
                 <View
@@ -248,16 +247,80 @@
                     android:layout_marginBottom="@dimen/padding_half"
                     android:background="@android:drawable/divider_horizontal_bright"/>
 
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/home_mitpost_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/revels19_on_the_mit_post"
+                            android:textSize="@dimen/typography_title" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/padding_half"
+                            android:layout_marginLeft="@dimen/padding_half"
+                            android:layout_marginRight="@dimen/padding_half"
+                            android:layout_marginTop="@dimen/padding_half"
+                            android:paddingBottom="@dimen/padding_half"
+                            android:paddingTop="@dimen/padding_half"
+                            app:cardCornerRadius="@dimen/padding_half">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="@dimen/padding_default"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:id="@+id/home_newsletter"
+                                    android:background="?selectableItemBackground"
+                                    android:gravity="center"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1">
+                                    <TextView
+                                        android:padding="8dp"
+                                        android:text="Daily Newsletter"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center" />
+                                    <ImageView
+                                        android:src="@drawable/ic_navigate_next"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:maxWidth="30dp"/>
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+                </FrameLayout>
+
                 <TextView
-                    android:id="@+id/instagram_textview"
+                    android:id="@+id/revels_live_textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="@string/home_insta_title"
+                    android:text="@string/home_revels_live_title"
                     android:fontFamily="sans-serif-medium"
                     android:textSize="@dimen/typography_title" />
                 <ProgressBar
-                    android:id="@+id/insta_progress"
+                    android:id="@+id/revels_live_progress"
                     android:layout_width="match_parent"
                     android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
@@ -265,14 +328,14 @@
                     android:padding="10dp"
                     android:indeterminateTint="@color/insta_text_grey"/>
                 <TextView
-                    android:id="@+id/insta_text_view"
+                    android:id="@+id/revels_live_error_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/unable_to_load_insta"
+                    android:text="@string/unable_to_load_revels_live"
                     android:textSize="@dimen/typography_body"
                     android:visibility="gone"
                     android:padding="10dp"/>
-                <!--InstaFeed Recycler View-->
+                <!--Revels Live Recycler View-->
                 <androidx.recyclerview.widget.RecyclerView
                     app:layout_behavior="@string/appbar_scrolling_view_behavior"
                     android:id="@+id/home_recycler_view"

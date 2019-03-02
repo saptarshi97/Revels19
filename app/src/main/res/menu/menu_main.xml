@@ -3,18 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_workshops"
-        android:orderInCategory="3"
-        android:title="@string/menu_workshops"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_proshow_portal"
-        android:orderInCategory="4"
-        android:title="@string/menu_proshow_portal"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/menu_about_us"
         android:orderInCategory="5"
         android:title="@string/menu_about_us"

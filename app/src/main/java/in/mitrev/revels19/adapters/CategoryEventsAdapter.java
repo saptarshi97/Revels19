@@ -79,10 +79,13 @@ public class CategoryEventsAdapter extends
         holder.eventRound.setVisibility(View.VISIBLE);
 
         if (event.getRound() != null && !event.getRound().equals("-") && !event.getRound().equals("")) {
+
             if (event.getRound().toLowerCase().charAt(0) == 'r')
                 holder.eventRound.setText(event.getRound().toUpperCase());
-            else
+            else {
                 holder.eventRound.setText("R" + event.getRound().toUpperCase().charAt(0));
+                Log.d(TAG, "onBindViewHolder: Round " + event.getRound().toUpperCase().charAt(0));
+            }
         } else {
             holder.eventRound.setVisibility(View.GONE);
         }

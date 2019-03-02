@@ -37,6 +37,8 @@
         android:textSize="12sp"
         android:visibility="visible"
         tools:text="R"
+        android:background="@drawable/circular_bg_event_round"
+        android:backgroundTint="@color/colorAccent"
         android:layout_marginRight="12dp"
         android:layout_marginEnd="12dp"
         android:layout_above="@+id/linearLayout2"

@@ -39,7 +39,6 @@ public class CategoryActivity extends AppCompatActivity {
     private Realm database;
     private TextView catNameTextView;
     private TextView catDescTextView;
-    private TextView noEventsPreRevelsTextView;
     private TextView noEventsDay1TextView;
     private TextView noEventsDay2TextView;
     private TextView noEventsDay3TextView;
@@ -106,13 +105,11 @@ public class CategoryActivity extends AppCompatActivity {
 
     public void displayEvents() {
         Log.d(TAG, "displayEvents: Hello");
-        List<EventModel> preRevelsList = new ArrayList<>();
         List<EventModel> day1List = new ArrayList<>();
         List<EventModel> day2List = new ArrayList<>();
         List<EventModel> day3List = new ArrayList<>();
         List<EventModel> day4List = new ArrayList<>();
 
-        noEventsPreRevelsTextView = findViewById(R.id.cat_pre_revels_no_events_text_view);
         noEventsDay1TextView = findViewById(R.id.cat_day_1_no_events_text_view);
         noEventsDay2TextView = findViewById(R.id.cat_day_2_no_events_text_view);
         noEventsDay3TextView = findViewById(R.id.cat_day_3_no_events_text_view);
@@ -139,7 +136,6 @@ public class CategoryActivity extends AppCompatActivity {
                 EventDetailsModel eventDetails = database.where(EventDetailsModel.class)
                         .equalTo("eventID", schedule.getEventId()).findFirst();
                 EventModel event = new EventModel(eventDetails, schedule);
-                preRevelsList.add(event);
             } else {
                 Log.d(TAG, "displayEvents: Revels");
                 EventDetailsModel eventDetails = database.where(EventDetailsModel.class)
@@ -162,23 +158,11 @@ public class CategoryActivity extends AppCompatActivity {
                 }
             }
         }
-        preRevelsEventSort(preRevelsList);
         eventSort(day1List);
         eventSort(day2List);
         eventSort(day3List);
         eventSort(day4List);
 
-        RecyclerView recyclerViewPreRevels = findViewById(R.id.cat_pre_revels_recycler_view);
-        if(preRevelsList.isEmpty()) {
-            noEventsPreRevelsTextView.setVisibility(View.VISIBLE);
-            recyclerViewPreRevels.setVisibility(View.GONE);
-        } else {
-            recyclerViewPreRevels.setAdapter(new CategoryEventsAdapter(preRevelsList, this,
-                    getBaseContext(), false));
-            recyclerViewPreRevels.setNestedScrollingEnabled(false);
-            recyclerViewPreRevels.setLayoutManager(new LinearLayoutManager(this,
-                    LinearLayoutManager.HORIZONTAL, false));
-        }
 
         RecyclerView recyclerViewDay1 = findViewById(R.id.cat_day_1_recycler_view);
         if(day1List.isEmpty()) {

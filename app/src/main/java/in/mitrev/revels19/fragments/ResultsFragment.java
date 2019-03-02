@@ -28,6 +28,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.activities.FavouritesActivity;
 import in.mitrev.revels19.activities.LoginActivity;
+import in.mitrev.revels19.activities.MainActivity;
 import in.mitrev.revels19.activities.ProfileActivity;
 import in.mitrev.revels19.adapters.ResultsAdapter;
 import in.mitrev.revels19.models.results.EventResultModel;
@@ -65,19 +66,23 @@ public class ResultsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDatabase = Realm.getDefaultInstance();
         setHasOptionsMenu(true);
+        getActivity().setTitle(R.string.results);
+        mDatabase = Realm.getDefaultInstance();
+
         if (getActivity() != null) {
+            getActivity().setTitle(R.string.bottom_nav_results);
             AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
             appBarLayout.setExpanded(true, true);
         }
+
+        ((MainActivity) getActivity()).fragmentIndex = 3;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_results, container, false);
-        getActivity().setTitle(R.string.results);
         rootLayout = view.findViewById(R.id.results_root_layout);
         resultsAvailable = view.findViewById(R.id.results_available);
         noResultsLayout = view.findViewById(R.id.no_results_layout);
@@ -211,7 +216,8 @@ public class ResultsFragment extends Fragment {
                 return true;
             }
 
-            case R.id.menu_profile: {
+            case R.id.action_profile: {
+                Log.d(TAG, "onOptionsItemSelected: hello from profile");
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
                 if (sp.getBoolean("loggedIn", false))
                     startActivity(new Intent(getActivity(), ProfileActivity.class));
@@ -222,7 +228,7 @@ public class ResultsFragment extends Fragment {
                 }
                 return true;
             }
-            case R.id.menu_favourites: {
+            case R.id.action_favourites: {
                 startActivity(new Intent(getActivity(), FavouritesActivity.class));
                 return true;
             }

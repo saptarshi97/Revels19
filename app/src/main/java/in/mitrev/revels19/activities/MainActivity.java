@@ -23,7 +23,6 @@ import in.mitrev.revels19.R;
 import in.mitrev.revels19.fragments.CategoriesFragment;
 import in.mitrev.revels19.fragments.HomeFragment;
 import in.mitrev.revels19.fragments.ResultsFragment;
-import in.mitrev.revels19.fragments.RevelsCupFragment;
 import in.mitrev.revels19.fragments.ScheduleFragment;
 import in.mitrev.revels19.models.categories.CategoriesListModel;
 import in.mitrev.revels19.models.categories.CategoryModel;
@@ -43,9 +42,23 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     String TAG = "MainActivity";
-    BottomNavigationView bottomNavigationView;
+    private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
     private Realm mDatabase;
+    public int fragmentIndex;
+
+    @Override
+    public void onBackPressed() {
+        switch (fragmentIndex) {
+            case 1:
+            case 2:
+            case 3:
+                setFragment(new HomeFragment());
+                break;
+            default:
+                super.onBackPressed();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.main_bottom_nav);
+        bottomNavigationView = findViewById(R.id.main_bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         View activeLabel = bottomNavigationView.findViewById(com.google.android.material.R.id.largeLabel);
@@ -82,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return setFragment(new ScheduleFragment());
             case R.id.action_categories:
                 return setFragment(new CategoriesFragment());
-            case R.id.action_revels_cup:
-                return setFragment(new RevelsCupFragment());
+//            case R.id.action_revels_cup:
+//                return setFragment(new RevelsCupFragment());
             case R.id.action_results:
                 return setFragment(new ResultsFragment());
         }
@@ -103,13 +116,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         return true;
     }
 
-    public void changeFragment(Fragment fragment){
-        if(fragment.getClass() ==  CategoriesFragment.class){
-            try{bottomNavigationView.setSelectedItemId(R.id.action_categories);}
-            catch (NullPointerException e){e.printStackTrace();}
-        }else if(fragment.getClass() == ScheduleFragment.class){
+    public void changeFragment(Fragment fragment) {
+        if (fragment.getClass() == CategoriesFragment.class) {
+            try {
+                bottomNavigationView.setSelectedItemId(R.id.action_categories);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+        } else if (fragment.getClass() == ScheduleFragment.class) {
             bottomNavigationView.setSelectedItemId(R.id.action_schedule);
-        }else{
+        } else {
             Log.i(TAG, "changeFragment: Unexpected fragment passed!!");
         }
 
@@ -127,12 +143,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_workshops:
-                startActivity(new Intent(MainActivity.this, WorkshopsActivity.class));
-                return true;
-            case R.id.menu_proshow_portal:
-                //Launch custom chrome tab
-                return true;
+//            case R.id.menu_workshops:
+//                startActivity(new Intent(MainActivity.this, WorkshopsActivity.class));
+//                return true;
+//            case R.id.menu_proshow_portal:
+//                //Launch custom chrome tab
+//                return true;
             case R.id.menu_about_us:
                 startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
                 return true;
@@ -141,6 +157,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setBottomNavSelectedItem(int id) {
+        bottomNavigationView.setSelectedItemId(id);
     }
 
     private void loadAllFromInternet() {

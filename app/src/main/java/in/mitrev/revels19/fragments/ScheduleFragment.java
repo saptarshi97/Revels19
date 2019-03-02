@@ -48,6 +48,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.activities.FavouritesActivity;
 import in.mitrev.revels19.activities.LoginActivity;
+import in.mitrev.revels19.activities.MainActivity;
 import in.mitrev.revels19.activities.ProfileActivity;
 import in.mitrev.revels19.adapters.ScheduleAdapter;
 import in.mitrev.revels19.application.Revels19;
@@ -119,6 +120,8 @@ public class ScheduleFragment extends Fragment {
             appBarLayout.setExpanded(true, true);
             appBarLayout.setElevation(0);
         }
+
+        ((MainActivity) getActivity()).fragmentIndex = 1;
     }
 
     @Override
@@ -460,10 +463,10 @@ public class ScheduleFragment extends Fragment {
 
     private void setCurrentDay() {
         Calendar cal = Calendar.getInstance();
-        Calendar day1 = new GregorianCalendar(2019, 1, 26);
-        Calendar day2 = new GregorianCalendar(2019, 1, 27);
-        Calendar day3 = new GregorianCalendar(2019, 1, 28);
-        Calendar day4 = new GregorianCalendar(2019, 2, 1);
+        Calendar day1 = new GregorianCalendar(2019, 2, 6);
+        Calendar day2 = new GregorianCalendar(2019, 2, 7);
+        Calendar day3 = new GregorianCalendar(2019, 2, 8);
+        Calendar day4 = new GregorianCalendar(2019, 2, 9);
         Calendar curDay = new GregorianCalendar(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
         Log.d(TAG, "setCurrentDay: " + curDay.get(Calendar.DAY_OF_MONTH));

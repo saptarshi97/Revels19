@@ -16,7 +16,8 @@
             android:layout_width="@dimen/_48dp"
             android:layout_height="@dimen/_48dp"
             android:background="@drawable/background_circle"
-            android:src="@mipmap/ic_launcher"/>
+            android:backgroundTint="@color/black"
+            android:src="@drawable/revels_logo_trans" />
 
     </FrameLayout>
     
@@ -29,6 +30,7 @@
         android:layout_alignParentEnd="true"
         android:padding="@dimen/_4dp"
         android:gravity="center"
+        android:textSize="@dimen/_12sp"
         tools:text="R"
         android:textColor="@android:color/white"
         android:layout_marginEnd="@dimen/_14dp"

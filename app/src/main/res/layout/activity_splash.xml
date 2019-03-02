@@ -17,33 +17,37 @@
         android:visibility="gone" />
 
     <FrameLayout
-        android:id="@+id/frameLayout4"
+        android:id="@+id/splash_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:paddingLeft="@dimen/padding_2x"
-        android:paddingRight="@dimen/padding_2x">
+        android:background="#000"
+        android:padding="@dimen/padding_default">
 
         <ImageView
-            android:id="@+id/splash_left_revels_icon"
+            android:id="@+id/img_phoenix_body"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher_round" />
+            android:src="@drawable/phoenix_body" />
 
         <ImageView
-            android:id="@+id/splash_right_revels_icon"
+            android:id="@+id/img_phoenix_flame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher_round"
-            android:visibility="gone" />
+            android:src="@drawable/phoenix_flame" />
 
+
+        <ImageView
+            android:id="@+id/img_phoenix_halo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/phoenix_halo" />
 
         <ImageView
             android:id="@+id/splash_revels_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher_round"
-            android:visibility="gone" />
+            android:src="@drawable/revels_text" />
 
     </FrameLayout>
 </RelativeLayout>
