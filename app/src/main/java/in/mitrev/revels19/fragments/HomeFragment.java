@@ -1,5 +1,6 @@
 package in.mitrev.revels19.fragments;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -55,12 +56,12 @@ import in.mitrev.revels19.adapters.HomeResultsAdapter;
 import in.mitrev.revels19.models.categories.CategoryModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
-import in.mitrev.revels19.models.instagram.InstagramFeed;
 import in.mitrev.revels19.models.results.EventResultModel;
 import in.mitrev.revels19.models.results.ResultModel;
 import in.mitrev.revels19.models.results.ResultsListModel;
+import in.mitrev.revels19.models.revels_live.RevelsLiveListModel;
 import in.mitrev.revels19.network.APIClient;
-import in.mitrev.revels19.network.InstaFeedAPIClient;
+import in.mitrev.revels19.network.RevelsLiveAPIClient;
 import in.mitrev.revels19.utilities.NetworkUtils;
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -70,7 +71,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
-    private InstagramFeed feed;
+    private RevelsLiveListModel feed;
     SwipeRefreshLayout swipeRefreshLayout;
     private HomeAdapter instaAdapter;
     View v;
@@ -81,7 +82,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView resultsRV;
     private RecyclerView categoriesRV;
     private RecyclerView eventsRV;
-    private View blogButton, newsletterButton;
+    private View newsletterButton;
     private TextView resultsMore;
     private TextView categoriesMore;
     private TextView eventsMore;
@@ -90,7 +91,7 @@ public class HomeFragment extends Fragment {
     private ProgressBar progressBar;
     private BottomNavigationView navigation;
     private AppBarLayout appBarLayout;
-    private TextView instaTextView;
+    private TextView revelsLiveTextView;
     private boolean initialLoad = true;
     private boolean firstLoad = true;
     private int processes = 0;
@@ -148,17 +149,10 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = initViews(inflater, container);
         v = view;
-//        progressBar = view.findViewById(R.id.insta_progress);
-//        instaTextView = view.findViewById(R.id.insta_text_view);
+        progressBar = view.findViewById(R.id.revels_live_progress);
+        revelsLiveTextView = view.findViewById(R.id.revels_live_error_text_view);
 
-        blogButton = view.findViewById(R.id.home_blog);
         newsletterButton = view.findViewById(R.id.home_newsletter);
-        blogButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchCCT("https://themitpost.com/revels19-liveblog/", getContext());
-            }
-        });
 
         newsletterButton.setOnClickListener(v -> {
             Calendar c = Calendar.getInstance();
@@ -318,7 +312,7 @@ public class HomeFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(() -> {
             boolean isConnectedTemp = NetworkUtils.isInternetConnected(getContext());
             if (isConnectedTemp) {
-//                displayInstaFeed();
+                displayRevelsLiveFeed();
                 fetchResults();
                 new Handler().postDelayed(() -> swipeRefreshLayout.setRefreshing(false), 5000);
             } else {
@@ -342,16 +336,16 @@ public class HomeFragment extends Fragment {
         imageSlider.setVisibility(View.GONE);
     }
 
-    public void displayInstaFeed() {
+    public void displayRevelsLiveFeed() {
         if (initialLoad) progressBar.setVisibility(View.VISIBLE);
         homeRV.setVisibility(View.GONE);
-        instaTextView.setVisibility(View.GONE);
-        Call<InstagramFeed> call = InstaFeedAPIClient.getInterface().getInstagramFeed();
+        revelsLiveTextView.setVisibility(View.GONE);
+        Call<RevelsLiveListModel> call = RevelsLiveAPIClient.getInterface().getRevelsLiveFeed();
         processes++;
-        call.enqueue(new Callback<InstagramFeed>() {
+        call.enqueue(new Callback<RevelsLiveListModel>() {
             @Override
-            public void onResponse(@NonNull Call<InstagramFeed> call,
-                                   @NonNull Response<InstagramFeed> response) {
+            public void onResponse(@NonNull Call<RevelsLiveListModel> call,
+                                   @NonNull Response<RevelsLiveListModel> response) {
                 if (initialLoad) progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     feed = response.body();
@@ -366,10 +360,10 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(@NonNull Call<InstagramFeed> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<RevelsLiveListModel> call, @NonNull Throwable t) {
                 if (initialLoad) progressBar.setVisibility(View.GONE);
-                instaTextView.setVisibility(View.VISIBLE);
-                Log.i(TAG, "onFailure: Error Fetching insta feed ");
+                revelsLiveTextView.setVisibility(View.VISIBLE);
+                Log.i(TAG, "onFailure: Error code " + t.getMessage());
                 initialLoad = false;
             }
         });
@@ -475,7 +469,7 @@ public class HomeFragment extends Fragment {
         eventsMore = view.findViewById(R.id.home_events_more_text_view);
         resultsNone = view.findViewById(R.id.home_results_none_text_view);
         homeResultsItem = view.findViewById(R.id.home_results_frame);
-        instaTextView = view.findViewById(R.id.instagram_textview);
+        revelsLiveTextView = view.findViewById(R.id.revels_live_textview);
         swipeRefreshLayout = view.findViewById(R.id.home_swipe_refresh_layout);
         return view;
     }
@@ -508,7 +502,7 @@ public class HomeFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    private void launchCCT(String url, Context context){
+    private void launchCCT(String url, Context context) {
 
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         builder.setToolbarColor(ContextCompat.getColor(context, R.color.mitpost));

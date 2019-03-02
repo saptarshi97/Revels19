@@ -85,8 +85,8 @@
     <string name="categories">Categories</string>
     <string name="no_categories">No Categories Available</string>
     <string name="results">Results</string>
-    <string name="home_insta_title">#Revels19 on Instagram</string>
-    <string name="unable_to_load_insta">Unable to load Instagram feed. Swipe down to retry!</string>
+    <string name="home_revels_live_title">Revels Live</string>
+    <string name="unable_to_load_revels_live">Unable to load Revels Live feed. Swipe down to retry!</string>
     <string name="no_connection">No connection</string>
     <string name="no_results">No Results available!</string>
     <string name="email2">Email</string>
