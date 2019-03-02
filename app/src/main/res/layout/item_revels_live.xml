@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:id="@+id/revels_live_item_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_half"
+            android:paddingTop="@dimen/padding_half"
+            android:paddingRight="@dimen/padding_half"
+            android:paddingBottom="@dimen/padding_half">
+
+            <TextView
+                android:id="@+id/author_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/padding_half"
+                android:layout_marginLeft="@dimen/padding_half"
+                android:textColor="@color/insta_text_grey"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="username" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/revels_live_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:padding="@dimen/padding_half"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/excelsior_logo_white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/content_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_half"
+                android:textColor="@color/insta_text_grey"
+                android:textSize="14sp"
+                tools:text="username Description" />
+
+            <TextView
+                android:id="@+id/timestamp_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_half"
+                android:textColor="@color/insta_text_grey"
+                android:textSize="14sp"
+                tools:text="username Description" />
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

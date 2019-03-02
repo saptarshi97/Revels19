@@ -23,7 +23,7 @@ public class APIClient {
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-           // Log.d(TAG,"Categornierusvniusbrejvbsejrvblserjvbies updated in background");
+            // Log.d(TAG,"Categories updated in background");
 
         }
         return retrofit.create(APIInterface.class);
