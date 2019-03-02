@@ -45,6 +45,20 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
     private Realm mDatabase;
+    public int fragmentIndex;
+
+    @Override
+    public void onBackPressed() {
+        switch (fragmentIndex) {
+            case 1:
+            case 2:
+            case 3:
+                setFragment(new HomeFragment());
+                break;
+            default:
+                super.onBackPressed();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,13 +116,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         return true;
     }
 
-    public void changeFragment(Fragment fragment){
-        if(fragment.getClass() ==  CategoriesFragment.class){
-            try{bottomNavigationView.setSelectedItemId(R.id.action_categories);}
-            catch (NullPointerException e){e.printStackTrace();}
-        }else if(fragment.getClass() == ScheduleFragment.class){
+    public void changeFragment(Fragment fragment) {
+        if (fragment.getClass() == CategoriesFragment.class) {
+            try {
+                bottomNavigationView.setSelectedItemId(R.id.action_categories);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+        } else if (fragment.getClass() == ScheduleFragment.class) {
             bottomNavigationView.setSelectedItemId(R.id.action_schedule);
-        }else{
+        } else {
             Log.i(TAG, "changeFragment: Unexpected fragment passed!!");
         }
 

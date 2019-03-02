@@ -134,7 +134,7 @@ public class HomeFragment extends Fragment {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-
+        ((MainActivity) getActivity()).fragmentIndex = 0;
     }
 
     @Override
