@@ -293,43 +293,16 @@
                                         android:padding="8dp"
                                         android:text="Daily Newsletter"
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content" />
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center" />
                                     <ImageView
-                                        android:padding="8dp"
                                         android:src="@drawable/ic_navigate_next"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:maxWidth="30dp"/>
 
                                 </LinearLayout>
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginBottom="@dimen/padding_half"
-                                    android:layout_marginTop="@dimen/padding_half"
-                                    android:background="@android:drawable/divider_horizontal_bright" />
-                                <LinearLayout
-                                    android:id="@+id/home_blog"
-                                    android:background="?selectableItemBackground"
-                                    android:layout_weight="1"
-                                    android:paddingLeft="@dimen/padding_default"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center">
-                                    <TextView
-                                        android:layout_gravity="center"
-                                        android:padding="8dp"
-                                        android:text="Live Blog"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content" />
-                                    <ImageView
-                                        android:padding="8dp"
-                                        android:src="@drawable/ic_navigate_next"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:maxWidth="30dp"/>
 
-                                </LinearLayout>
 
 
                             </LinearLayout>

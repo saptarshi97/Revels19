@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView resultsRV;
     private RecyclerView categoriesRV;
     private RecyclerView eventsRV;
-    private View blogButton, newsletterButton;
+    private View newsletterButton;
     private TextView resultsMore;
     private TextView categoriesMore;
     private TextView eventsMore;
@@ -152,9 +152,7 @@ public class HomeFragment extends Fragment {
         progressBar = view.findViewById(R.id.revels_live_progress);
         revelsLiveTextView = view.findViewById(R.id.revels_live_error_text_view);
 
-        blogButton = view.findViewById(R.id.home_blog);
         newsletterButton = view.findViewById(R.id.home_newsletter);
-        blogButton.setOnClickListener(v -> launchCCT("https://themitpost.com/revels19-liveblog/", getContext()));
 
         newsletterButton.setOnClickListener(v -> {
             Calendar c = Calendar.getInstance();

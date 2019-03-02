@@ -41,37 +41,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_8dp"
                 android:fontFamily="sans-serif"
-                android:text="@string/pre_revels"
-                android:textSize="@dimen/_16sp" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_8dp">
-
-                <TextView
-                    android:id="@+id/cat_pre_revels_no_events_text_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16dp"
-                    android:text="@string/no_events_available"
-                    android:visibility="gone" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/cat_pre_revels_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_8dp"
-                    tools:itemCount="1" />
-
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_8dp"
-                android:fontFamily="sans-serif"
                 android:text="@string/day_1"
                 android:textSize="@dimen/_16sp" />
 
