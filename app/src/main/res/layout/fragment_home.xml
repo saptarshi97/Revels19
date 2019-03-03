@@ -1,19 +1,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="in.mitrev.revels19.fragments.HomeFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/home_swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/home_swipe_refresh_layout"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-        <androidx.core.widget.NestedScrollView
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
@@ -26,66 +25,67 @@
                 <com.daimajia.slider.library.SliderLayout
                     android:id="@+id/home_image_slider"
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    />
+                    android:layout_height="180dp" />
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-
-                    <LinearLayout
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_half"
+                        android:layout_marginLeft="@dimen/padding_half"
+                        android:layout_marginRight="@dimen/padding_half"
+                        android:layout_marginTop="@dimen/padding_half"
+                        android:paddingBottom="@dimen/padding_half"
+                        android:paddingTop="@dimen/padding_half">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:layout_marginLeft="@dimen/padding_default"
-                            android:layout_marginRight="@dimen/padding_default"
-                            android:paddingTop="@dimen/padding_default">
+                            android:orientation="vertical">
 
-                            <TextView
+
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/event_fragment"
-                                android:textSize="@dimen/typography_title"
-                                android:fontFamily="sans-serif-medium"/>
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/padding_default"
+                                android:layout_marginRight="@dimen/padding_default"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/padding_default">
 
-                            <TextView
-                                android:id="@+id/home_events_more_text_view"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0"
-                                android:clickable="true"
-                                android:text="@string/more"
-                                android:fontFamily="sans-serif-medium"
-                                android:textColor="@color/colorPrimary"
-                                android:textSize="@dimen/typography_small"
-                                android:background="?android:attr/selectableItemBackground"
-                                android:focusable="true" />
-                        </LinearLayout>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="@string/event_fragment"
+                                    android:textSize="@dimen/typography_title" />
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/padding_half"
-                            android:layout_marginLeft="@dimen/padding_half"
-                            android:layout_marginRight="@dimen/padding_half"
-                            android:layout_marginBottom="@dimen/padding_half"
-                            android:paddingTop="@dimen/padding_half"
-                            android:paddingBottom="@dimen/padding_half">
+                                <TextView
+                                    android:id="@+id/home_events_more_text_view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0"
+                                    android:background="?android:attr/selectableItemBackground"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="@string/more"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/typography_small" />
+                            </LinearLayout>
+
 
                             <TextView
                                 android:id="@+id/home_events_none_text_view"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/no_events2"
+                                android:layout_margin="15dp"
                                 android:fontFamily="sans-serif-medium"
-                                android:visibility="gone"
-                                android:layout_margin="15dp"/>
+                                android:text="@string/no_events2"
+                                android:visibility="gone" />
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/home_events_recycler_view"
@@ -94,8 +94,8 @@
                                 android:orientation="horizontal" />
 
 
-                        </com.google.android.material.card.MaterialCardView>
-                    </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
                 </FrameLayout>
 
                 <!--Categories Card-->
@@ -103,60 +103,60 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <LinearLayout
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_half"
+                        android:layout_marginLeft="@dimen/padding_half"
+                        android:layout_marginRight="@dimen/padding_half"
+                        android:paddingBottom="@dimen/padding_half"
+                        android:paddingTop="@dimen/padding_half">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:layout_marginLeft="@dimen/padding_default"
-                            android:layout_marginRight="@dimen/padding_default"
-                            android:paddingTop="@dimen/padding_half">
+                            android:orientation="vertical">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/categories"
-                                android:textSize="@dimen/typography_title"
-                                android:fontFamily="sans-serif-medium"
-                                android:id="@+id/textView2" />
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/padding_default"
+                                android:layout_marginRight="@dimen/padding_default"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/padding_half">
 
-                            <TextView
-                                android:id="@+id/home_categories_more_text_view"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0"
-                                android:clickable="true"
-                                android:text="@string/more"
-                                android:fontFamily="sans-serif-medium"
-                                android:textColor="@color/colorPrimary"
-                                android:textSize="@dimen/typography_small"
-                                android:background="?android:attr/selectableItemBackground"
-                                android:focusable="true" />
-                        </LinearLayout>
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="@string/categories"
+                                    android:textSize="@dimen/typography_title" />
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/padding_half"
-                            android:layout_marginLeft="@dimen/padding_half"
-                            android:layout_marginRight="@dimen/padding_half"
-                            android:layout_marginBottom="@dimen/padding_half"
-                            android:paddingTop="@dimen/padding_half"
-                            android:paddingBottom="@dimen/padding_half"
-                            >
+                                <TextView
+                                    android:id="@+id/home_categories_more_text_view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0"
+                                    android:background="?android:attr/selectableItemBackground"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="@string/more"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/typography_small" />
+                            </LinearLayout>
+
+
                             <TextView
                                 android:id="@+id/home_categories_none_text_view"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/no_categories"
+                                android:layout_margin="15dp"
                                 android:fontFamily="sans-serif-medium"
-                                android:visibility="gone"
-                                android:layout_margin="15dp"/>
+                                android:text="@string/no_categories"
+                                android:visibility="gone" />
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/home_categories_recycler_view"
@@ -164,72 +164,73 @@
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal" />
 
-
-                        </com.google.android.material.card.MaterialCardView>
-                    </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
                 </FrameLayout>
+
                 <!--Results Card-->
                 <FrameLayout
+                    android:id="@+id/home_results_frame"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/home_results_frame"
                     android:visibility="gone">
 
-
-                    <LinearLayout
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/home_results_item"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_half"
+                        android:layout_marginLeft="@dimen/padding_half"
+                        android:layout_marginRight="@dimen/padding_half"
+                        android:paddingBottom="@dimen/padding_default"
+                        android:paddingTop="@dimen/padding_half"
+                        android:visibility="visible">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:layout_marginLeft="@dimen/padding_default"
-                            android:layout_marginRight="@dimen/padding_default"
-                            android:paddingTop="@dimen/padding_half">
+                            android:orientation="vertical">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/results"
-                                android:textSize="@dimen/typography_title"
-                                android:fontFamily="sans-serif-medium"/>
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="@dimen/_8dp"
+                                android:layout_marginLeft="@dimen/padding_default"
+                                android:layout_marginRight="@dimen/padding_default"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/padding_half">
 
-                            <TextView
-                                android:id="@+id/home_results_more_text_view"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0"
-                                android:clickable="true"
-                                android:text="@string/more"
-                                android:fontFamily="sans-serif-medium"
-                                android:textColor="@color/colorPrimary"
-                                android:textSize="@dimen/typography_small"
-                                android:background="?android:attr/selectableItemBackground"
-                                android:focusable="true" />
-                        </LinearLayout>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="@string/results"
+                                    android:textSize="@dimen/typography_title" />
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/home_results_item"
-                            android:visibility="visible"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/padding_half"
-                            android:layout_marginLeft="@dimen/padding_half"
-                            android:layout_marginRight="@dimen/padding_half"
-                            android:layout_marginBottom="@dimen/padding_half"
-                            android:paddingTop="@dimen/padding_half"
-                            android:paddingBottom="@dimen/padding_default">
+                                <TextView
+                                    android:id="@+id/home_results_more_text_view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0"
+                                    android:background="?android:attr/selectableItemBackground"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="@string/more"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/typography_small" />
+                            </LinearLayout>
+
+
                             <TextView
                                 android:id="@+id/home_results_none_text_view"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/no_results"
+                                android:layout_margin="15dp"
                                 android:fontFamily="sans-serif-medium"
-                                android:visibility="gone"
-                                android:layout_margin="15dp"/>
+                                android:text="@string/no_results"
+                                android:visibility="gone" />
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/home_results_recycler_view"
@@ -237,15 +238,16 @@
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal" />
 
-                        </com.google.android.material.card.MaterialCardView>
-                    </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
                 </FrameLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="@dimen/padding_half"
                     android:layout_marginBottom="@dimen/padding_half"
-                    android:background="@android:drawable/divider_horizontal_bright"/>
+                    android:layout_marginTop="@dimen/padding_half"
+                    android:background="@android:drawable/divider_horizontal_bright" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -256,13 +258,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/home_mitpost_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:padding="10dp"
                             android:fontFamily="sans-serif-medium"
+                            android:padding="10dp"
                             android:text="@string/revels19_on_the_mit_post"
                             android:textSize="@dimen/typography_title" />
 
@@ -280,29 +283,30 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginRight="@dimen/padding_default"
+                                android:layout_margin="@dimen/_4dp"
                                 android:orientation="horizontal">
+
                                 <LinearLayout
                                     android:id="@+id/home_newsletter"
-                                    android:background="?selectableItemBackground"
-                                    android:gravity="center"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1">
+                                    android:layout_weight="1"
+                                    android:background="?selectableItemBackground"
+                                    android:gravity="center">
+
                                     <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
                                         android:padding="8dp"
-                                        android:text="Daily Newsletter"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center" />
+                                        android:text="Daily Newsletter" />
+
                                     <ImageView
-                                        android:src="@drawable/ic_navigate_next"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:maxWidth="30dp"/>
+                                        android:maxWidth="30dp"
+                                        android:src="@drawable/ic_navigate_next" />
 
                                 </LinearLayout>
-
 
 
                             </LinearLayout>
@@ -315,32 +319,34 @@
                     android:id="@+id/revels_live_textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
                     android:padding="10dp"
                     android:text="@string/home_revels_live_title"
-                    android:fontFamily="sans-serif-medium"
                     android:textSize="@dimen/typography_title" />
+
                 <ProgressBar
                     android:id="@+id/revels_live_progress"
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
+                    android:layout_gravity="center_horizontal"
+                    android:indeterminateTint="@color/insta_text_grey"
                     android:padding="10dp"
-                    android:indeterminateTint="@color/insta_text_grey"/>
+                    android:visibility="gone" />
+
                 <TextView
                     android:id="@+id/revels_live_error_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/unable_to_load_revels_live"
                     android:textSize="@dimen/typography_body"
-                    android:visibility="gone"
-                    android:padding="10dp"/>
+                    android:visibility="gone" />
                 <!--Revels Live Recycler View-->
                 <androidx.recyclerview.widget.RecyclerView
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
                     android:id="@+id/home_recycler_view"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>

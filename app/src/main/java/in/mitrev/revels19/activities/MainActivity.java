@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.fragments.CategoriesFragment;
 import in.mitrev.revels19.fragments.HomeFragment;
@@ -46,6 +45,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private FragmentManager fm;
     private Realm mDatabase;
     public int fragmentIndex;
+    public static final String TAG_HOME = "HomeFragment";
+    public static final String TAG_SCHEDULE = "ScheduleFragment";
+    public static final String TAG_CATEGORIES = "CategoriesFragment";
+    public static final String TAG_RESULTS = "ResultsFragment";
+
 
     @Override
     public void onBackPressed() {
@@ -53,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case 1:
             case 2:
             case 3:
-                setFragment(new HomeFragment());
+                setFragment(TAG_HOME);
                 break;
             default:
                 super.onBackPressed();
@@ -82,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             Log.i(TAG, "onCreate: Connected and background updated");
         }
         Log.d(TAG, "onCreate: " + "home!");
-        setFragment(new HomeFragment());
+        setFragment(TAG_HOME);
     }
 
     @Override
@@ -90,49 +94,107 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         switch (menuItem.getItemId()) {
             case R.id.action_home:
-                return setFragment(new HomeFragment());
+                return setFragment(TAG_HOME);
             case R.id.action_schedule:
-                return setFragment(new ScheduleFragment());
+                return setFragment(TAG_SCHEDULE);
             case R.id.action_categories:
-                return setFragment(new CategoriesFragment());
+                return setFragment(TAG_CATEGORIES);
 //            case R.id.action_revels_cup:
 //                return setFragment(new RevelsCupFragment());
             case R.id.action_results:
-                return setFragment(new ResultsFragment());
+                return setFragment(TAG_RESULTS);
         }
         return false;
     }
 
-    /**
-     * Set the fragment for this activity
-     *
-     * @param fragment to set
-     */
-    public boolean setFragment(Fragment fragment) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit();
+//
+//    private String getTag(Fragment fragment) {
+//        if (fragment instanceof HomeFragment)
+//            return TAG_HOME;
+//        else if (fragment instanceof ScheduleFragment)
+//            return TAG_SCHEDULE;
+//        else if (fragment instanceof CategoriesFragment)
+//            return TAG_CATEGORIES;
+//        else
+//            return TAG_RESULTS;
+//    }
+//
+//    private String getTag(int fragmentIndex) {
+//        switch (fragmentIndex) {
+//            case 0:
+//                return TAG_HOME;
+//            case 1:
+//                return TAG_SCHEDULE;
+//            case 2:
+//                return TAG_CATEGORIES;
+//            default:
+//                return TAG_RESULTS;
+//        }
+//    }
+
+
+//    /**
+//     * Set the fragment for this activity
+//     *
+//     * @param fragment to set
+//     */
+//    public boolean setFragment(Fragment fragment) {
+//        Fragment temp = getSupportFragmentManager().findFragmentByTag(getTag(fragment));
+//        if (temp == null)
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fragment_container, fragment, getTag(fragment))
+//                    .addToBackStack(getTag(fragmentIndex))
+//                    .commit();
+//        else
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fragment_container, temp)
+//                    .commit();
+//        return true;
+//    }
+
+    public boolean setFragment(String tag) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
+        Log.e(TAG, "setFragment");
+        if (fragment != null) {
+            Log.e(TAG, "fragment != null");
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+        } else {
+            Log.e(TAG, "fragment == null");
+            switch (tag) {
+                case TAG_HOME:
+                    Log.e(TAG, "tag == home");
+                    fragment = new HomeFragment();
+                    break;
+                case TAG_SCHEDULE:
+                    Log.e(TAG, "tag == schedule");
+                    fragment = new ScheduleFragment();
+                    break;
+                case TAG_CATEGORIES:
+                    Log.e(TAG, "tag == categories");
+                    fragment = new CategoriesFragment();
+                    break;
+                case TAG_RESULTS:
+                    Log.e(TAG, "tag == results");
+                    fragment = new ResultsFragment();
+                    break;
+                default:
+                    Log.d(TAG, "default");
+                    fragment = new HomeFragment();
+            }
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment, tag)
+                    .addToBackStack(tag)
+                    .commit();
+        }
         return true;
     }
 
-    public void changeFragment(Fragment fragment) {
-        if (fragment.getClass() == CategoriesFragment.class) {
-            try {
-                bottomNavigationView.setSelectedItemId(R.id.action_categories);
-            } catch (NullPointerException e) {
-                e.printStackTrace();
-            }
-        } else if (fragment.getClass() == ScheduleFragment.class) {
-            bottomNavigationView.setSelectedItemId(R.id.action_schedule);
-        } else {
-            Log.i(TAG, "changeFragment: Unexpected fragment passed!!");
-        }
-
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        //transaction.setCustomAnimations(R.anim.slide_in_right,R.anim.slide_out_left).replace(R.id.main_frame_layout, fragment);
-        transaction.commit();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
