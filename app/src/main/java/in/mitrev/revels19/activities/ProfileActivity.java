@@ -95,7 +95,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 editor.remove("cloudflare_cookie");
                                 editor.apply();
                                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                             }
                         }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {

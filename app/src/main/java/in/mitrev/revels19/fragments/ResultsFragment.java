@@ -221,7 +221,7 @@ public class ResultsFragment extends Fragment {
                     startActivity(new Intent(getActivity(), ProfileActivity.class));
                 else {
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }
                 return true;
