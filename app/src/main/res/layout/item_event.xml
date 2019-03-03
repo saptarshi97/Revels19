@@ -7,8 +7,6 @@
     android:layout_marginLeft="@dimen/padding_half"
     android:layout_marginTop="@dimen/_8dp"
     android:layout_marginRight="@dimen/padding_half"
-    app:cardCornerRadius="@dimen/_8dp"
-    app:cardElevation="2dp"
     android:background="?android:attr/selectableItemBackground">
 
     <LinearLayout

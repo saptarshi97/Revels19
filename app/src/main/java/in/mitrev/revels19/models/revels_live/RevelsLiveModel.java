@@ -20,7 +20,7 @@ public class RevelsLiveModel {
     @Expose
     private String imageURL;
 
-    @SerializedName("timestamps")
+    @SerializedName("timestamp")
     @Expose
     private String timestamps;
 
@@ -56,7 +56,7 @@ public class RevelsLiveModel {
         this.imageURL = imageURL;
     }
 
-    public String getTimestamps() {
+    public String getTimestamp() {
         return timestamps;
     }
 

@@ -33,7 +33,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.activities.FavouritesActivity;
 import in.mitrev.revels19.activities.LoginActivity;
-import in.mitrev.revels19.activities.MainActivity;
 import in.mitrev.revels19.activities.ProfileActivity;
 import in.mitrev.revels19.adapters.CategoriesAdapter;
 import in.mitrev.revels19.application.Revels19;
@@ -81,8 +80,6 @@ public class CategoriesFragment extends Fragment {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-
-        ((MainActivity) getActivity()).fragmentIndex = 2;
     }
 
     @Override

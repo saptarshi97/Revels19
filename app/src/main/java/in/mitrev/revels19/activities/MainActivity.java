@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case 2:
             case 3:
                 setFragment(TAG_HOME);
+                setBottomNavSelectedItem(R.id.action_home);
                 break;
             default:
                 super.onBackPressed();
@@ -154,7 +155,56 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //        return true;
 //    }
 
+    public void setTitle() {
+        switch (fragmentIndex) {
+            case 0:
+                setTitle(R.string.app_name);
+                break;
+            case 1:
+                setTitle(R.string.bottom_nav_schedule);
+                break;
+            case 2:
+                setTitle(R.string.bottom_nav_categories);
+                break;
+            default:
+                setTitle(R.string.bottom_nav_results);
+        }
+    }
+
+    public void setFragmentIndex(String tag) {
+        switch (tag) {
+            case TAG_HOME:
+                fragmentIndex = 0;
+                break;
+            case TAG_SCHEDULE:
+                fragmentIndex = 1;
+                break;
+            case TAG_CATEGORIES:
+                fragmentIndex = 2;
+                break;
+            default:
+                fragmentIndex = 3;
+        }
+    }
+
+    public int getBottomNavId() {
+        switch (fragmentIndex) {
+            case 0:
+                return R.id.action_home;
+            case 1:
+                return R.id.action_schedule;
+            case 2:
+                return R.id.action_categories;
+            default:
+                return R.id.action_results;
+        }
+    }
+
     public boolean setFragment(String tag) {
+        setFragmentIndex(tag);
+        //TODO: set selected item in bottom nav
+        // setBottomNavSelectedItem(getBottomNavId());
+        setTitle();
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
         Log.e(TAG, "setFragment");
         if (fragment != null) {

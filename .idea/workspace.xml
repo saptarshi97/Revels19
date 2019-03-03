@@ -6,9 +6,8 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value=" E/MainActivity: setFragment" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -16,7 +15,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3c04f03-9cfa-4c5a-a251-93e3493363d7" name="Default Changelist" comment="checkpoint model change realm">
+    <list default="true" id="d3c04f03-9cfa-4c5a-a251-93e3493363d7" name="Default Changelist" comment="made the app fast. MAJOR UI CHANGES :P">
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" />
@@ -25,16 +24,36 @@
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/MainActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeAdapter.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/CategoriesFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/CategoriesFragment.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ScheduleFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ScheduleFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveModel.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/iridescent.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/iridescent.9.png" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/iridescent.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/iridescent.9.png" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/iridescent.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/iridescent.9.png" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/iridescent.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/iridescent.9.png" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/iridescent.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/iridescent.9.png" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_developers.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_developers.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_favourites.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_favourites.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/android_cardview.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/android_cardview.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/category_event.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/category_event.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/ios_cardview.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/ios_cardview.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_category.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_category.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_event.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_event.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_home_categories.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_home_categories.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_home_event.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_home_event.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_home_results.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_home_results.xml" />
-      <change beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_results.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_results.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_revels_live.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_revels_live.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -153,17 +172,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3118">
+              <caret line="101" column="33" lean-forward="false" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="fragment_home.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="295" column="0" lean-forward="true" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
-              <folding>
-                <element signature="e#15505#15518#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="304">
+              <caret line="346" column="61" lean-forward="true" selection-start-line="346" selection-start-column="61" selection-end-line="346" selection-end-column="61" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -180,7 +207,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tab</find>
       <find>setCu</find>
       <find>displayD</find>
       <find>display</find>
@@ -198,7 +224,6 @@
       <find>event_name</find>
       <find>profile</find>
       <find>androidx.cardview.widget.CardView</find>
-      <find>load</find>
       <find>get</find>
       <find>getCatId</find>
       <find>getEventName</find>
@@ -207,6 +232,11 @@
       <find>more</find>
       <find>home_fr</find>
       <find>resu</find>
+      <find>load</find>
+      <find>event</find>
+      <find>setBo</find>
+      <find>setF</find>
+      <find>imageS</find>
     </findStrings>
     <replaceStrings>
       <replace>com.google.android.material.card.MaterialCardView</replace>
@@ -2335,39 +2365,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_no_data_revelscup.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_no_data_results.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/no_data.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/background_circle.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_favourite_activity_event.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_results.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/event_dialog_info.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main_bottom.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/CategoriesFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveListModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/APIClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/InstaFeedAPIClient.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_revels_live.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/RevelsLiveAPIClient.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_favourites.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/category_event.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/android_cardview.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/ios_cardview.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_developers.xml" />
         <option value="$PROJECT_DIR$/local.properties" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/results/ResultModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ScheduleFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/CategoryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/CategoryEventsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/FavouritesActivity.java" />
@@ -2377,14 +2388,33 @@
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/EventModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/EventDetailsModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/ScheduleModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_home_results.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_home_event.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_event.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_home_categories.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_developers.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_favourites.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/category_event.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_revels_live.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_event.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_category.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/android_cardview.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/ios_cardview.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/CategoriesFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ScheduleFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_results.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/IconCollection.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
       </list>
     </option>
@@ -2436,18 +2466,32 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="revels19" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="revels19" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="adapters" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="revels19" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
@@ -2458,7 +2502,147 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="revels19" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="revels19" type="462c0819:PsiDirectoryNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="revels19" type="462c0819:PsiDirectoryNode" />
+              <item name="adapters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="revels19" type="462c0819:PsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="revels19" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="revels19" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="revels_live" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="drawable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="drawable-hdpi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="drawable-xxxhdpi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Revels19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Revels19" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
@@ -2469,17 +2653,18 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="492574a" />
-    <property name="lastFolderRoot" value="$USER_HOME$/Desktop/Logo/excelsior_logo_white.9.png" />
+    <property name="lastFolderRoot" value="$PROJECT_DIR$/app/src/main/res/drawable/iridescent.9.png" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Logo/excelsior_logo_white.9.png" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable/iridescent.9.png" />
     <property name="method" value="Automatic" />
-    <property name="resolutions" value="XHDPI&#10;MDPI&#10;HDPI&#10;XXXHDPI&#10;XXHDPI" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="resolutions" value="XXHDPI&#10;HDPI&#10;XHDPI&#10;XXXHDPI&#10;MDPI" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="sourceResolution" value="XXXHDPI" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1551495491985" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551557423677" />
     <property name="SearchEverywhereHistoryKey" value="getCatName&#9;PSI&#9;JAVA://in.mitrev.revels19.fragments.HomeFragment#getCatName" />
+    <property name="android.profiler.active" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -2487,8 +2672,8 @@
       <recent name="in.mitrev.revels19.activities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="D:\AndroidProjects\Revels19\app\src\main\res\drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="D:\AndroidProjects\Revels19\app\src\main\res\layout" />
       <recent name="D:\AndroidProjects\Revels19\app\src\main\res\menu" />
     </key>
@@ -2730,7 +2915,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551592804575</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="made the app fast. MAJOR UI CHANGES :P">
+      <created>1551599330096</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1551599330097</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2746,7 +2938,7 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7545662" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7514253" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2757,18 +2949,18 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4059293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14155251" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25883695" sideWeight="0.49785176" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android WiFi ADB" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25743708" sideWeight="0.49785176" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android WiFi ADB" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39954337" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2827,312 +3019,19 @@
     <MESSAGE value="FIX cateogories and add logos" />
     <MESSAGE value="add results in home fragment" />
     <MESSAGE value="checkpoint model change realm" />
-    <option name="LAST_COMMIT_MESSAGE" value="checkpoint model change realm" />
+    <MESSAGE value="made the app fast. MAJOR UI CHANGES :P" />
+    <option name="LAST_COMMIT_MESSAGE" value="made the app fast. MAJOR UI CHANGES :P" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/revels_text.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/revels_text.9.png" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main_bottom.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="35" column="45" lean-forward="false" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_home.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="56" lean-forward="false" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="58" column="42" lean-forward="false" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
-          <folding>
-            <element signature="e#1350#1390#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ScheduleFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="123" column="7" lean-forward="true" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="78" column="56" lean-forward="false" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="88" column="69" lean-forward="false" selection-start-line="88" selection-start-column="69" selection-end-line="88" selection-end-column="69" />
-          <folding>
-            <element signature="e#306#311#0" expanded="false" />
-            <element signature="e#379#384#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/ScheduleAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveModel.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/ScheduleModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1775">
-          <caret line="90" column="32" lean-forward="false" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/APIClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_revels_live.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveListModel.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/EventsListModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/RevelsLiveAPIClient.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_favourites.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="36" column="59" lean-forward="false" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/FavouritesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_favourite_activity_event.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/CategoryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="187" column="60" lean-forward="false" selection-start-line="187" selection-start-column="60" selection-end-line="187" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/EventModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-          <folding>
-            <element signature="e#2054#2055#0" expanded="false" />
-            <element signature="e#2080#2081#0" expanded="false" />
-            <element signature="e#2342#2343#0" expanded="false" />
-            <element signature="e#2372#2373#0" expanded="false" />
-            <marker date="1551593105331" expanded="true" signature="1161:1256" ph="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeEventsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="59" column="11" lean-forward="false" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_workshops.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/category_event.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="133" column="52" lean-forward="true" selection-start-line="133" selection-start-column="52" selection-end-line="133" selection-end-column="52" />
-          <folding>
-            <element signature="e#1360#1400#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/CategoryEventsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ios_cardview.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="76" column="58" lean-forward="false" selection-start-line="76" selection-start-column="58" selection-end-line="76" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/android_cardview.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="162" column="59" lean-forward="false" selection-start-line="162" selection-start-column="59" selection-end-line="162" selection-end-column="59" />
-          <folding>
-            <element signature="e#179#200#0" expanded="true" />
-            <element signature="e#350#371#0" expanded="true" />
-            <element signature="e#403#424#0" expanded="true" />
-            <element signature="e#454#475#0" expanded="true" />
-            <element signature="e#860#881#0" expanded="true" />
-            <element signature="e#913#937#0" expanded="true" />
-            <element signature="e#1360#1384#0" expanded="true" />
-            <element signature="e#1428#1452#0" expanded="true" />
-            <element signature="e#1494#1518#0" expanded="true" />
-            <element signature="e#1996#2017#0" expanded="true" />
-            <element signature="e#3272#3293#0" expanded="true" />
-            <element signature="e#4756#4780#0" expanded="true" />
-            <element signature="e#4952#4973#0" expanded="true" />
-            <element signature="e#5337#5358#0" expanded="true" />
-            <element signature="e#6355#6376#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_developers.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -3157,71 +3056,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="221" column="82" lean-forward="false" selection-start-line="221" selection-start-column="82" selection-end-line="221" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="161" column="40" lean-forward="false" selection-start-line="161" selection-start-column="24" selection-end-line="161" selection-end-column="40" />
-          <folding>
-            <element signature="e#7997#7998#0" expanded="false" />
-            <element signature="e#8055#8056#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_home_results.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="46" column="31" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-          <folding>
-            <element signature="e#1655#1669#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_home_event.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-          <folding>
-            <element signature="e#2578#2592#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/CategoriesFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="84" column="56" lean-forward="false" selection-start-line="84" selection-start-column="56" selection-end-line="84" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_categories.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeCategoriesAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeEventsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="59" column="11" lean-forward="false" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_workshops.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/ScheduleModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-479">
+          <caret line="90" column="32" lean-forward="false" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/ResultsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-432">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_revels_live.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="63" column="53" lean-forward="false" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
+          <folding>
+            <element signature="e#410#423#0" expanded="false" />
+            <element signature="e#456#469#0" expanded="false" />
+            <element signature="e#501#514#0" expanded="false" />
+            <element signature="e#923#937#0" expanded="false" />
+            <element signature="e#975#989#0" expanded="false" />
+            <element signature="e#1027#1041#0" expanded="false" />
+            <element signature="e#1255#1269#0" expanded="false" />
+            <element signature="e#1506#1520#0" expanded="false" />
+            <element signature="e#1951#1964#0" expanded="false" />
+            <element signature="e#2004#2017#0" expanded="false" />
+            <element signature="e#2055#2068#0" expanded="false" />
+            <element signature="e#2134#2155#0" expanded="false" />
+            <element signature="e#2454#2468#0" expanded="false" />
+            <element signature="e#2506#2520#0" expanded="false" />
+            <element signature="e#2558#2571#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_category.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+          <folding>
+            <element signature="e#1223#1236#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_results.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
@@ -3238,29 +3186,110 @@
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_category.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="30" column="52" lean-forward="false" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+          <caret line="8" column="52" lean-forward="false" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
           <folding>
-            <element signature="e#1230#1243#0" expanded="false" />
-            <element signature="e#1629#1642#0" expanded="false" />
+            <element signature="e#463#484#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeCategoriesAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+        <state relative-caret-position="450">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_developers.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-309">
+          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/android_cardview.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="227" column="29" lean-forward="true" selection-start-line="227" selection-start-column="29" selection-end-line="227" selection-end-column="29" />
+          <folding>
+            <element signature="e#6324#6345#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ios_cardview.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_favourites.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4950">
+          <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="131" column="48" lean-forward="false" selection-start-line="131" selection-start-column="48" selection-end-line="131" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_favourite_activity_event.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -3276,16 +3305,245 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_home_event.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_qualified_teams.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_revels_cup_result.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/category_event.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="796">
+          <caret line="73" column="78" lean-forward="false" selection-start-line="73" selection-start-column="78" selection-end-line="73" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/CategoriesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="82" column="9" lean-forward="false" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ScheduleFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="121" column="9" lean-forward="false" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main_bottom.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_home_results.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="46" column="31" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_results.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="51" column="54" lean-forward="false" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+          <folding>
+            <element signature="e#226#245#0" expanded="false" />
+            <element signature="e#860#873#0" expanded="false" />
+            <element signature="e#2175#2188#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/eqiq.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/crescendo.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/anubhuti.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-476">
+          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="49" column="52" lean-forward="true" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/slider2.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/slider3.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/slider4.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/dramebaaz.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/IconCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-286">
+          <caret line="52" column="27" lean-forward="false" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3118">
+          <caret line="101" column="33" lean-forward="false" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="295" column="0" lean-forward="true" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
-          <folding>
-            <element signature="e#15505#15518#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="346" column="61" lean-forward="true" selection-start-line="346" selection-start-column="61" selection-end-line="346" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>

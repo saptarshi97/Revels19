@@ -127,7 +127,9 @@
                     android:paddingTop="@dimen/_10dp"
                     android:text="@string/login_as_guest"
                     android:textSize="@dimen/typography_title"
-                    android:onClick="guestContinue"/>
+                    android:onClick="guestContinue"
+                    app:strokeColor="@color/colorPrimary"
+                    app:strokeWidth="@dimen/_1dp" />
 
             </LinearLayout>
 

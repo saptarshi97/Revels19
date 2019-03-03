@@ -18,16 +18,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
-import com.daimajia.slider.library.SliderLayout;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.synnapps.carouselview.CarouselView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -96,8 +94,19 @@ public class HomeFragment extends Fragment {
     private boolean firstLoad = true;
     private int processes = 0;
     private HomeResultsAdapter resultsAdapter;
-    private SliderLayout imageSlider;
+    //    private SliderLayout imageSlider;
     String TAG = "HomeFragment";
+    int[] images = {
+            R.drawable.slider1,
+            R.drawable.slider2,
+            R.drawable.slider3,
+            R.drawable.slider4,
+            R.drawable.slider5,
+            R.drawable.slider6,
+            R.drawable.slider7
+    };
+
+    private CarouselView carouselView;
     private Realm mDatabase;
 
     // Declare after Results fragment in made
@@ -135,7 +144,6 @@ public class HomeFragment extends Fragment {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-        ((MainActivity) getActivity()).fragmentIndex = 0;
     }
 
     @Override
@@ -154,6 +162,11 @@ public class HomeFragment extends Fragment {
         revelsLiveTextView = view.findViewById(R.id.revels_live_error_text_view);
 
         newsletterButton = view.findViewById(R.id.home_newsletter);
+
+        carouselView = view.findViewById(R.id.carouselView);
+        carouselView.setPageCount(images.length);
+
+        carouselView.setImageListener((position, imageView) -> imageView.setImageResource(images[position]));
 
         newsletterButton.setOnClickListener(v -> {
             Calendar c = Calendar.getInstance();
@@ -185,8 +198,8 @@ public class HomeFragment extends Fragment {
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
-        if (imageSlider == null)
-            imageSlider = view.findViewById(R.id.home_image_slider);
+//        if (imageSlider == null)
+//            imageSlider = view.findViewById(R.id.home_image_slider);
 //        getImageURLSfromFirebase();
 //        sliderInit();
 
@@ -198,7 +211,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //MORE Clicked - Take user to Results Fragment
-                ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_results);
                 ((MainActivity) getActivity()).setFragment(MainActivity.TAG_RESULTS);
             }
         });
@@ -218,7 +230,6 @@ public class HomeFragment extends Fragment {
         categoriesAdapter.notifyDataSetChanged();
         categoriesMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Categories Fragment
-            ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_categories);
             ((MainActivity) getActivity()).setFragment(MainActivity.TAG_CATEGORIES);
         });
         if (categoriesList.size() == 0) {
@@ -227,10 +238,10 @@ public class HomeFragment extends Fragment {
 
         //Display Events of current day
         Calendar cal = Calendar.getInstance();
-        Calendar day1 = new GregorianCalendar(2019, 1, 26);
-        Calendar day2 = new GregorianCalendar(2019, 1, 27);
-        Calendar day3 = new GregorianCalendar(2019, 1, 28);
-        Calendar day4 = new GregorianCalendar(2019, 2, 1);
+        Calendar day1 = new GregorianCalendar(2019, 2, 6);
+        Calendar day2 = new GregorianCalendar(2019, 2, 7);
+        Calendar day3 = new GregorianCalendar(2019, 2, 8);
+        Calendar day4 = new GregorianCalendar(2019, 2, 9);
         Calendar curDay = new GregorianCalendar(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
         int dayOfEvent;
@@ -276,9 +287,10 @@ public class HomeFragment extends Fragment {
             List<ScheduleModel> tempEventsList = mDatabase
                     .copyFromRealm(mDatabase.where(ScheduleModel.class).findAll());
 
+            Log.d(TAG, "onCreateView: Day of Event " + dayOfEvent);
             for (int i = 0; i < tempEventsList.size(); i++) {
                 ScheduleModel scheduleModel = tempEventsList.get(i);
-                if (scheduleModel.getDay().equals("2")) {
+                if (scheduleModel.getDay().equals(dayOfEvent + "")) {
                     eventsList.add(scheduleModel);
                 }
             }
@@ -303,7 +315,6 @@ public class HomeFragment extends Fragment {
         eventsAdapter.notifyDataSetChanged();
         eventsMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Events Fragment
-            ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_schedule);
             ((MainActivity) getActivity()).setFragment(MainActivity.TAG_SCHEDULE);
 
         });
@@ -322,20 +333,22 @@ public class HomeFragment extends Fragment {
             }
 
         });
+        displayRevelsLiveFeed();
+        fetchResults();
         return view;
     }
 
-    private void sliderInit() {   //Updating the SliderLayout with images
-        //Animation type
-        imageSlider.setPresetTransformer(SliderLayout.Transformer.Default);
-        //Setting the Transition time and Interpolator for the Animation
-        imageSlider.setSliderTransformDuration(200, new AccelerateDecelerateInterpolator());
-        imageSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-        imageSlider.setCustomAnimation(new DescriptionAnimation());
-        //Setting the time after which it moves to the next image
-        imageSlider.setDuration(400);
-        imageSlider.setVisibility(View.GONE);
-    }
+//    private void sliderInit() {   //Updating the SliderLayout with images
+//        //Animation type
+//        imageSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+//        //Setting the Transition time and Interpolator for the Animation
+//        imageSlider.setSliderTransformDuration(200, new AccelerateDecelerateInterpolator());
+//        imageSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+//        imageSlider.setCustomAnimation(new DescriptionAnimation());
+//        //Setting the time after which it moves to the next image
+//        imageSlider.setDuration(400);
+//        imageSlider.setVisibility(View.GONE);
+//    }
 
     public void displayRevelsLiveFeed() {
         if (initialLoad) progressBar.setVisibility(View.VISIBLE);

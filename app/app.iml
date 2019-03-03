@@ -141,6 +141,7 @@
     <orderEntry type="library" name="Gradle: androidx.asynclayoutinflater:asynclayoutinflater-1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.concurrent:concurrent-futures:1.0.0-alpha02@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: net.sf.kxml:kxml2:2.3.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.synnapps:carouselview-0.1.5" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector-17.0.1" level="project" />
     <orderEntry type="library" name="Gradle: androidx.activity:activity-1.0.0-alpha02" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:runner-1.1.1" level="project" />
