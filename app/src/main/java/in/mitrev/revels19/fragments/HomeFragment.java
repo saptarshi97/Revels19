@@ -146,6 +146,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: HEllo!");
         // Inflate the layout for this fragment
         final View view = initViews(inflater, container);
         v = view;
@@ -198,7 +199,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 //MORE Clicked - Take user to Results Fragment
                 ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_results);
-                ((MainActivity) getActivity()).setFragment(ResultsFragment.newInstance());
+                ((MainActivity) getActivity()).setFragment(MainActivity.TAG_RESULTS);
             }
         });
 
@@ -218,7 +219,7 @@ public class HomeFragment extends Fragment {
         categoriesMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Categories Fragment
             ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_categories);
-            ((MainActivity) getActivity()).setFragment(CategoriesFragment.newInstance());
+            ((MainActivity) getActivity()).setFragment(MainActivity.TAG_CATEGORIES);
         });
         if (categoriesList.size() == 0) {
             view.findViewById(R.id.home_categories_none_text_view).setVisibility(View.VISIBLE);
@@ -303,7 +304,7 @@ public class HomeFragment extends Fragment {
         eventsMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Events Fragment
             ((MainActivity) getActivity()).setBottomNavSelectedItem(R.id.action_schedule);
-            ((MainActivity) getActivity()).setFragment(ScheduleFragment.newInstance());
+            ((MainActivity) getActivity()).setFragment(MainActivity.TAG_SCHEDULE);
 
         });
         if (eventsList.size() == 0) {
