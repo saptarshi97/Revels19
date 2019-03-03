@@ -128,7 +128,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setTitle(R.string.revels19);
+        getActivity().setTitle(R.string.app_name);
         setHasOptionsMenu(true);
         mDatabase = Realm.getDefaultInstance();
 
@@ -351,7 +351,7 @@ public class HomeFragment extends Fragment {
 //    }
 
     public void displayRevelsLiveFeed() {
-        if (initialLoad) progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
         homeRV.setVisibility(View.GONE);
         revelsLiveTextView.setVisibility(View.GONE);
         Call<RevelsLiveListModel> call = RevelsLiveAPIClient.getInterface().getRevelsLiveFeed();
@@ -360,7 +360,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(@NonNull Call<RevelsLiveListModel> call,
                                    @NonNull Response<RevelsLiveListModel> response) {
-                if (initialLoad) progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     feed = response.body();
                     instaAdapter = new HomeAdapter(feed);

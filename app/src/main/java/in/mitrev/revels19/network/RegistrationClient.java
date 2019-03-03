@@ -6,13 +6,14 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import in.mitrev.revels19.models.registrations.LoginResponse;
+import in.mitrev.revels19.models.registration.LoginResponse;
+import in.mitrev.revels19.models.registration.ProfileResponse;
+import in.mitrev.revels19.models.registration.RegisteredEventListModel;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
@@ -29,8 +30,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
@@ -89,6 +88,13 @@ public class RegistrationClient {
         @POST("login")
         Call<LoginResponse> attemptLogin(@Body RequestBody body);
 
+        @Headers({"Content-Type: application/x-www-form-urlencoded"})
+        @GET("userProfile")
+        Call<ProfileResponse> getProfileDetails(@Header("Cookie") String cookie);
+
+        @Headers({"Content-Type: application/x-www-form-urlencoded"})
+        @GET("registeredEvents")
+        Call<RegisteredEventListModel> getRegisteredEvents(@Header("Cookie") String cookie);
 
         /*@GET("get_details.php")
         Call<ProfileResponse> getProfileDetails(@Header("Cookie")String cookie);
