@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             default:
                 super.onBackPressed();
+                finish();
         }
     }
 

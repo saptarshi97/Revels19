@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         if (sp.getBoolean("loggedIn", false)) {
             Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
             startActivity(intent);
+            finish();
         } else {
             contentLayout.setVisibility(View.VISIBLE);
         }
