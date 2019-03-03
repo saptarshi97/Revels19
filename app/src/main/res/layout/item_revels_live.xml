@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginBottom="@dimen/_8dp"
+    android:layout_marginLeft="@dimen/_8dp"
+    android:layout_marginRight="@dimen/_8dp"
     app:cardBackgroundColor="@color/white">
 
     <LinearLayout
@@ -19,25 +19,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="3dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/padding_half"
-            android:paddingTop="@dimen/padding_half"
-            android:paddingRight="@dimen/padding_half"
-            android:paddingBottom="@dimen/padding_half">
+            android:layout_marginEnd="@dimen/_16dp"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_16dp">
 
             <TextView
                 android:id="@+id/author_text_view"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/padding_half"
-                android:layout_marginLeft="@dimen/padding_half"
-                android:textColor="@color/insta_text_grey"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:textSize="@dimen/_12sp"
                 tools:text="username" />
+
+            <TextView
+                android:id="@+id/timestamp_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/_12sp"
+                tools:text="username Description" />
 
         </LinearLayout>
 
@@ -46,35 +46,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:layout_marginStart="@dimen/_8dp"
+            android:layout_marginTop="@dimen/_8dp"
             android:clickable="true"
             android:padding="@dimen/padding_half"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             tools:src="@drawable/excelsior_logo_white" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/_16dp"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_8dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/content_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/padding_half"
-                android:textColor="@color/insta_text_grey"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 tools:text="username Description" />
 
-            <TextView
-                android:id="@+id/timestamp_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/padding_half"
-                android:textColor="@color/insta_text_grey"
-                android:textSize="14sp"
-                tools:text="username Description" />
 
         </LinearLayout>
+
+
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -34,7 +34,7 @@
         <item>Other College</item>
     </string-array>
 
-    <string name="app_name">Revels19</string>
+    <string name="app_name">Revels\' 19</string>
     <string name="home">Home</string>
     <string name="bottom_nav_schedule">Schedule</string>
     <string name="bottom_nav_categories">Categories</string>
@@ -85,8 +85,8 @@
     <string name="categories">Categories</string>
     <string name="no_categories">No Categories Available</string>
     <string name="results">Results</string>
-    <string name="home_revels_live_title">Revels Live</string>
-    <string name="unable_to_load_revels_live">Unable to load Revels Live feed. Swipe down to retry!</string>
+    <string name="home_revels_live_title">Liveblog by The MIT Post</string>
+    <string name="unable_to_load_revels_live">Stay tuned for live coverage. Swipe down to refresh!</string>
     <string name="no_connection">No connection</string>
     <string name="no_results">No Results available!</string>
     <string name="email2">Email</string>
