@@ -76,8 +76,6 @@ public class IconCollection {
                 return radioactive;
             case "wordsworth":
                 return wordsworth;
-//            case "sports": return R.mipmap.ic_launcher;
-
 
             default: {
                 Log.i(TAG, catName);

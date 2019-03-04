@@ -42,8 +42,6 @@ import io.realm.RealmResults;
 
 public class CategoriesFragment extends Fragment {
 
-    private static final int LOAD_CATEGORIES = 0;
-    private static final int UPDATE_CATEGORIES = 1;
     private List<CategoryModel> categoriesList = new ArrayList<>();
     AppBarLayout appBarLayout;
     private Realm mDatabase;
@@ -92,9 +90,6 @@ public class CategoriesFragment extends Fragment {
         categoriesRecyclerView.setAdapter(adapter);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 4);
         categoriesRecyclerView.setLayoutManager(gridLayoutManager);
-        //categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(categoriesRecyclerView.getContext(),DividerItemDecoration.VERTICAL);
-        //categoriesRecyclerView.addItemDecoration(dividerItemDecoration);
 
         if (mDatabase.where(CategoryModel.class).findAll().size() != 0) {
             displayData();
@@ -137,10 +132,7 @@ public class CategoriesFragment extends Fragment {
     }
 
     private void displaySearchData(String text) {
-        /*if(text.equals("Memelord")){
-            Intent intent = new Intent(getContext(),EasterEggActivity.class);
-            startActivity(intent);
-        }*/
+
         text = text.toLowerCase();
         if (mDatabase != null) {
             RealmResults<CategoryModel> categoryResults = mDatabase.where(CategoryModel.class)

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -24,6 +25,8 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -38,6 +41,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
@@ -80,7 +84,6 @@ public class HomeFragment extends Fragment {
     SwipeRefreshLayout swipeRefreshLayout;
     private HomeAdapter instaAdapter;
     View v;
-    private List<EventResultModel> resultsList = new ArrayList<>();
     private HomeCategoriesAdapter categoriesAdapter;
     private HomeEventsAdapter eventsAdapter;
     private RecyclerView homeRV;
@@ -98,10 +101,9 @@ public class HomeFragment extends Fragment {
     private AppBarLayout appBarLayout;
     private TextView revelsLiveTextView;
     private boolean initialLoad = true;
-    private boolean firstLoad = true;
     private int processes = 0;
     private HomeResultsAdapter resultsAdapter;
-    //    private SliderLayout imageSlider;
+    private Toolbar toolBar;
     String TAG = "HomeFragment";
     int[] images = {
             R.drawable.slider1,
@@ -116,12 +118,10 @@ public class HomeFragment extends Fragment {
     private CarouselView carouselView;
     private Realm mDatabase;
 
-    // Declare after Results fragment in made
-    //private List<EventResultModel> resultsList = new ArrayList<>();
 
+    private List<EventResultModel> resultsList = new ArrayList<>();
     private List<CategoryModel> categoriesList = new ArrayList<>();
     private List<ScheduleModel> eventsList = new ArrayList<>();
-    // private FirebaseRemoteConfig firebaseRemoteConfig;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -167,6 +167,7 @@ public class HomeFragment extends Fragment {
         v = view;
         progressBar = view.findViewById(R.id.revels_live_progress);
         revelsLiveTextView = view.findViewById(R.id.revels_live_error_text_view);
+        toolBar = view.findViewById(R.id.toolbar);
 
         newsletterButton = view.findViewById(R.id.home_newsletter);
 
@@ -205,21 +206,13 @@ public class HomeFragment extends Fragment {
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
-//        if (imageSlider == null)
-//            imageSlider = view.findViewById(R.id.home_image_slider);
-//        getImageURLSfromFirebase();
-//        sliderInit();
-
         resultsAdapter = new HomeResultsAdapter(resultsList, getActivity());
         resultsRV.setAdapter(resultsAdapter);
         resultsRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         updateResultsList();
-        resultsMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //MORE Clicked - Take user to Results Fragment
-                ((MainActivity) getActivity()).setFragment(MainActivity.TAG_RESULTS);
-            }
+        resultsMore.setOnClickListener(v -> {
+            //MORE Clicked - Take user to Results Fragment
+            ((MainActivity) getActivity()).setFragment(MainActivity.TAG_RESULTS);
         });
 
         //Display Categories
@@ -253,9 +246,6 @@ public class HomeFragment extends Fragment {
 
         int dayOfEvent;
 
-        /*if(curDay.getTimeInMillis() < day1.getTimeInMillis()){
-            dayOfEvent =0;
-        }else */
         if (curDay.getTimeInMillis() < day2.getTimeInMillis()) {
             dayOfEvent = 1;
         } else if (curDay.getTimeInMillis() < day3.getTimeInMillis()) {
@@ -265,9 +255,6 @@ public class HomeFragment extends Fragment {
         } else {
             dayOfEvent = 4;
         }
-
-        String sortCriteria[] = {"day", "startTime", "eventName"};
-        Sort sortOrder[] = {Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING};
 
         //PreRevels events
         if (dayOfEvent == 0) {
@@ -319,7 +306,8 @@ public class HomeFragment extends Fragment {
 
         eventsAdapter = new HomeEventsAdapter(eventsList, null, getActivity());
         eventsRV.setAdapter(eventsAdapter);
-        eventsRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        eventsRV.setLayoutManager(linearLayoutManager);
         eventsAdapter.notifyDataSetChanged();
         eventsMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Events Fragment
@@ -343,64 +331,78 @@ public class HomeFragment extends Fragment {
         });
         displayRevelsLiveFeed();
         fetchResults();
-        return view;
-    }
-
-//    private void sliderInit() {   //Updating the SliderLayout with images
-//        //Animation type
-//        imageSlider.setPresetTransformer(SliderLayout.Transformer.Default);
-//        //Setting the Transition time and Interpolator for the Animation
-//        imageSlider.setSliderTransformDuration(200, new AccelerateDecelerateInterpolator());
-//        imageSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-//        imageSlider.setCustomAnimation(new DescriptionAnimation());
-//        //Setting the time after which it moves to the next image
-//        imageSlider.setDuration(400);
-//        imageSlider.setVisibility(View.GONE);
-//    }
-
-    private void registerForEvent(String eventID) {
-        Log.d(TAG, "registerForEvent: called");
-        final ProgressDialog dialog = new ProgressDialog(getContext());
-        dialog.setMessage("Trying to register you for event... please wait!");
-        dialog.setCancelable(false);
-        dialog.show();
-        RequestBody body = RequestBody.create(MediaType.parse("text/plain"), "eventid=" + eventID);
-        Call<CreateLeaveTeamResponse> call = RegistrationClient.getRegistrationInterface(getContext())
-                .createTeamResponse(RegistrationClient.generateCookie(getContext()), Integer.parseInt(eventID));
-        call.enqueue(new Callback<CreateLeaveTeamResponse>() {
-            @Override
-            public void onResponse(Call<CreateLeaveTeamResponse> call, Response<CreateLeaveTeamResponse> response) {
-                dialog.cancel();
-                if (response != null && response.body() != null) {
-                    try {
-                        showAlert(response.body().getMsg());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    showAlert("Error! Please try again.");
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        if (!sp.getBoolean("subsequentRuns", false)) {
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
+            editor.putBoolean("subsequentRuns", true);
+            editor.apply();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    TapTargetView.showFor(getActivity(),                 // `this` is an Activity
+                            TapTarget.forView(linearLayoutManager.findViewByPosition(0), "This is a Home Event", "Long press on this, or on the Events in schedule or Categories to register to it.")
+                                    // All options below are optional
+                                    .outerCircleColor(R.color.colorPrimary)      // Specify a color for the outer circle
+                                    .outerCircleAlpha(0.96f)            // Specify the alpha amount for the outer circle
+                                    .targetCircleColor(R.color.white)   // Specify a color for the target circle
+                                    .titleTextSize(20)                  // Specify the size (in sp) of the title text
+                                    .titleTextColor(R.color.white)      // Specify the color of the title text
+                                    .descriptionTextSize(15)            // Specify the size (in sp) of the description text
+                                    .descriptionTextColor(R.color.white)  // Specify the color of the description text
+                                    .textColor(R.color.white)            // Specify a color for both the title and description text
+                                    .textTypeface(Typeface.SANS_SERIF)  // Specify a typeface for the text
+                                    .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
+                                    .drawShadow(true)                   // Whether to draw a drop shadow or not
+                                    .cancelable(false)                  // Whether tapping outside the outer circle dismisses the view
+                                    .tintTarget(true)                   // Whether to tint the target view's color
+                                    .transparentTarget(true)           // Specify whether the target is transparent (displays the content underneath)
+                                    .targetRadius(60),                  // Specify the target radius (in dp)
+                            new TapTargetView.Listener() {          // The listener can listen for regular clicks, long clicks or cancels
+                                //(android.widget.Toolbar) ((MainActivity)getActivity()).findViewById(R.id.toolbar))
+                                @Override
+                                public void onTargetClick(TapTargetView view) {
+                                    super.onTargetClick(view);      // This call is optional
+                                    TapTargetView.showFor(getActivity(),                 // `this` is an Activity
+                                            TapTarget.forToolbarMenuItem((Toolbar) getActivity().findViewById(R.id.toolbar) ,
+                                                    R.id.action_profile, "This takes you to your Profile",
+                                                    "You can add events you've registered for, add team members or leave a team")
+                                    // All options below are optional
+                                                    .outerCircleColor(R.color.colorPrimary)      // Specify a color for the outer circle
+                                            .outerCircleAlpha(0.96f)            // Specify the alpha amount for the outer circle
+                                            .targetCircleColor(R.color.white)   // Specify a color for the target circle
+                                            .titleTextSize(20)                  // Specify the size (in sp) of the title text
+                                            .titleTextColor(R.color.white)      // Specify the color of the title text
+                                            .descriptionTextSize(15)            // Specify the size (in sp) of the description text
+                                            .descriptionTextColor(R.color.white)  // Specify the color of the description text
+                                            .textColor(R.color.white)            // Specify a color for both the title and description text
+                                            .textTypeface(Typeface.SANS_SERIF)  // Specify a typeface for the text
+                                            .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
+                                            .drawShadow(true)                   // Whether to draw a drop shadow or not
+                                            .cancelable(false)                  // Whether tapping outside the outer circle dismisses the view
+                                            .tintTarget(true)                   // Whether to tint the target view's color
+                                            .transparentTarget(true)           // Specify whether the target is transparent (displays the content underneath)
+                                            .targetRadius(35),                  // Specify the target radius (in dp)
+                                            new TapTargetView.Listener() {          // The listener can listen for regular clicks, long clicks or cancels
+                                                @Override
+                                                public void onTargetClick(TapTargetView view) {
+                                                    super.onTargetClick(view);      // This call is optional
+                                                    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                                                    if (sp.getBoolean("loggedIn", false))
+                                                        startActivity(new Intent(getActivity(), ProfileActivity.class));
+                                                    else {
+                                                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                        startActivity(intent);
+                                                    }
+                                                }
+                                            });
+                                }
+                            });
                 }
-            }
+            }, 1250);
+        }
 
-            @Override
-            public void onFailure(Call<CreateLeaveTeamResponse> call, Throwable t) {
-                dialog.cancel();
-                showAlert("Error connecting to server! Please try again.");
-            }
-        });
-    }
-
-    public void showAlert(String message) {
-        new AlertDialog.Builder(getActivity())
-                .setTitle("Alert")
-                .setIcon(R.drawable.ic_info)
-                .setMessage(message)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                }).show();
+        return view;
     }
 
     public void displayRevelsLiveFeed() {
@@ -573,10 +575,10 @@ public class HomeFragment extends Fragment {
 
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         builder.setToolbarColor(ContextCompat.getColor(context, R.color.mitpost));
-// set toolbar color and/or setting custom actions before invoking build()
-// Once ready, call CustomTabsIntent.Builder.build() to create a CustomTabsIntent
+        // set toolbar color and/or setting custom actions before invoking build()
+        // Once ready, call CustomTabsIntent.Builder.build() to create a CustomTabsIntent
         CustomTabsIntent customTabsIntent = builder.build();
-// and launch the desired Url with CustomTabsIntent.launchUrl()
+        // and launch the desired Url with CustomTabsIntent.launchUrl()
         customTabsIntent.launchUrl(context, Uri.parse(url));
     }
 

@@ -72,30 +72,24 @@ public class LoginActivity extends AppCompatActivity {
             }
             SafetyNet.getClient(this).verifyWithRecaptcha(CAPTCHA_KEY)
                     .addOnSuccessListener( this,
-                            new OnSuccessListener<SafetyNetApi.RecaptchaTokenResponse>() {
-                                @Override
-                                public void onSuccess(SafetyNetApi.RecaptchaTokenResponse response) {
-                                    // Indicates communication with reCAPTCHA service was successful.
-                                    String userResponseToken=response.getTokenResult();
-                                    Log.d("Login Activity", "onSuccess: uRT"+userResponseToken);
-                                    if (!userResponseToken.isEmpty()) {
-                                        // Validate the user response token using the
-                                        // reCAPTCHA siteverify API.
-                                        performLogin(userResponseToken);
-                                    }
+                            response -> {
+                                // Indicates communication with reCAPTCHA service was successful.
+                                String userResponseToken=response.getTokenResult();
+                                Log.d("Login Activity", "onSuccess: uRT"+userResponseToken);
+                                if (!userResponseToken.isEmpty()) {
+                                    // Validate the user response token using the
+                                    // reCAPTCHA siteverify API.
+                                    performLogin(userResponseToken);
                                 }
                             })
-                    .addOnFailureListener( this, new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            if (e instanceof ApiException) {
-                                ApiException apiException = (ApiException) e;
-                                int statusCode = apiException.getStatusCode();
-                                Log.d("reCaptcha", "GCError: StatusCode " + statusCode);
-                            } else {
-                                // A unknown type of error occurred.
-                                Log.d("reCaptcha", "GCError: " + e.getMessage());
-                            }
+                    .addOnFailureListener( this, e -> {
+                        if (e instanceof ApiException) {
+                            ApiException apiException = (ApiException) e;
+                            int statusCode = apiException.getStatusCode();
+                            Log.d("reCaptcha", "GCError: StatusCode " + statusCode);
+                        } else {
+                            // A unknown type of error occurred.
+                            Log.d("reCaptcha", "GCError: " + e.getMessage());
                         }
                     });
         }

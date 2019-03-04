@@ -101,8 +101,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return setFragment(TAG_SCHEDULE);
             case R.id.action_categories:
                 return setFragment(TAG_CATEGORIES);
-//            case R.id.action_revels_cup:
-//                return setFragment(new RevelsCupFragment());
             case R.id.action_results:
                 return setFragment(TAG_RESULTS);
         }
@@ -256,12 +254,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-//            case R.id.menu_workshops:
-//                startActivity(new Intent(MainActivity.this, WorkshopsActivity.class));
-//                return true;
-//            case R.id.menu_proshow_portal:
-//                //Launch custom chrome tab
-//                return true;
             case R.id.menu_about_us:
                 startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
                 return true;
@@ -284,26 +276,29 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     private void loadEventsFromInternet() {
-
-        Call<EventsListModel> eventsCall = APIClient.getAPIInterface().getEventsList();
-        eventsCall.enqueue(new Callback<EventsListModel>() {
-            @Override
-            public void onResponse(Call<EventsListModel> call, Response<EventsListModel> response) {
-                if (response.isSuccessful() && response.body() != null && mDatabase != null) {
-                    Log.d(TAG, "onResponse: Loading events....");
-                    mDatabase.beginTransaction();
-                    mDatabase.where(EventDetailsModel.class).findAll().deleteAllFromRealm();
-                    mDatabase.copyToRealm(response.body().getEvents());
-                    mDatabase.commitTransaction();
-                    Log.d(TAG, "Events updated in background");
+        try {
+            Call<EventsListModel> eventsCall = APIClient.getAPIInterface().getEventsList();
+            eventsCall.enqueue(new Callback<EventsListModel>() {
+                @Override
+                public void onResponse(Call<EventsListModel> call, Response<EventsListModel> response) {
+                    if (response.isSuccessful() && response.body() != null && mDatabase != null) {
+                        Log.d(TAG, "onResponse: Loading events....");
+                        mDatabase.beginTransaction();
+                        mDatabase.where(EventDetailsModel.class).findAll().deleteAllFromRealm();
+                        mDatabase.copyToRealm(response.body().getEvents());
+                        mDatabase.commitTransaction();
+                        Log.d(TAG, "Events updated in background");
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<EventsListModel> call, Throwable t) {
-                Log.d(TAG, "onFailure: Events not updated ");
-            }
-        });
+                @Override
+                public void onFailure(Call<EventsListModel> call, Throwable t) {
+                    Log.d(TAG, "onFailure: Events not updated ");
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void loadCategoriesFromInternet() {
@@ -332,48 +327,56 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     private void loadSchedulesFromInternet() {
-        Call<ScheduleListModel> schedulesCall = APIClient.getAPIInterface().getScheduleList();
-        schedulesCall.enqueue(new Callback<ScheduleListModel>() {
-            @Override
-            public void onResponse(Call<ScheduleListModel> call, Response<ScheduleListModel> response) {
-                if (response.isSuccessful() && response.body() != null && mDatabase != null) {
-                    mDatabase.beginTransaction();
-                    mDatabase.where(ScheduleModel.class).findAll().deleteAllFromRealm();
-                    mDatabase.copyToRealm(response.body().getData());
-                    mDatabase.commitTransaction();
-                    Log.d(TAG, "Schedule updated in background");
+        try {
+            Call<ScheduleListModel> schedulesCall = APIClient.getAPIInterface().getScheduleList();
+            schedulesCall.enqueue(new Callback<ScheduleListModel>() {
+                @Override
+                public void onResponse(Call<ScheduleListModel> call, Response<ScheduleListModel> response) {
+                    if (response.isSuccessful() && response.body() != null && mDatabase != null) {
+                        mDatabase.beginTransaction();
+                        mDatabase.where(ScheduleModel.class).findAll().deleteAllFromRealm();
+                        mDatabase.copyToRealm(response.body().getData());
+                        mDatabase.commitTransaction();
+                        Log.d(TAG, "Schedule updated in background");
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<ScheduleListModel> call, Throwable t) {
-                Log.d(TAG, "onFailure: Schedules not updated ");
-            }
-        });
+                @Override
+                public void onFailure(Call<ScheduleListModel> call, Throwable t) {
+                    Log.d(TAG, "onFailure: Schedules not updated ");
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void loadResultsFromInternet() {
-        Call<ResultsListModel> resultsCall = APIClient.getAPIInterface().getResultsList();
-        resultsCall.enqueue(new Callback<ResultsListModel>() {
-            List<ResultModel> results = new ArrayList<ResultModel>();
+        try {
+            Call<ResultsListModel> resultsCall = APIClient.getAPIInterface().getResultsList();
+            resultsCall.enqueue(new Callback<ResultsListModel>() {
+                List<ResultModel> results = new ArrayList<ResultModel>();
 
-            @Override
-            public void onResponse(@NonNull Call<ResultsListModel> call,
-                                   @NonNull Response<ResultsListModel> response) {
-                if (response.isSuccessful() && response.body() != null && mDatabase != null) {
-                    results = response.body().getData();
-                    mDatabase.beginTransaction();
-                    mDatabase.where(ResultModel.class).findAll().deleteAllFromRealm();
-                    mDatabase.copyToRealm(results);
-                    mDatabase.commitTransaction();
-                    Log.d(TAG, "Results updated in the background" + results.size());
+                @Override
+                public void onResponse(@NonNull Call<ResultsListModel> call,
+                                       @NonNull Response<ResultsListModel> response) {
+                    if (response.isSuccessful() && response.body() != null && mDatabase != null) {
+                        results = response.body().getData();
+                        mDatabase.beginTransaction();
+                        mDatabase.where(ResultModel.class).findAll().deleteAllFromRealm();
+                        mDatabase.copyToRealm(results);
+                        mDatabase.commitTransaction();
+                        Log.d(TAG, "Results updated in the background" + results.size());
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(@NonNull Call<ResultsListModel> call, @NonNull Throwable t) {
-                Log.d(TAG, "onFailure: Results not updated");
-            }
-        });
+                @Override
+                public void onFailure(@NonNull Call<ResultsListModel> call, @NonNull Throwable t) {
+                    Log.d(TAG, "onFailure: Results not updated");
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

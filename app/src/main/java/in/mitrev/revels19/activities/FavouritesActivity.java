@@ -46,6 +46,7 @@ public class FavouritesActivity extends AppCompatActivity {
     private List<FavouritesModel> favouritesDay2 = new ArrayList<>();
     private List<FavouritesModel> favouritesDay3 = new ArrayList<>();
     private List<FavouritesModel> favouritesDay4 = new ArrayList<>();
+    private List<FavouritesModel> favouritesPreRevels = new ArrayList<>();
     private TextView noEventsDay1;
     private TextView noEventsDay2;
     private TextView noEventsDay3;
@@ -58,6 +59,7 @@ public class FavouritesActivity extends AppCompatActivity {
     private FavouritesEventsAdapter adapterDay2;
     private FavouritesEventsAdapter adapterDay3;
     private FavouritesEventsAdapter adapterDay4;
+    private FavouritesEventsAdapter adapterPreRevels;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,7 @@ public class FavouritesActivity extends AppCompatActivity {
         favouritesDay2 = realm.copyFromRealm(realm.where(FavouritesModel.class).equalTo("day", "2").equalTo("isRevels", "1").findAll());
         favouritesDay3 = realm.copyFromRealm(realm.where(FavouritesModel.class).equalTo("day", "3").equalTo("isRevels", "1").findAll());
         favouritesDay4 = realm.copyFromRealm(realm.where(FavouritesModel.class).equalTo("day", "4").equalTo("isRevels", "1").findAll());
+        favouritesPreRevels = realm.copyFromRealm(realm.where(FavouritesModel.class).equalTo("isRevels", "0").findAll());
         displayEvents();
         eventsClearDay1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +115,7 @@ public class FavouritesActivity extends AppCompatActivity {
                 clearFavouriteCard(4);
             }
         });
+
     }
 
 
@@ -136,14 +140,17 @@ public class FavouritesActivity extends AppCompatActivity {
                                 int favSize2 = favouritesDay2.size();
                                 int favSize3 = favouritesDay3.size();
                                 int favSize4 = favouritesDay4.size();
+                                int favSizePreRevels = favouritesPreRevels.size();
                                 removeNotifications(favouritesDay1);
                                 removeNotifications(favouritesDay2);
                                 removeNotifications(favouritesDay3);
                                 removeNotifications(favouritesDay4);
+                                removeNotifications(favouritesPreRevels);
                                 favouritesDay1.clear();
                                 favouritesDay2.clear();
                                 favouritesDay3.clear();
                                 favouritesDay4.clear();
+                                favouritesPreRevels.clear();
                                 if (adapterDay1 != null) {
                                     adapterDay1.notifyItemRangeRemoved(0, favSize1);
                                 }
@@ -155,6 +162,9 @@ public class FavouritesActivity extends AppCompatActivity {
                                 }
                                 if (adapterDay4 != null) {
                                     adapterDay4.notifyItemRangeRemoved(0, favSize4);
+                                }
+                                if (adapterPreRevels != null) {
+                                    adapterPreRevels.notifyItemRangeRemoved(0, favSizePreRevels);
                                 }
                                 displayEvents();
                                 updateRealm();
@@ -265,7 +275,7 @@ public class FavouritesActivity extends AppCompatActivity {
         TabbedDialog td = new TabbedDialog();
         final String eventID = event.getId();
         final EventDetailsModel schedule = realm.where(EventDetailsModel.class).equalTo("eventID", eventID).findFirst();
-        final ScheduleModel eventSchedule = realm.where(ScheduleModel.class).equalTo("eventID", eventID).equalTo("day", event.getDay()).findFirst();
+        final ScheduleModel eventSchedule = realm.where(ScheduleModel.class).equalTo("eventId", eventID).equalTo("day", event.getDay()).findFirst();
         TabbedDialog.EventFragment.DialogFavouriteClickListener fcl = new TabbedDialog.EventFragment.DialogFavouriteClickListener() {
             @Override
             public void onItemClick(boolean add) {
@@ -321,6 +331,13 @@ public class FavouritesActivity extends AppCompatActivity {
         realm.where(FavouritesModel.class).equalTo("id", event.getId()).equalTo("day", event.getDay()).equalTo("round", event.getRound()).findAll().deleteAllFromRealm();
         realm.commitTransaction();
         removeNotification(event);
+        if (event.getIsRevels().contains("0")) {
+            favouritesPreRevels.remove(event);
+            if (adapterPreRevels != null) {
+                adapterPreRevels.notifyDataSetChanged();
+            }
+            return;
+        }
         int day = getDay(event);
         switch (day) {
             case 1:
@@ -382,6 +399,7 @@ public class FavouritesActivity extends AppCompatActivity {
         realm.copyToRealm(favouritesDay2);
         realm.copyToRealm(favouritesDay3);
         realm.copyToRealm(favouritesDay4);
+        realm.copyToRealm(favouritesPreRevels);
         realm.commitTransaction();
     }
 
@@ -423,8 +441,18 @@ public class FavouritesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (id) {
+                            case 0:
+                                int favSize = favouritesPreRevels.size();
+                                removeNotifications(favouritesPreRevels);
+                                favouritesPreRevels.clear();
+                                if (adapterPreRevels != null) {
+                                    adapterPreRevels.notifyItemRangeRemoved(0, favSize);
+                                }
+                                displayEvents();
+                                updateRealm();
+                                break;
                             case 1:
-                                int favSize = favouritesDay1.size();
+                                favSize = favouritesDay1.size();
                                 removeNotifications(favouritesDay1);
                                 favouritesDay1.clear();
                                 if (adapterDay1 != null) {
