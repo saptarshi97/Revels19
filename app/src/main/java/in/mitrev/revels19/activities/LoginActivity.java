@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
     private void launchCCT(String url, Context context) {
 
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-        builder.setToolbarColor(ContextCompat.getColor(context, R.color.mitpost));
+        builder.setToolbarColor(ContextCompat.getColor(context, R.color.colorPrimary));
         CustomTabsIntent customTabsIntent = builder.build();
         customTabsIntent.launchUrl(context, Uri.parse(url));
     }
