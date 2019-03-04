@@ -275,19 +275,27 @@ public class FavouritesActivity extends AppCompatActivity {
         TabbedDialog td = new TabbedDialog();
         final String eventID = event.getId();
         final EventDetailsModel schedule = realm.where(EventDetailsModel.class).equalTo("eventID", eventID).findFirst();
-        final ScheduleModel eventSchedule = realm.where(ScheduleModel.class).equalTo("eventId", eventID).equalTo("day", event.getDay()).findFirst();
-        TabbedDialog.EventFragment.DialogFavouriteClickListener fcl = new TabbedDialog.EventFragment.DialogFavouriteClickListener() {
-            @Override
-            public void onItemClick(boolean add) {
-                //TODO: App crashes when snackbar is displayed(Currently commented out).Fix crash
+        final List<ScheduleModel> eventSchedules = realm.where(ScheduleModel.class)
+                .equalTo("eventId", eventID)
+                .findAll();
+        ScheduleModel eventSchedule = null;
+        for(int i = 0; i < eventSchedules.size(); i++) {
+            if(eventSchedules.get(i).getDay().equals(event.getDay()))
+                eventSchedule = eventSchedules.get(i);
+        }
+        Log.d(TAG, "displayBottomSheet: eventID " + eventID);
+        Log.d(TAG, "displayBottomSheet: schedule " + schedule);
+        Log.d(TAG, "displayBottomSheet: eventSchedule " + eventSchedule);
+        Log.d(TAG, "displayBottomSheet: day " + event.getDay());
+        TabbedDialog.EventFragment.DialogFavouriteClickListener fcl = add -> {
+            //TODO: App crashes when snackbar is displayed(Currently commented out).Fix crash
 
-                if (add) {
-                    addFavourite(event);
-                    //Snackbar.make(view, event.getEventName()+" Added to Favourites", Snackbar.LENGTH_LONG).show();
-                } else {
-                    removeFavourite(event);
-                    //Snackbar.make(view, event.getEventName()+" removed from Favourites", Snackbar.LENGTH_LONG).show();
-                }
+            if (add) {
+                addFavourite(event);
+                //Snackbar.make(view, event.getEventName()+" Added to Favourites", Snackbar.LENGTH_LONG).show();
+            } else {
+                removeFavourite(event);
+                //Snackbar.make(view, event.getEventName()+" removed from Favourites", Snackbar.LENGTH_LONG).show();
             }
         };
         td.setValues(eventSchedule, fcl, isFavourite(event), schedule);

@@ -1,6 +1,7 @@
 package in.mitrev.revels19.views;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -181,6 +182,7 @@ public class TabbedDialog extends DialogFragment {
 
             TextView eventRound = view.findViewById(R.id.event_round);
             eventRound.setText(event.getRound());
+//            Log.d("TabbedDialog", "initViews: round " + event.getRound());
 
             TextView eventDate = view.findViewById(R.id.event_date);
             eventDate.setText(event.getDate());
