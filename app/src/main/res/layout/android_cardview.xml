@@ -59,7 +59,8 @@
                     android:layout_width="80dp"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content"
-                    android:text="Saptarshi Roy Choudhuri"
+                    android:text="Saptarshi"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -68,6 +69,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="Head"
+                    android:layout_marginBottom="@dimen/_16dp"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp" />
 
@@ -92,18 +94,18 @@
                 android:id="@+id/textViewAndroid"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Ritvik Joshi"
+                android:text="Ritvik"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/textViewPositionAndroid"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="15dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:text="Head"
+                android:layout_marginBottom="@dimen/_16dp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
@@ -121,7 +123,7 @@
             android:paddingBottom="@dimen/padding_quarter">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/padding_half"
                 android:layout_weight="1"
@@ -140,7 +142,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="Ankush S S"
+                    android:text="Ankush"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -155,24 +157,23 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/padding_half"
-
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="54dp"
                     android:layout_height="54dp"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginBottom="@dimen/padding_half"
                     android:src="@drawable/vaishnavi220" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vaishnavi Janardhan"
+                    android:text="Vaishnavi"
                     android:layout_marginLeft="2dp"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
@@ -181,7 +182,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:layout_marginLeft="10dp"
                     android:text="Developer"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp" />
@@ -189,7 +189,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/padding_half"
                 android:layout_weight="1"
@@ -206,7 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="Akshit Saxena"
+                    android:text="Akshit"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 

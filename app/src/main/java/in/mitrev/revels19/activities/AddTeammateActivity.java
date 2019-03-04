@@ -1,18 +1,6 @@
 package in.mitrev.revels19.activities;
 
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import in.mitrev.revels19.R;
-import in.mitrev.revels19.models.registration.CreateLeaveTeamResponse;
-import in.mitrev.revels19.network.RegistrationClient;
-import me.dm7.barcodescanner.zxing.ZXingScannerView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -25,10 +13,22 @@ import android.view.MenuItem;
 
 import com.google.zxing.Result;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import in.mitrev.revels19.R;
+import in.mitrev.revels19.models.registration.CreateLeaveTeamResponse;
+import in.mitrev.revels19.network.RegistrationClient;
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class AddTeammateActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     private static final int REQUEST_CAMERA = 316;
     private ZXingScannerView scannerView;
-    private String eventID;
+    private int eventID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +38,12 @@ public class AddTeammateActivity extends AppCompatActivity implements ZXingScann
 
         Intent intent=getIntent();
         //Check event id type, its supposed to be int
-        eventID=intent.getStringExtra("eventID");
+        eventID = intent.getIntExtra("eventID", 0);
+
 
         if (getSupportActionBar() != null) getSupportActionBar().setSubtitle(R.string.scan_qr_code_2);
 
-        scannerView = (ZXingScannerView)findViewById(R.id.event_scanner);
+        scannerView = findViewById(R.id.event_scanner);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA);
@@ -97,7 +98,7 @@ public class AddTeammateActivity extends AppCompatActivity implements ZXingScann
     }
     public void showAlert(String message) {
         new AlertDialog.Builder(AddTeammateActivity.this)
-                .setTitle("Information")
+                .setTitle("Alert")
                 .setIcon(R.drawable.ic_info)
                 .setMessage(message)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

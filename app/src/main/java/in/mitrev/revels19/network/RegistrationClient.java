@@ -109,13 +109,13 @@ public class RegistrationClient {
         @FormUrlEncoded
         @Headers({"Content-Type: application/x-www-form-urlencoded"})
         @POST("createteam")
-        Call<CreateLeaveTeamResponse>createTeamResponse(@Header("Cookie")String cookie, @Field("eventid")String eventID);
+        Call<CreateLeaveTeamResponse> createTeamResponse(@Header("Cookie") String cookie, @Field("eventid") int eventID);
 
         //Add a member to the team
         @FormUrlEncoded
         @Headers({"Content-Type: application/x-www-form-urlencoded"})
         @POST("addmember")
-        Call<CreateLeaveTeamResponse>addMember(@Header("Cookie")String cookie, @Field("delid")String delID,@Field("eventid")String eventID);
+        Call<CreateLeaveTeamResponse> addMember(@Header("Cookie") String cookie, @Field("delid") String delID, @Field("eventid") int eventID);
 
         /*@GET("get_details.php")
         Call<ProfileResponse> getProfileDetails(@Header("Cookie")String cookie);

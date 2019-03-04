@@ -1,8 +1,10 @@
 package in.mitrev.revels19.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -19,6 +21,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.models.registration.LoginResponse;
 import in.mitrev.revels19.network.RegistrationClient;
@@ -129,9 +133,17 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void launchCCT(String url, Context context) {
+
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        builder.setToolbarColor(ContextCompat.getColor(context, R.color.mitpost));
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(context, Uri.parse(url));
+    }
+
+
     public void goToSignup(View v){
-        Intent i = new Intent(this, SignUpActivity.class);
-        startActivity(i);
+        launchCCT("https://register.mitrevels.in", this);
     }
 
     public void guestContinue(View v){

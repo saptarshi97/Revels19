@@ -261,6 +261,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/_16dp"
             android:visibility="gone">
 
             <TextView
@@ -274,8 +275,11 @@
             android:textSize="15sp" />
 
             <TextView
-            android:layout_width="wrap_content"
+                android:layout_width="0dp"
             android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_48dp"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
             android:fontFamily="sans-serif-medium"
             android:text="@string/team_id"
             android:textColor="@color/black"

@@ -61,7 +61,23 @@
     <string name="about_us">About Us</string>
     <string name="developers">Developers</string>
     <string name="workshops">Workshops</string>
-    <string name="about_us_details">And we\'re back! BIGGER and BETTER this time. The most awaited episode of Revels\'19 is almost here and we hope you\'re as excited as we are. It\'s gonna be a hell of a ride next sem.</string>
+    <string name="about_us_details">
+        Greetings!\n
+    Today\'s generation is one that settles for nothing but the best. The avenues for success for this
+    resilient and driven youth are endless. With this in mind, we present to you Revels\'19—Excelsior: A Quest for Excellence.\n
+
+    Revels, MIT Manipal\'s annual Cultural and Sports festival, is an arena for a complete sense of
+    holistic learning— a space for talents to delve deeper into everything from sports to the fine arts.\n
+
+    Excelsior, meaning \'onward\’ and \‘upward,\’ complements the logo—the Phoenix, a mythological
+    creature that burns completely and is reborn from its ashes. Revels\’19 will stand for the sublime
+    art of achieving excellence and climbing to greater heights.\n
+
+    Join us this March, from the 6th to the 9th, for what promises to be the best four days of your life!\n
+
+    Regards,\n
+    Team Revels\n
+    </string>
     <string name="facebook_logo">facebook_logo</string>
     <string name="no_data_available">No data available</string>
     <string name="revels_19_logo">Revels 19 logo</string>
