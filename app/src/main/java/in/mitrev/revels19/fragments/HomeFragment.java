@@ -1,7 +1,9 @@
 package in.mitrev.revels19.fragments;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -35,6 +37,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
@@ -54,16 +57,20 @@ import in.mitrev.revels19.adapters.HomeResultsAdapter;
 import in.mitrev.revels19.models.categories.CategoryModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
+import in.mitrev.revels19.models.registration.CreateLeaveTeamResponse;
 import in.mitrev.revels19.models.results.EventResultModel;
 import in.mitrev.revels19.models.results.ResultModel;
 import in.mitrev.revels19.models.results.ResultsListModel;
 import in.mitrev.revels19.models.revels_live.RevelsLiveListModel;
 import in.mitrev.revels19.network.APIClient;
+import in.mitrev.revels19.network.RegistrationClient;
 import in.mitrev.revels19.network.RevelsLiveAPIClient;
 import in.mitrev.revels19.utilities.NetworkUtils;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import io.realm.Sort;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -309,6 +316,7 @@ public class HomeFragment extends Fragment {
         if (eventsList.size() > 10) {
             eventsList.subList(10, eventsList.size()).clear();
         }
+
         eventsAdapter = new HomeEventsAdapter(eventsList, null, getActivity());
         eventsRV.setAdapter(eventsAdapter);
         eventsRV.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -349,6 +357,51 @@ public class HomeFragment extends Fragment {
 //        imageSlider.setDuration(400);
 //        imageSlider.setVisibility(View.GONE);
 //    }
+
+    private void registerForEvent(String eventID) {
+        Log.d(TAG, "registerForEvent: called");
+        final ProgressDialog dialog = new ProgressDialog(getContext());
+        dialog.setMessage("Trying to register you for event... please wait!");
+        dialog.setCancelable(false);
+        dialog.show();
+        RequestBody body = RequestBody.create(MediaType.parse("text/plain"), "eventid=" + eventID);
+        Call<CreateLeaveTeamResponse> call = RegistrationClient.getRegistrationInterface(getContext())
+                .createTeamResponse(RegistrationClient.generateCookie(getContext()), Integer.parseInt(eventID));
+        call.enqueue(new Callback<CreateLeaveTeamResponse>() {
+            @Override
+            public void onResponse(Call<CreateLeaveTeamResponse> call, Response<CreateLeaveTeamResponse> response) {
+                dialog.cancel();
+                if (response != null && response.body() != null) {
+                    try {
+                        showAlert(response.body().getMsg());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    showAlert("Error! Please try again.");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CreateLeaveTeamResponse> call, Throwable t) {
+                dialog.cancel();
+                showAlert("Error connecting to server! Please try again.");
+            }
+        });
+    }
+
+    public void showAlert(String message) {
+        new AlertDialog.Builder(getActivity())
+                .setTitle("Alert")
+                .setIcon(R.drawable.ic_info)
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                }).show();
+    }
 
     public void displayRevelsLiveFeed() {
         progressBar.setVisibility(View.VISIBLE);

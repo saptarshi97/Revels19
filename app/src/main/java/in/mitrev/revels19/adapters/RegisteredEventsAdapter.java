@@ -1,7 +1,6 @@
 package in.mitrev.revels19.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +8,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import in.mitrev.revels19.R;
+
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
+import in.mitrev.revels19.R;
 import in.mitrev.revels19.models.events.EventDetailsModel;
 import in.mitrev.revels19.models.registration.RegisteredEventModel;
 
@@ -66,8 +66,8 @@ public class RegisteredEventsAdapter extends RecyclerView.Adapter<RegisteredEven
         ImageView expand;
         public RegisteredEventsViewHolder(View itemView) {
             super(itemView);
-            eventName = (TextView)itemView.findViewById(R.id.event_name);
-            teamID = (TextView)itemView.findViewById(R.id.team_id);
+            eventName = itemView.findViewById(R.id.event_name);
+            teamID = itemView.findViewById(R.id.team_id);
             expand=itemView.findViewById(R.id.event_modify);
             addLeaveOps=itemView.findViewById(R.id.add_leave_ops);
             addMember=itemView.findViewById(R.id.add_member);
@@ -76,7 +76,7 @@ public class RegisteredEventsAdapter extends RecyclerView.Adapter<RegisteredEven
         public void onBind(final EventDetailsModel event,final RegisteredEventModel regEvent){
             eventName.setText(event.getEventName());
             teamID.setText(""+regEvent.getTeamid());
-            expand.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(addLeaveOps.getVisibility()==View.VISIBLE) {

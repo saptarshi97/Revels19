@@ -85,9 +85,9 @@ public class ProfileActivity extends AppCompatActivity implements RegisteredEven
         regno = findViewById(R.id.reg_no_text_view);
         college = findViewById(R.id.college_text_view);
 //        eventRegButton = (Button)findViewById(R.id.event_reg_button);
-        eventRegRecyclerView = (RecyclerView)findViewById(R.id.event_reg_recycler_view);
-        noEvents = (TextView)findViewById(R.id.no_reg_events);
-        eventRegHeader = (LinearLayout)findViewById(R.id.event_reg_header);
+        eventRegRecyclerView = findViewById(R.id.event_reg_recycler_view);
+        noEvents = findViewById(R.id.no_reg_events);
+        eventRegHeader = findViewById(R.id.event_reg_header);
 
         loadProfile();
         loadRegisteredEvents();
@@ -256,6 +256,17 @@ public class ProfileActivity extends AppCompatActivity implements RegisteredEven
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && requestCode == ADD_TEAM_MEMBER && data != null) {
+            if (data.getBooleanExtra("success", false)) {
+
+            }
+        }
+    }
+
     public void noConnectionAlert(String message) {
         new AlertDialog.Builder(ProfileActivity.this)
                 .setTitle("Error")
@@ -271,7 +282,7 @@ public class ProfileActivity extends AppCompatActivity implements RegisteredEven
 
     public void showAlert(String message, boolean refresh) {
         new AlertDialog.Builder(ProfileActivity.this)
-                .setTitle("Information")
+                .setTitle("Alert")
                 .setIcon(R.drawable.ic_info)
                 .setMessage(message)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

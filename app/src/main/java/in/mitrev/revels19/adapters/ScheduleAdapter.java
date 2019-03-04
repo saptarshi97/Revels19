@@ -3,6 +3,7 @@ package in.mitrev.revels19.adapters;
 import android.app.AlarmManager;
 import android.app.Dialog;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -19,16 +20,24 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import in.mitrev.revels19.R;
 import in.mitrev.revels19.models.events.EventDetailsModel;
 import in.mitrev.revels19.models.events.ScheduleModel;
 import in.mitrev.revels19.models.favourites.FavouritesModel;
+import in.mitrev.revels19.models.registration.CreateLeaveTeamResponse;
+import in.mitrev.revels19.network.RegistrationClient;
 import in.mitrev.revels19.receivers.NotificationReceiver;
 import in.mitrev.revels19.utilities.IconCollection;
 import in.mitrev.revels19.views.TabbedDialog;
 import io.realm.Realm;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventViewHolder> {
     private final int PRE_REVELS_DAY_ZERO = 18;
@@ -342,6 +351,57 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
                 displayEventDialog(event, view.getContext());
 
             });
+
+            container.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    registerForEvent(event.getEventId());
+                    return true;
+                }
+            });
+        }
+
+        private void registerForEvent(String eventID) {
+            Log.d(TAG, "registerForEvent: called");
+            final ProgressDialog dialog = new ProgressDialog(activity);
+            dialog.setMessage("Trying to register you for event... please wait!");
+            dialog.setCancelable(false);
+            dialog.show();
+            RequestBody body = RequestBody.create(MediaType.parse("text/plain"), "eventid=" + eventID);
+            String cookie = RegistrationClient.generateCookie(activity);
+            Call<CreateLeaveTeamResponse> call = RegistrationClient.getRegistrationInterface(activity)
+                    .createTeamResponse(cookie, Integer.parseInt(eventID));
+            call.enqueue(new Callback<CreateLeaveTeamResponse>() {
+                @Override
+                public void onResponse(Call<CreateLeaveTeamResponse> call, Response<CreateLeaveTeamResponse> response) {
+                    dialog.cancel();
+                    if (response != null && response.body() != null) {
+                        try {
+                            showAlert(response.body().getMsg());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        showAlert("Error! Please try again.");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<CreateLeaveTeamResponse> call, Throwable t) {
+                    dialog.cancel();
+                    showAlert("Error connecting to server! Please try again.");
+                }
+            });
+        }
+
+        public void showAlert(String message) {
+            new AlertDialog.Builder(activity)
+                    .setTitle("Alert")
+                    .setIcon(R.drawable.ic_info)
+                    .setMessage(message)
+                    .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
+
+                    }).show();
         }
     }
 

@@ -28,10 +28,12 @@
 
             <TextView
                 android:id="@+id/team_id"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_marginEnd="@dimen/_8dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="7"
+                android:textAlignment="textEnd"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -62,22 +64,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add member"
-            android:textColor="#000"
-            android:backgroundTint="@color/colorAccent"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            />
+            style="@style/Widget.MaterialComponents.Button" />
+
         </FrameLayout>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/leave_team"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Leave team"
-            android:textColor="#000"
-            android:backgroundTint="@color/colorAccent"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            />
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_marginEnd="8dp" />
 
     </LinearLayout>
 </LinearLayout>
+
+
