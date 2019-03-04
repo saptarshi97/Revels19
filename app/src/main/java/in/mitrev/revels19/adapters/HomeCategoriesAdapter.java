@@ -19,7 +19,6 @@ import in.mitrev.revels19.R;
 import in.mitrev.revels19.activities.CategoryActivity;
 import in.mitrev.revels19.models.categories.CategoryModel;
 import in.mitrev.revels19.utilities.IconCollection;
-//import in.mitrev.revels19.utilities.IconCollection;
 
 public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAdapter. HomeViewHolder> {
     String TAG = "HomeCategoriesAdapter";

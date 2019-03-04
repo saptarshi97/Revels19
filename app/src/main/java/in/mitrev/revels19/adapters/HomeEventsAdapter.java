@@ -48,7 +48,6 @@ public class HomeEventsAdapter extends RecyclerView.Adapter<HomeEventsAdapter.Ev
 
     private List<ScheduleModel> events;
     private final EventClickListener eventClickListener;
-    //    private final EventLongPressListener eventLongPressListener;
     private Context context;
     FragmentActivity activity;
     private Realm mDatabase = Realm.getDefaultInstance();
@@ -71,7 +70,6 @@ public class HomeEventsAdapter extends RecyclerView.Adapter<HomeEventsAdapter.Ev
         this.events = events;
         this.activity = activity;
         this.eventClickListener = eventClickListener;
-//        this.eventLongPressListener = eventLongPressListener;
     }
 
     public interface EventLongPressListener {
@@ -127,14 +125,10 @@ public class HomeEventsAdapter extends RecyclerView.Adapter<HomeEventsAdapter.Ev
                     eventClickListener.onItemClick(event);
                 }
                 displayEventDialog(event, context);
-//                    displayBottomSheet(event);
             });
-            eventItem.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    registerForEvent(event.getEventId());
-                    return true;
-                }
+            eventItem.setOnLongClickListener(v -> {
+                registerForEvent(event.getEventId());
+                return true;
             });
         }
 

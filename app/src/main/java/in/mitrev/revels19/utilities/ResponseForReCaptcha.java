@@ -20,16 +20,13 @@ public class ResponseForReCaptcha {
     public static String getResponseToken(Activity activity){
         SafetyNet.getClient(activity).verifyWithRecaptcha("6Lfho3IUAAAAAEu6JHZojPoo55KE885x5LJVIIfN")
                 .addOnSuccessListener( activity,
-                        new OnSuccessListener<SafetyNetApi.RecaptchaTokenResponse>() {
-                            @Override
-                            public void onSuccess(SafetyNetApi.RecaptchaTokenResponse response) {
-                                // Indicates communication with reCAPTCHA service was successful.
-                                String userResponseToken=response.getTokenResult();
-                                if (!userResponseToken.isEmpty()) {
-                                    // Validate the user response token using the
-                                    // reCAPTCHA siteverify API.
-                                    uRT=userResponseToken;
-                                }
+                        response -> {
+                            // Indicates communication with reCAPTCHA service was successful.
+                            String userResponseToken=response.getTokenResult();
+                            if (!userResponseToken.isEmpty()) {
+                                // Validate the user response token using the
+                                // reCAPTCHA siteverify API.
+                                uRT=userResponseToken;
                             }
                         })
                 .addOnFailureListener( activity, new OnFailureListener() {

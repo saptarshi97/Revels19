@@ -76,31 +76,22 @@ public class RegisteredEventsAdapter extends RecyclerView.Adapter<RegisteredEven
         public void onBind(final EventDetailsModel event,final RegisteredEventModel regEvent){
             eventName.setText(event.getEventName());
             teamID.setText(""+regEvent.getTeamid());
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(addLeaveOps.getVisibility()==View.VISIBLE) {
-                        expand.setRotation(0);
-                        addLeaveOps.setVisibility(View.GONE);
-                    }else{
-                        expand.setRotation(180);
-                        addLeaveOps.setVisibility(View.VISIBLE);
-                    }
+            itemView.setOnClickListener(view -> {
+                if(addLeaveOps.getVisibility()==View.VISIBLE) {
+                    expand.setRotation(0);
+                    addLeaveOps.setVisibility(View.GONE);
+                }else{
+                    expand.setRotation(180);
+                    addLeaveOps.setVisibility(View.VISIBLE);
                 }
             });
-            leaveTeam.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(regActivityClickListener!=null)
-                        regActivityClickListener.onClick(false,regEvent);
-                }
+            leaveTeam.setOnClickListener(view -> {
+                if(regActivityClickListener!=null)
+                    regActivityClickListener.onClick(false,regEvent);
             });
-            addMember.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(regActivityClickListener!=null)
-                        regActivityClickListener.onClick(true,regEvent);
-                }
+            addMember.setOnClickListener(view -> {
+                if(regActivityClickListener!=null)
+                    regActivityClickListener.onClick(true,regEvent);
             });
 
         }

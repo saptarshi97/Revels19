@@ -205,8 +205,6 @@ public class TabbedDialog extends DialogFragment {
             TextView eventCategory = view.findViewById(R.id.event_category);
             eventCategory.setText(event.getCatName());
 
-            /*ImageView deleteIcon = (ImageView)view.findViewById(R.id.event_delete_icon);
-            deleteIcon.setVisibility(View.GONE);*/
         }
 
         @Override

@@ -50,7 +50,6 @@ public class ProfileActivity extends AppCompatActivity implements RegisteredEven
     private LinearLayout profileCard;
     private Button logoutButton;
     private List<RegisteredEventModel> regEventsList;
-    //    private Button eventRegButton;
     private ImageView qrCode;
     private RegisteredEventsAdapter registeredEventsAdapter;
     private RecyclerView eventRegRecyclerView;
@@ -92,30 +91,19 @@ public class ProfileActivity extends AppCompatActivity implements RegisteredEven
         loadProfile();
         loadRegisteredEvents();
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new AlertDialog.Builder(ProfileActivity.this)
-                        .setMessage("Are you sure you want to logout?")
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(ProfileActivity.this).edit();
-                                editor.remove("loggedIn");
-                                editor.remove("session_cookie");
-                                editor.remove("cloudflare_cookie");
-                                editor.apply();
-                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                            }
-                        }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                }).show();
-            }
-        });
+        logoutButton.setOnClickListener(view -> new AlertDialog.Builder(ProfileActivity.this)
+                .setMessage("Are you sure you want to logout?")
+                .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
+                    SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(ProfileActivity.this).edit();
+                    editor.remove("loggedIn");
+                    editor.remove("session_cookie");
+                    editor.remove("cloudflare_cookie");
+                    editor.apply();
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }).setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
+                }).show());
 
 
     }
@@ -156,18 +144,15 @@ public class ProfileActivity extends AppCompatActivity implements RegisteredEven
                         } else {
                             new AlertDialog.Builder(ProfileActivity.this)
                                     .setMessage("Session expired. Login again to continue!")
-                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(ProfileActivity.this).edit();
-                                            editor.remove("loggedIn");
-                                            editor.remove("session_cookie");
-                                            editor.remove("cloudflare_cookie");
-                                            editor.apply();
-                                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                            startActivity(intent);
-                                        }
+                                    .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
+                                        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(ProfileActivity.this).edit();
+                                        editor.remove("loggedIn");
+                                        editor.remove("session_cookie");
+                                        editor.remove("cloudflare_cookie");
+                                        editor.apply();
+                                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
                                     }).setCancelable(false).show();
                         }
                     } else {

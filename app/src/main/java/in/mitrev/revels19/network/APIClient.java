@@ -41,9 +41,6 @@ public class APIClient {
         @GET("schedule")
         Call<ScheduleListModel> getScheduleList();
 
-//         @GET("workshops")
-//         Call<WorkshopListModel> getWorkshopsList();
-//
         @GET("sports")
         Call<SportsListModel> getSportsResults();
 

@@ -117,36 +117,6 @@ public class RegistrationClient {
         @POST("addmember")
         Call<CreateLeaveTeamResponse> addMember(@Header("Cookie") String cookie, @Field("delid") String delID, @Field("eventid") int eventID);
 
-        /*@GET("get_details.php")
-        Call<ProfileResponse> getProfileDetails(@Header("Cookie")String cookie);
-
-        @FormUrlEncoded
-        @Headers({"Content-Type: application/x-www-form-urlencoded"})
-        @POST("register.php")
-        Call<SignupResponse> attemptRegistration(@Field("student_name")String name,
-                                                 @Field("student_regno")String regno,
-                                                 @Field("student_mail")String email,
-                                                 @Field("student_phone")String phone,
-                                                 @Field("student_college")String college,
-                                                 @Field("g-recaptcha-response")String captcha_token,
-                                                 @Field("outstation")String outstation,
-                                                 @Field("from")String from);
-
-
-        Call<EventRegistrationResponse> eventReg(@Header("Cookie")String cookie,@Body RequestBody body);
-
-        @FormUrlEncoded
-        @Headers({"Content-Type: application/x-www-form-urlencoded"})
-        @POST("add_team.php")
-        Call<EventRegistrationResponse> addToTeam(@Header("Cookie")String cookie,
-                                                  @Field("eventid")String eventID,
-                                                  @Field("student_delno")String qr);
-
-        @FormUrlEncoded
-        @Headers({"Content-Type: application/x-www-form-urlencoded"})
-        @POST("leave_team.php")
-        Call<SignupResponse> leaveTeam(); */
-
     }
 
 }

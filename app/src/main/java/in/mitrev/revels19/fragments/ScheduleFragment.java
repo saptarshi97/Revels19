@@ -536,13 +536,8 @@ public class ScheduleFragment extends Fragment {
         SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
         Date startDate;
         Date endDate;
-        // Adding all the events of the current day to the currentDayEvents List and filtering those
-        // If this step is not done then the filtering is done on the list that has already been filtered
-//        if (tabs.getSelectedTabPosition() == 0) {
-//            dayFilter(PREREVELS_DAY);// PreRevels
-//        } else {
+
             dayFilter(tabs.getSelectedTabPosition() + 1);
-//        }
         List<ScheduleModel> tempList = new ArrayList<>(currentDayEvents);
 
         for (ScheduleModel event : currentDayEvents) {
@@ -619,9 +614,7 @@ public class ScheduleFragment extends Fragment {
         public void onTabSelected(TabLayout.Tab tab) {
             Log.d(TAG, "onTabSelected: TabPos : " + tab.getPosition());
             int day = tab.getPosition() + 1;
-//            if (tab.getPosition() == 0) {
-//                day = PREREVELS_DAY;
-//            }
+
             Log.d(TAG, "onTabSelected: day = " + day);
             dayFilter(day);
             applyFilters();
@@ -636,9 +629,7 @@ public class ScheduleFragment extends Fragment {
         @Override
         public void onTabReselected(TabLayout.Tab tab) {
             int day = tab.getPosition() + 1;
-//            if (tab.getPosition() == 0) {
-//                day = PREREVELS_DAY;
-//            }
+
             Log.d(TAG, "onTabReselected: day = " + day);
             dayFilter(day);
             applyFilters();

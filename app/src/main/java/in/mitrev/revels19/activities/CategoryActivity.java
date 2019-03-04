@@ -249,45 +249,6 @@ public class CategoryActivity extends AppCompatActivity {
         });
     }
 
-    private void preRevelsEventSort(List<EventModel> eventsList) {
-
-        Collections.sort(eventsList, (o1, o2) -> {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm aa", Locale.US);
-
-            try {
-                Date d1 = simpleDateFormat.parse(o1.getDay());
-                Date d2 = simpleDateFormat.parse(o2.getDay());
-
-                Calendar c1 = Calendar.getInstance();
-                c1.setTime(d1);
-                Calendar c2 = Calendar.getInstance();
-                c2.setTime(d2);
-
-                long diff = c1.getTimeInMillis() - c2.getTimeInMillis();
-                if(diff > 0) return 1;
-                else if(diff < 0) return -1;
-                else {
-                    Date d3 = simpleDateFormat.parse(o1.getStartTime());
-                    Date d4 = simpleDateFormat.parse(o2.getStartTime());
-
-                    Calendar c3 = Calendar.getInstance();
-                    c1.setTime(d3);
-                    Calendar c4 = Calendar.getInstance();
-                    c2.setTime(d4);
-
-                    long diff2 = c3.getTimeInMillis() - c4.getTimeInMillis();
-
-                    if(diff2 > 0) return 1;
-                    else if(diff2 < 0) return -1;
-                    else return 0;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return 0;
-        });
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
