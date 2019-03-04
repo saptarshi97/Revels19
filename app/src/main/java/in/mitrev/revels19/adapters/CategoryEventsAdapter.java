@@ -179,11 +179,14 @@ public class CategoryEventsAdapter extends
 
     private void addFavourite(EventModel event) {
         FavouritesModel favourite = new FavouritesModel();
-        //Get Corresponding EventDetailsModel from Realm
-        //EventDetailsModel eventDetails = realm.where(EventDetailsModel.class).equalTo("eventID",eventSchedule.getEventID()).findFirst();
-        //Create and Set Values for FavouritesModel
-        ScheduleModel sm = realm.where(ScheduleModel.class).equalTo("eventID", event.getEventID())
-                .equalTo("day", event.getDay()).equalTo("date", event.getDate()).findFirst();
+        List<ScheduleModel> scheduleModels = realm.where(ScheduleModel.class)
+                .equalTo("eventId", event.getEventID()).findAll();
+        ScheduleModel scheduleModel = null;
+        for (int i = 0; i < scheduleModels.size(); i++) {
+            if(scheduleModels.get(i).getDay().equals(event.getDay())) {
+                scheduleModel = scheduleModels.get(i);
+            }
+        }
         favourite.setId(event.getEventID());
         favourite.setCatID(event.getCatId());
         favourite.setEventName(event.getEventName());
@@ -198,12 +201,12 @@ public class CategoryEventsAdapter extends
         favourite.setContactNumber(event.getContactNumber());
         favourite.setCatName(event.getCatName());
         favourite.setDescription(event.getEventDesc());
-        favourite.setIsRevels(sm.getIsRevels());
+        favourite.setIsRevels("1");
         //Commit to Realm
         realm.beginTransaction();
         realm.copyToRealm(favourite);
         realm.commitTransaction();
-        addNotification(event, sm.getIsRevels());
+        addNotification(event, scheduleModel.getIsRevels());
         favourites.add(favourite);
     }
 
