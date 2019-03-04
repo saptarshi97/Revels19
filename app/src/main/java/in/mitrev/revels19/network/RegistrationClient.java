@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import in.mitrev.revels19.models.registration.CreateLeaveTeamResponse;
 import in.mitrev.revels19.models.registration.LoginResponse;
 import in.mitrev.revels19.models.registration.ProfileResponse;
 import in.mitrev.revels19.models.registration.RegisteredEventListModel;
@@ -28,6 +29,8 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
@@ -96,6 +99,24 @@ public class RegistrationClient {
         @GET("registeredEvents")
         Call<RegisteredEventListModel> getRegisteredEvents(@Header("Cookie") String cookie);
 
+        // To leave a team/deregister for an event
+        @FormUrlEncoded
+        @Headers({"Content-Type: application/x-www-form-urlencoded"})
+        @POST("leaveteam")
+        Call<CreateLeaveTeamResponse>leaveTeam(@Header("Cookie")String cookie, @Field("teamid")int teamID);
+
+        //To register to an event
+        @FormUrlEncoded
+        @Headers({"Content-Type: application/x-www-form-urlencoded"})
+        @POST("createteam")
+        Call<CreateLeaveTeamResponse>createTeamResponse(@Header("Cookie")String cookie, @Field("eventid")String eventID);
+
+        //Add a member to the team
+        @FormUrlEncoded
+        @Headers({"Content-Type: application/x-www-form-urlencoded"})
+        @POST("addmember")
+        Call<CreateLeaveTeamResponse>addMember(@Header("Cookie")String cookie, @Field("delid")String delID,@Field("eventid")String eventID);
+
         /*@GET("get_details.php")
         Call<ProfileResponse> getProfileDetails(@Header("Cookie")String cookie);
 
@@ -111,8 +132,7 @@ public class RegistrationClient {
                                                  @Field("outstation")String outstation,
                                                  @Field("from")String from);
 
-        @Headers({"Content-Type: application/x-www-form-urlencoded"})
-        @POST("eventreg.php")
+
         Call<EventRegistrationResponse> eventReg(@Header("Cookie")String cookie,@Body RequestBody body);
 
         @FormUrlEncoded
@@ -125,8 +145,7 @@ public class RegistrationClient {
         @FormUrlEncoded
         @Headers({"Content-Type: application/x-www-form-urlencoded"})
         @POST("leave_team.php")
-        Call<SignupResponse> leaveTeam(@Header("Cookie")String cookie,
-                                       @Field("eventid")String eventID); */
+        Call<SignupResponse> leaveTeam(); */
 
     }
 

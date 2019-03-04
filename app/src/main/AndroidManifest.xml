@@ -38,7 +38,7 @@
         <activity
             android:name=".activities.WorkshopsActivity"
             android:parentActivityName=".activities.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.LoginActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"
@@ -56,8 +56,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.SplashActivity"
-            android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"></activity>
-        <activity android:name=".activities.SignUpActivity"></activity>
+            android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize" />
+        <activity android:name=".activities.SignUpActivity" />
+        <activity android:name=".activities.AddTeammateActivity"></activity>
     </application>
 
 </manifest>

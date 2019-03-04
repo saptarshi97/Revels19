@@ -42,6 +42,10 @@
     <string name="bottom_nav_results">Results</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="add_team_member">Add Team member</string>
+    <string name="scan_qr_code_2">Scan Delegate QR</string>
+    <string name="reset">Reset</string>
+    <string name="toggle_flash">Toggle Flash</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_workshops">Workshops</string>
     <string name="menu_proshow_portal">ProShow Portal</string>

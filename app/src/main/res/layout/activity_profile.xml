@@ -228,81 +228,79 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!--<com.google.android.material.card.MaterialCardView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="8dp"-->
-            <!--android:layout_marginRight="8dp"-->
-            <!--android:layout_marginBottom="8dp">-->
+            <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp">
 
-            <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical"-->
-            <!--android:padding="8dp">-->
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--android:fontFamily="sans-serif-medium"-->
-            <!--android:text="@string/event_registrations"-->
-            <!--android:textColor="@color/colorPrimary"-->
-            <!--android:textSize="@dimen/typography_title" />-->
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/event_registrations"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/typography_title" />
 
-            <!--<View-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="1dp"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--android:background="@android:drawable/divider_horizontal_bright" />-->
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:drawable/divider_horizontal_bright" />
 
-            <!--<LinearLayout-->
-            <!--android:id="@+id/event_reg_header"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:visibility="gone">-->
+            <LinearLayout
+            android:id="@+id/event_reg_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
 
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginEnd="@dimen/padding_half"-->
-            <!--android:layout_marginRight="@dimen/padding_half"-->
-            <!--android:layout_weight="1"-->
-            <!--android:fontFamily="sans-serif-medium"-->
-            <!--android:text="@string/event_name"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="15sp" />-->
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_default"
+            android:layout_marginRight="@dimen/padding_default"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/event_name"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="0"-->
-            <!--android:fontFamily="sans-serif-medium"-->
-            <!--android:text="@string/team_id"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="15sp" />-->
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/team_id"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
-            <!--</LinearLayout>-->
+            </LinearLayout>
 
-            <!--<androidx.recyclerview.widget.RecyclerView-->
-            <!--android:id="@+id/event_reg_recycler_view"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:visibility="gone" />-->
+            <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/event_reg_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
-            <!--<TextView-->
-            <!--android:id="@+id/no_reg_events"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="@dimen/padding_half"-->
-            <!--android:text="@string/no_events"-->
-            <!--android:textSize="15sp"-->
-            <!--android:visibility="gone" />-->
+            <TextView
+            android:id="@+id/no_reg_events"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_half"
+            android:text="@string/no_events"
+            android:textSize="15sp"
+            android:visibility="gone" />
 
-            <!--</LinearLayout>-->
+            </LinearLayout>
 
-            <!--</com.google.android.material.card.MaterialCardView>-->
+            </com.google.android.material.card.MaterialCardView>
 
             <!--<Button-->
             <!--android:id="@+id/event_reg_button"-->
