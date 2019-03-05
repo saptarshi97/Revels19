@@ -260,7 +260,33 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
     private String getDurationString(String startTime, String endTime) {
         try {
             SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm", Locale.getDefault());
-            Date startDate = sdf_24h.parse(startTime);
+            int h=Integer.parseInt(startTime.substring(0,2));
+            int m=Integer.parseInt(startTime.substring(3,5));
+            if ( (m+30) >=60){
+                m=m+30-60;
+                h=h+1+5;
+            }else {
+                m=m+30;
+                h+=5;
+            }
+            if(m<10)
+                startTime=h+":0"+m;
+            else
+                startTime=h+":"+m;
+            Date startDate = sdf_24h.parse(startTime) ;
+            int he=Integer.parseInt(endTime.substring(0,2));
+            int me=Integer.parseInt(endTime.substring(3,5));
+            if ( (me+30) >=60){
+                me=me+30-60;
+                he=he+1+5;
+            }else {
+                me=me+30;
+                he+=5;
+            }
+            if(me<10)
+                endTime=he+":0"+me;
+            else
+                endTime=he+":"+me;
             Date endDate = sdf_24h.parse(endTime);
             SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
             startTime = sdf_12h.format(startDate);

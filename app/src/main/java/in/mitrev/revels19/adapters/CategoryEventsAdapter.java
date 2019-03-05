@@ -167,7 +167,20 @@ public class CategoryEventsAdapter extends
     private String getStartTimeFromTimestamp(String startTime) {
         try {
             SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm", Locale.getDefault());
-            Date startDate = sdf_24h.parse(startTime);
+            int h=Integer.parseInt(startTime.substring(0,2));
+            int m=Integer.parseInt(startTime.substring(3,5));
+            if ( (m+30) >=60){
+                m=m+30-60;
+                h=h+1+5;
+            }else {
+                m=m+30;
+                h+=5;
+            }
+            if(m<10)
+                startTime=h+":0"+m;
+            else
+                startTime=h+":"+m;
+            Date startDate = sdf_24h.parse(startTime) ;
             SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
             startTime = sdf_12h.format(startDate);
         } catch (ParseException e) {
