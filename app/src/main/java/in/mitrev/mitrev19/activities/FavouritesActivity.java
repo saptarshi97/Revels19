@@ -16,8 +16,12 @@ import android.widget.TextView;
 
 import com.google.android.material.appbar.AppBarLayout;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -415,7 +419,7 @@ public class FavouritesActivity extends AppCompatActivity {
     private void removeNotification(FavouritesModel event) {
         Intent intent = new Intent(this, NotificationReceiver.class);
         intent.putExtra("eventName", event.getEventName());
-        intent.putExtra("startTime", event.getStartTime());
+        intent.putExtra("startTime", getStartTimeFromTimestamp(event.getStartTime().substring(11, 16)));
         intent.putExtra("eventVenue", event.getVenue());
         intent.putExtra("eventID", event.getId());
 
@@ -427,6 +431,32 @@ public class FavouritesActivity extends AppCompatActivity {
         PendingIntent pendingIntent2 = PendingIntent.getBroadcast(this, RC2, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.cancel(pendingIntent1);
         alarmManager.cancel(pendingIntent2);
+    }
+
+    private String getStartTimeFromTimestamp(String startTime) {
+        try {
+            SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm", Locale.getDefault());
+            int h=Integer.parseInt(startTime.substring(0,2));
+            int m=Integer.parseInt(startTime.substring(3,5));
+            if ( (m+30) >=60){
+                m=m+30-60;
+                h=h+1+5;
+            }else {
+                m=m+30;
+                h+=5;
+            }
+            if(m<10)
+                startTime=h+":0"+m;
+            else
+                startTime=h+":"+m;
+            Date startDate = sdf_24h.parse(startTime) ;
+            SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
+            startTime = sdf_12h.format(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "";
+        }
+        return startTime;
     }
 
     private void removeNotifications(List<FavouritesModel> events) {

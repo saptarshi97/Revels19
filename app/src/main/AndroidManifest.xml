@@ -23,6 +23,10 @@
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"
             android:parentActivityName="in.mitrev.mitrev19.activities.MainActivity"
             android:screenOrientation="portrait" />
+        <receiver
+            android:name="in.mitrev.mitrev19.receivers.NotificationReceiver"
+            android:enabled="true"
+            android:exported="true" />
         <activity
             android:name="in.mitrev.mitrev19.activities.FavouritesActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"

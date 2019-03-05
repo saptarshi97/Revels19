@@ -40,10 +40,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventViewHolder> {
-    private final int PRE_REVELS_DAY_ZERO = 18;
-    private final int EVENT_DAY_ZERO = 26;
-    private final int PRE_REVELS_EVENT_MONTH = Calendar.FEBRUARY;
-    private final int EVENT_MONTH = Calendar.FEBRUARY;
+    private final int EVENT_DAY_ZERO = 5;
+    private final int EVENT_MONTH = Calendar.MARCH;
     private final EventClickListener eventListener;
     private final FavouriteClickListener favouriteListener;
     private final EventLongPressListener eventLongPressListener;
@@ -125,7 +123,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
         favourite.setDay(eventSchedule.getDay());
         favourite.setStartTime(eventSchedule.getStartTime());
         favourite.setEndTime(eventSchedule.getEndTime());
-        favourite.setIsRevels(eventSchedule.getIsRevels());
+        favourite.setIsRevels("1");
         if (eventDetails != null) {
             favourite.setParticipants(eventDetails.getEventMaxTeamSize());
             favourite.setContactName(eventDetails.getContactName());
@@ -139,7 +137,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
             realm.copyToRealm(favourite);
             realm.commitTransaction();
         }
-        addNotification(eventSchedule, eventSchedule.getIsRevels());
+        addNotification(eventSchedule, "1");
 
     }
 
@@ -153,7 +151,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
     private void addNotification(ScheduleModel event, String isRevelsSTR) {
         Intent intent = new Intent(activity, NotificationReceiver.class);
         intent.putExtra("eventName", event.getEventName());
-        intent.putExtra("startTime", event.getStartTime());
+        intent.putExtra("startTime", (getStartTimeFromTimestamp(event.getStartTime().substring(11, 16))) );
         intent.putExtra("eventVenue", event.getVenue());
         intent.putExtra("eventID", event.getEventId());
         intent.putExtra("catName", event.getCatName());
@@ -167,7 +165,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa", Locale.US);
         Date d = null;
         try {
-            d = sdf.parse(event.getStartTime());
+            d = sdf.parse((getStartTimeFromTimestamp(event.getStartTime().substring(11, 16))));
         } catch (ParseException e) {
             e.printStackTrace();
             return;
@@ -177,7 +175,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
             Calendar calendar1 = Calendar.getInstance();
             calendar1.setTime(d);
             calendar1.set(Calendar.MONTH, EVENT_MONTH);
-            calendar1.set(Calendar.YEAR, 2018);
+            calendar1.set(Calendar.YEAR, 2019);
             calendar1.set(Calendar.DATE, eventDate);
             calendar1.set(Calendar.SECOND, 0);
             long eventTimeInMillis = calendar1.getTimeInMillis();
@@ -196,40 +194,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
             calendar3.set(Calendar.HOUR, 8);
             calendar3.set(Calendar.AM_PM, Calendar.AM);
             calendar3.set(Calendar.MONTH, Calendar.MARCH);
-            calendar3.set(Calendar.YEAR, 2018);
-            calendar3.set(Calendar.DATE, eventDate);
-            Log.d("Calendar 3", calendar3.getTimeInMillis() + "");
-            if (calendar2.getTimeInMillis() < calendar3.getTimeInMillis()) {
-                alarmManager.set(AlarmManager.RTC_WAKEUP, calendar3.getTimeInMillis(), pendingIntent2);
-
-                Log.d("Alarm", "set for " + calendar3.toString());
-            }
-        } else {
-            Log.d(TAG, "addNotification: pre Revels");
-            int eventDate = PRE_REVELS_DAY_ZERO + Integer.parseInt(event.getDay());   //event dates start from 19th February
-            Calendar calendar1 = Calendar.getInstance();
-            calendar1.setTime(d);
-            calendar1.set(Calendar.MONTH, PRE_REVELS_EVENT_MONTH);
-            calendar1.set(Calendar.YEAR, 2018);
-            calendar1.set(Calendar.DATE, eventDate);
-            calendar1.set(Calendar.SECOND, 0);
-            long eventTimeInMillis = calendar1.getTimeInMillis();
-            calendar1.set(Calendar.HOUR_OF_DAY, calendar1.get(Calendar.HOUR_OF_DAY) - 1);
-
-            Calendar calendar2 = Calendar.getInstance();
-            Log.d("Calendar 1", calendar1.getTimeInMillis() + "");
-            Log.d("Calendar 2", calendar2.getTimeInMillis() + "");
-
-            if (calendar2.getTimeInMillis() <= eventTimeInMillis)
-                alarmManager.set(AlarmManager.RTC_WAKEUP, calendar1.getTimeInMillis(), pendingIntent1);
-
-            Calendar calendar3 = Calendar.getInstance();
-            calendar3.set(Calendar.SECOND, 0);
-            calendar3.set(Calendar.MINUTE, 30);
-            calendar3.set(Calendar.HOUR, 8);
-            calendar3.set(Calendar.AM_PM, Calendar.AM);
-            calendar3.set(Calendar.MONTH, Calendar.FEBRUARY);
-            calendar3.set(Calendar.YEAR, 2018);
+            calendar3.set(Calendar.YEAR, 2019);
             calendar3.set(Calendar.DATE, eventDate);
             Log.d("Calendar 3", calendar3.getTimeInMillis() + "");
             if (calendar2.getTimeInMillis() < calendar3.getTimeInMillis()) {
@@ -243,7 +208,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
     private void removeNotification(ScheduleModel event) {
         Intent intent = new Intent(activity, NotificationReceiver.class);
         intent.putExtra("eventName", event.getEventName());
-        intent.putExtra("startTime", event.getStartTime());
+        intent.putExtra("startTime", (getStartTimeFromTimestamp(event.getStartTime().substring(11, 16))));
         intent.putExtra("eventVenue", event.getVenue());
         intent.putExtra("eventID", event.getEventId());
 
@@ -429,6 +394,31 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.EventV
 
                     }).show();
         }
+    }
+    private String getStartTimeFromTimestamp(String startTime) {
+        try {
+            SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm", Locale.getDefault());
+            int h=Integer.parseInt(startTime.substring(0,2));
+            int m=Integer.parseInt(startTime.substring(3,5));
+            if ( (m+30) >=60){
+                m=m+30-60;
+                h=h+1+5;
+            }else {
+                m=m+30;
+                h+=5;
+            }
+            if(m<10)
+                startTime=h+":0"+m;
+            else
+                startTime=h+":"+m;
+            Date startDate = sdf_24h.parse(startTime) ;
+            SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
+            startTime = sdf_12h.format(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "";
+        }
+        return startTime;
     }
 
 }

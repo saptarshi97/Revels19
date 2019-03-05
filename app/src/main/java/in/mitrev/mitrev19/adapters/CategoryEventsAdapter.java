@@ -46,8 +46,8 @@ import retrofit2.Response;
 
 public class CategoryEventsAdapter extends
         RecyclerView.Adapter<CategoryEventsAdapter.CategoryEventsViewHolder> {
-    private final int EVENT_DAY_ZERO = 25;
-    private final int EVENT_MONTH = Calendar.FEBRUARY;
+    private final int EVENT_DAY_ZERO = 5;
+    private final int EVENT_MONTH = Calendar.MARCH;
     private boolean isRevels;
     private Context context;
     private FragmentActivity activity;
@@ -219,7 +219,7 @@ public class CategoryEventsAdapter extends
         realm.beginTransaction();
         realm.copyToRealm(favourite);
         realm.commitTransaction();
-        addNotification(event, scheduleModel.getIsRevels());
+        addNotification(event, "1");
         favourites.add(favourite);
     }
 
@@ -234,7 +234,7 @@ public class CategoryEventsAdapter extends
     private void addNotification(EventModel event, String isRevelsSTR) {
         Intent intent = new Intent(activity, NotificationReceiver.class);
         intent.putExtra("eventName", event.getEventName());
-        intent.putExtra("startTime", event.getStartTime());
+        intent.putExtra("startTime", (getStartTimeFromTimestamp(event.getStartTime().substring(11, 16))));
         intent.putExtra("eventVenue", event.getVenue());
         intent.putExtra("eventID", event.getEventID());
         intent.putExtra("catName", event.getCatName());
@@ -248,17 +248,18 @@ public class CategoryEventsAdapter extends
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa", Locale.US);
         Date d = null;
         try {
-            d = sdf.parse(event.getStartTime());
+            d = sdf.parse(getStartTimeFromTimestamp(event.getStartTime().substring(11, 16)));
         } catch (ParseException e) {
             e.printStackTrace();
             return;
         }
-        if (isRevelsSTR.contains("1")) {
-            int eventDate = EVENT_DAY_ZERO + Integer.parseInt(event.getDay());   //event dates start from 07th March
+        if (isRevelsSTR.equals("1")) {
+            Log.d(TAG, "addNotification: inside Notification");
+            int eventDate = EVENT_DAY_ZERO + Integer.parseInt(event.getDay());   //event dates start from 06th March
             Calendar calendar1 = Calendar.getInstance();
             calendar1.setTime(d);
             calendar1.set(Calendar.MONTH, EVENT_MONTH);
-            calendar1.set(Calendar.YEAR, 2018);
+            calendar1.set(Calendar.YEAR, 2019);
             calendar1.set(Calendar.DATE, eventDate);
             calendar1.set(Calendar.SECOND, 0);
             long eventTimeInMillis = calendar1.getTimeInMillis();
@@ -267,6 +268,7 @@ public class CategoryEventsAdapter extends
             Calendar calendar2 = Calendar.getInstance();
             Log.d("Calendar 1", calendar1.getTimeInMillis() + "");
             Log.d("Calendar 2", calendar2.getTimeInMillis() + "");
+            Log.d("Alarm", "set for " + calendar2.toString());
 
             if (calendar2.getTimeInMillis() <= eventTimeInMillis)
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar1.getTimeInMillis(), pendingIntent1);
@@ -277,7 +279,7 @@ public class CategoryEventsAdapter extends
             calendar3.set(Calendar.HOUR, 8);
             calendar3.set(Calendar.AM_PM, Calendar.AM);
             calendar3.set(Calendar.MONTH, Calendar.MARCH);
-            calendar3.set(Calendar.YEAR, 2018);
+            calendar3.set(Calendar.YEAR, 2019);
             calendar3.set(Calendar.DATE, eventDate);
             Log.d("Calendar 3", calendar3.getTimeInMillis() + "");
             if (calendar2.getTimeInMillis() < calendar3.getTimeInMillis()) {
@@ -291,7 +293,7 @@ public class CategoryEventsAdapter extends
     private void removeNotification(EventModel event) {
         Intent intent = new Intent(activity, NotificationReceiver.class);
         intent.putExtra("eventName", event.getEventName());
-        intent.putExtra("startTime", event.getStartTime());
+        intent.putExtra("startTime", (getStartTimeFromTimestamp(event.getStartTime().substring(11, 16))));
         intent.putExtra("eventVenue", event.getVenue());
         intent.putExtra("eventID", event.getEventID());
         Log.i(TAG, "removeNotification: " + event.getStartTime());
