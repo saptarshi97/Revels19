@@ -22,11 +22,80 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/FavouritesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/FavouritesActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/views/TabbedDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/views/TabbedDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/in/mitrev/revels19/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/AboutUsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/AboutUsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/AddTeammateActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/AddTeammateActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/CategoryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/CategoryActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/DevelopersActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/DevelopersActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/FavouritesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/FavouritesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/ProfileActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/CategoriesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoriesAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/CategoryEventsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoryEventsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/FavouritesEventsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/FavouritesEventsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/HomeAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeCategoriesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/HomeCategoriesAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeEventsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/HomeEventsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeResultsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/HomeResultsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/QualifiedTeamsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/QualifiedTeamsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/RegisteredEventsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/RegisteredEventsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/ResultsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/ResultsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/ScheduleAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/ScheduleAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/SportsQualifiedTeamsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/SportsQualifiedTeamsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/application/Revels19.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/application/Revels19.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/CategoriesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/CategoriesFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/ResultsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/RevelsCupFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/RevelsCupFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ScheduleFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/ScheduleFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/categories/CategoriesListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/categories/CategoriesListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/categories/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/categories/CategoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/EventDetailsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/EventDetailsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/EventModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/EventModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/EventsListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/EventsListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/ScheduleListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/ScheduleListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/ScheduleModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/ScheduleModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/favourites/FavouritesModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/favourites/FavouritesModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/CreateLeaveTeamResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/registration/CreateLeaveTeamResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/registration/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/registration/ProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/ProfileResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/registration/ProfileResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/RegisteredEventListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/registration/RegisteredEventListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/RegisteredEventModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/registration/RegisteredEventModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/results/EventResultModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/results/EventResultModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/results/ResultModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/results/ResultModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/results/ResultsListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/results/ResultsListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/revels_live/RevelsLiveListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/revels_live/RevelsLiveModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/revels_live/RevelsLiveModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/sports/SportsListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/sports/SportsListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/sports/SportsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/sports/SportsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/sports/SportsResultModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/sports/SportsResultModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/APIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/network/APIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/RegistrationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/network/RegistrationClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/RevelsLiveAPIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/network/RevelsLiveAPIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/receivers/NotificationReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/IconCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/utilities/IconCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/NetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/utilities/NetworkUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/ResponseForReCaptcha.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/views/SwipeScrollView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/views/SwipeScrollView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/views/TabbedDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/views/TabbedDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_teammate.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_teammate.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_results.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/in/mitrev/revels19/ExampleUnitTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,48 +117,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Revels19" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Revels19" type="f1a62948:ProjectNode" />
-                <item name="Revels19" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Revels19" type="f1a62948:ProjectNode" />
-                <item name="Revels19" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Revels19" type="f1a62948:ProjectNode" />
-                <item name="Revels19" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Revels19" type="f1a62948:ProjectNode" />
-                <item name=":app" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Revels19" type="f1a62948:ProjectNode" />
-                <item name=":app" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Revels19" type="f1a62948:ProjectNode" />
-                <item name=":app" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -149,91 +177,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/FavouritesActivity.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2011">
-              <caret line="283" column="49" selection-start-line="283" selection-start-column="49" selection-end-line="283" selection-end-column="49" />
-              <folding>
-                <element signature="e#2662#2681#0" expanded="true" />
-                <element signature="e#2847#2866#0" expanded="true" />
-                <element signature="e#3194#3220#0" expanded="true" />
-                <element signature="e#4341#4342#0" expanded="true" />
-                <element signature="e#4394#4395#0" expanded="true" />
-                <element signature="e#4542#4543#0" expanded="true" />
-                <element signature="e#4595#4596#0" expanded="true" />
-                <element signature="e#4743#4744#0" expanded="true" />
-                <element signature="e#4796#4797#0" expanded="true" />
-                <element signature="e#4944#4945#0" expanded="true" />
-                <element signature="e#4997#4998#0" expanded="true" />
-                <element signature="e#5832#5851#0" expanded="true" />
-                <element signature="e#8118#8136#0" expanded="true" />
-                <element signature="e#9919#9920#0" expanded="true" />
-                <element signature="e#9976#9977#0" expanded="true" />
-                <element signature="e#20983#21002#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk">
-          <provider selected="true" editor-type-id="apk-viewer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/favourites/FavouritesModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/ScheduleModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1818">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/FavouritesEventsAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/views/TabbedDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="730">
-              <caret line="180" column="43" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="306" column="39" selection-start-line="306" selection-start-column="39" selection-end-line="306" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeEventsAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="184" column="21" selection-start-line="184" selection-start-column="21" selection-end-line="184" selection-end-column="21" />
+            <state relative-caret-position="102">
+              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -251,7 +199,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>results</find>
       <find>Tint</find>
       <find>event_name</find>
       <find>profile</find>
@@ -281,10 +228,16 @@
       <find>onB</find>
       <find>List&lt;EventResultModel&gt;</find>
       <find>event</find>
+      <find>ScheduleA</find>
     </findStrings>
     <replaceStrings>
       <replace>com.google.android.material.card.MaterialCardView</replace>
     </replaceStrings>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="C:\Users\Mahe\AndroidStudioProjects\Revels19Keystore\revels19keystore.jks" />
+    <option name="KEY_ALIAS" value="key0" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -399,6 +352,10 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processDebugGoogleServices" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="compileDebugJavaWithJavac" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -506,6 +463,11 @@
                 <option name="name" value="mergeDebugAndroidTestAssets" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Injects the build id used by the Fabric SDK." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="fabricGenerateResourcesRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="processReleaseManifest" />
               </ExternalTaskPojo>
@@ -602,6 +564,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="mergeReleaseShaders" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Injects the build id used by the Fabric SDK." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="fabricGenerateResourcesDebug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -761,6 +728,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="generateDebugBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uploads an APK to Crashlytics for distribution." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="crashlyticsUploadDistributionRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles main output for variant release" />
@@ -1058,6 +1030,11 @@
                 <option name="name" value="compileDebugNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Uploads an APK to Crashlytics for distribution." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="crashlyticsUploadDistributionDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="generateReleaseUnitTestSources" />
               </ExternalTaskPojo>
@@ -1178,6 +1155,10 @@
                 <option name="name" value="packageDebugAndroidTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processReleaseGoogleServices" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Displays the properties of root project 'revels19'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="properties" />
@@ -1255,6 +1236,10 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="generateDebugUnitTestAssets" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="processDebugGoogleServices" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1365,6 +1350,11 @@
                 <option name="name" value="mergeDebugAndroidTestAssets" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Injects the build id used by the Fabric SDK." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="fabricGenerateResourcesRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="processReleaseManifest" />
               </ExternalTaskPojo>
@@ -1461,6 +1451,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="mergeReleaseShaders" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Injects the build id used by the Fabric SDK." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="fabricGenerateResourcesDebug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1620,6 +1615,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="generateDebugBuildConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uploads an APK to Crashlytics for distribution." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="crashlyticsUploadDistributionRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles main output for variant release" />
@@ -1907,6 +1907,11 @@
                 <option name="name" value="compileDebugNdk" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Uploads an APK to Crashlytics for distribution." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="crashlyticsUploadDistributionDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="generateReleaseUnitTestSources" />
               </ExternalTaskPojo>
@@ -2028,6 +2033,10 @@
                 <option name="name" value="packageDebugAndroidTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="processReleaseGoogleServices" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Displays the properties of project ':app'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="properties" />
@@ -2051,7 +2060,8 @@
                           <list>
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle/3.3.0/bcb8b8acc91b5a79346027bdfdd1fded03942088/gradle-3.3.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.realm/realm-gradle-plugin/5.8.0/b77bd2a0489b6346ae4e5e670295a323560213ae/realm-gradle-plugin-5.8.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.fabric.tools/gradle/1.25.4/e1475d609b53783d837c84cc3ec0abcfb5c9a898/gradle-1.25.4.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.fabric.tools/gradle/1.26.1/fce05a68250fd74f39ec91dde13d02c6d190eccd/gradle-1.26.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.gms/google-services/4.0.1/a9fdd01c6f67fa7d12cc156a7a20a5086fbd1287/google-services-4.0.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder/3.3.0/de1cc306a8a198f59d56cb9a909d9a4f516116e7/builder-3.3.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.analytics-library/shared/26.3.0/12dc55cbfdcdbe731d95d706338c5741c7a0831a/shared-26.3.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.analytics-library/crash/26.3.0/f1a8706fd6b3402d6e6c5d67b6ce7503394c1f16/crash-26.3.0.jar" />
@@ -2148,7 +2158,8 @@
                           <list>
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle/3.3.0/bcb8b8acc91b5a79346027bdfdd1fded03942088/gradle-3.3.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.realm/realm-gradle-plugin/5.8.0/b77bd2a0489b6346ae4e5e670295a323560213ae/realm-gradle-plugin-5.8.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.fabric.tools/gradle/1.25.4/e1475d609b53783d837c84cc3ec0abcfb5c9a898/gradle-1.25.4.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.fabric.tools/gradle/1.26.1/fce05a68250fd74f39ec91dde13d02c6d190eccd/gradle-1.26.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.gms/google-services/4.0.1/a9fdd01c6f67fa7d12cc156a7a20a5086fbd1287/google-services-4.0.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder/3.3.0/de1cc306a8a198f59d56cb9a909d9a4f516116e7/builder-3.3.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.analytics-library/shared/26.3.0/12dc55cbfdcdbe731d95d706338c5741c7a0831a/shared-26.3.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.tools.analytics-library/crash/26.3.0/f1a8706fd6b3402d6e6c5d67b6ce7503394c1f16/crash-26.3.0.jar" />
@@ -2411,47 +2422,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_event.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_category.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_results.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/registration/ProfileResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registrations/ProfileResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/ProfileResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/ProfileResponseData.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/RegisteredEventModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/RegisteredEventListModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/registration/CreateLeaveTeamResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_teammate.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_event_reg.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_flash.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_info.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/AddTeammateActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/ScheduleAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_registered_events.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_info_white.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_category_activity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/android_cardview.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/ios_cardview.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/CategoryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/ProfileActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/SplashActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/CategoryEventsAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeCategoriesAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeEventsAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/RegisteredEventsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/RevelsCupResultsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/CategoriesFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ScheduleFragment.java" />
@@ -2460,12 +2430,53 @@
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/RevelsLiveAPIClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/IconCollection.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/ResponseForReCaptcha.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/views/TabbedDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/FavouritesActivity.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/ScheduleModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/ScheduleAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/CategoryEventsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/views/TabbedDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/java/in/mitrev/mitrev19/ExampleInstrumentedTest.java" />
+        <option value="$PROJECT_DIR$/app/src/test/java/in/mitrev/revels19/ExampleUnitTest.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/AboutUsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/AddTeammateActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/CategoryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/DevelopersActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/FavouritesActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/ProfileActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoriesAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoryEventsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/FavouritesEventsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/HomeAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/HomeCategoriesAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/HomeEventsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/HomeResultsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/QualifiedTeamsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/RegisteredEventsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/ResultsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/ScheduleAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/SportsQualifiedTeamsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/CategoriesFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/ResultsFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/RevelsCupFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/ScheduleFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/utilities/IconCollection.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/views/TabbedDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/in/mitrev/revels19/BuildConfig.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/HomeFragment.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1" />
     <option name="y" value="1" />
     <option name="width" value="1364" />
@@ -2621,65 +2632,28 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
-              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
+              <item name="revels19" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
             </path>
             <path>
-              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="revels19" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="revels19" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="revels19" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="adapters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="revels19" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="revels19" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="events" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Revels19" type="1abcf292:AndroidViewProjectNode" />
+              <item name="revels19" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ExportApk.ApkPath" value="C:\Users\Mahe\AndroidStudioProjects\revels19\app" />
+    <property name="ExportApk.BuildType" value="release" />
+    <property name="ExportApk.Flavors" value="" />
     <property name="SearchEverywhereHistoryKey" value="more&#9;PSI&#9;JAVA://in.mitrev.revels19.fragments.HomeFragment#categoriesMore&#10;getCatName&#9;PSI&#9;JAVA://in.mitrev.revels19.fragments.HomeFragment#getCatName" />
     <property name="algorithm" value="Scalr" />
     <property name="android.profiler.active" value="true" />
@@ -2687,7 +2661,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551557423677" />
-    <property name="device.picker.selection" value="5a40de1d0804" />
+    <property name="device.picker.selection" value="ZY223D79TJ" />
     <property name="lastFolderRoot" value="$PROJECT_DIR$/app/src/main/res/drawable/iridescent.9.png" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable/iridescent.9.png" />
@@ -2726,18 +2700,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Android App.app">
-    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" />
@@ -2746,22 +2709,14 @@
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-    </configuration>
-    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
+      <method>
+        <option name="Make" enabled="false" />
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
@@ -2769,7 +2724,6 @@
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
-      <option name="DEPLOY_AS_INSTANT" value="false" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
@@ -2814,13 +2768,10 @@
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -2840,7 +2791,23 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method v="2" />
+    </configuration>
+    <configuration name="revels19 [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signingReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <module name="revels19" />
@@ -2851,25 +2818,76 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="MAIN_CLASS_NAME" />
       <option name="WORKING_DIRECTORY" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
     <list>
       <item itemvalue="Android App.app" />
       <item itemvalue="Gradle.Revels19:app [clean]" />
+      <item itemvalue="Gradle.revels19 [signingReport]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.revels19 [signingReport]" />
         <item itemvalue="Gradle.Revels19:app [clean]" />
       </list>
     </recent_temporary>
@@ -2975,41 +2993,40 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23939393" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Build Variants" order="3" side_tool="true" />
-      <window_info id="Image Layers" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Captures" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32952693" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32839224" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39954337" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295325" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49785176" weight="0.3523654" />
       <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.7514253" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.063621536" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5021482" side_tool="true" weight="0.3990878" />
-      <window_info anchor="bottom" id="Logcat" order="11" weight="0.33768353" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295325" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Build Variants" order="3" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.50378215" side_tool="true" visible="true" weight="0.31578946" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32767403" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32837528" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.063621536" />
+      <window_info anchor="bottom" id="Logcat" order="11" weight="0.33768353" />
+      <window_info id="Captures" order="7" side_tool="true" weight="0.25" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22844176" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49621785" visible="true" weight="0.31578946" />
+      <window_info anchor="right" id="Gradle" order="7" weight="0.3290469" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Device File Explorer" order="6" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39954337" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32990867" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.30862328" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3293718" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Android WiFi ADB" order="3" weight="0.32975295" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Preview" order="5" weight="0.3090909" />
-      <window_info anchor="right" id="Device File Explorer" order="6" side_tool="true" />
-      <window_info anchor="right" id="Gradle" order="7" weight="0.32975295" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -3069,339 +3086,344 @@
     <option name="LAST_COMMIT_MESSAGE" value="taptargetview final" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/WorkshopsActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsTabsFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_home.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/ResultsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="44" lean-forward="true" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+        <state relative-caret-position="306">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/RevelsCupFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6210">
-          <caret line="345" column="45" selection-start-line="345" selection-start-column="45" selection-end-line="345" selection-end-column="45" />
+        <state relative-caret-position="323">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/AboutUsActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/ScheduleFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-735">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="323">
+          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/AddTeammateActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/categories/CategoryModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1487">
-          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/CategoryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4014">
-          <caret line="251" column="4" selection-start-line="251" selection-start-column="4" selection-end-line="251" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/DevelopersActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1073">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4547">
-          <caret line="102" column="51" selection-start-line="102" selection-start-column="51" selection-end-line="102" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3197">
-          <caret line="104" column="64" lean-forward="true" selection-start-line="104" selection-start-column="64" selection-end-line="104" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="188" column="51" selection-start-line="188" selection-start-column="51" selection-end-line="188" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/CategoriesAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-479">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/CategoryEventsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-944">
-          <caret line="271" column="9" selection-start-line="271" selection-start-column="9" selection-end-line="271" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-641">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeCategoriesAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-533">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeResultsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1001">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/QualifiedTeamsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-317">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/ResultPagerAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/RegisteredEventsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/ResultsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-821">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/ScheduleAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5076">
-          <caret line="321" column="28" selection-start-line="321" selection-start-column="28" selection-end-line="321" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/RevelsCupResultsAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/SportsQualifiedTeamsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-177">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_developers.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="36" column="45" lean-forward="true" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/application/Revels19.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
+        <state relative-caret-position="68">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/CategoriesFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/categories/CategoriesListModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ResultsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3312">
-          <caret line="224" column="42" selection-start-line="224" selection-start-column="42" selection-end-line="224" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/RevelsCupResultsFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/RevelsCupFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-501">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/ScheduleFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-461">
-          <caret line="631" selection-start-line="631" selection-end-line="631" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/workshops/WorkshopListModel.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/workshops/WorkshopModel.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/APIClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/RegistrationClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="117" column="142" selection-start-line="117" selection-start-column="142" selection-end-line="117" selection-end-column="142" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/network/RevelsLiveAPIClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/NetworkUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
+        <state relative-caret-position="85">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/ResponseForReCaptcha.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/EventDetailsModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/EventModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/EventsListModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/ScheduleListModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/events/ScheduleModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/favourites/FavouritesModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
           <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/views/SwipeScrollView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/registration/CreateLeaveTeamResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
+        <state relative-caret-position="102">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/sports/SportsListModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/sports/SportsModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/sports/SportsResultModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/revels_live/RevelsLiveModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/revels_live/RevelsLiveListModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/results/EventResultModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/results/ResultModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/models/results/ResultsListModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/network/APIClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/network/RegistrationClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-527">
+          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/utilities/IconCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/network/RevelsLiveAPIClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-91">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/utilities/ResponseForReCaptcha.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/views/SwipeScrollView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/utilities/IconCollection.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/views/TabbedDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/EventDetailsModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/views/TabbedDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="180" column="43" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/FavouritesEventsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/fragments/HomeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="306" column="39" selection-start-line="306" selection-start-column="39" selection-end-line="306" selection-end-column="39" />
+        <state relative-caret-position="425">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/adapters/HomeEventsAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/RegisteredEventsAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="184" column="21" selection-start-line="184" selection-start-column="21" selection-end-line="184" selection-end-column="21" />
+        <state relative-caret-position="272">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/favourites/FavouritesModel.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoriesAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="272">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/models/events/ScheduleModel.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/utilities/NetworkUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1818">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="119">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk">
-      <provider selected="true" editor-type-id="apk-viewer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/revels19/activities/FavouritesActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2011">
-          <caret line="283" column="49" selection-start-line="283" selection-start-column="49" selection-end-line="283" selection-end-column="49" />
+        <state relative-caret-position="85">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/blank.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/fade_in_first.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/slide_in_from_top.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/slide_in_right.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/slide_out_left.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_categories.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/rounded_corner_grey.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_drop_down.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/background_circle.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/android_cardview.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_developers.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_revels_cup.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_results_tabs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/in/mitrev/revels19/BuildConfig.java" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="563" column="9" selection-start-line="563" selection-start-column="9" selection-end-line="563" selection-end-column="9" />
           <folding>
-            <element signature="e#2662#2681#0" expanded="true" />
-            <element signature="e#2847#2866#0" expanded="true" />
-            <element signature="e#3194#3220#0" expanded="true" />
-            <element signature="e#4341#4342#0" expanded="true" />
-            <element signature="e#4394#4395#0" expanded="true" />
-            <element signature="e#4542#4543#0" expanded="true" />
-            <element signature="e#4595#4596#0" expanded="true" />
-            <element signature="e#4743#4744#0" expanded="true" />
-            <element signature="e#4796#4797#0" expanded="true" />
-            <element signature="e#4944#4945#0" expanded="true" />
-            <element signature="e#4997#4998#0" expanded="true" />
-            <element signature="e#5832#5851#0" expanded="true" />
-            <element signature="e#8118#8136#0" expanded="true" />
-            <element signature="e#9919#9920#0" expanded="true" />
-            <element signature="e#9976#9977#0" expanded="true" />
-            <element signature="e#20983#21002#0" expanded="true" />
+            <element signature="e#28831#28832#0" expanded="true" />
+            <element signature="e#28863#28864#0" expanded="true" />
+            <element signature="e#28905#28906#0" expanded="true" />
+            <element signature="e#28935#28936#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
         </state>
       </provider>
     </entry>

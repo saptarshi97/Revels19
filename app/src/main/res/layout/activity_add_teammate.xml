@@ -4,7 +4,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
-tools:context=".activities.AddTeammateActivity">
+tools:context="in.mitrev.mitrev19.activities.AddTeammateActivity">
 
 <me.dm7.barcodescanner.zxing.ZXingScannerView
     android:id="@+id/event_scanner"

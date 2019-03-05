@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.mitrev.revels19">
+    package="in.mitrev.mitrev19">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name=".application.Revels19"
+        android:name="in.mitrev.mitrev19.application.Revels19"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
@@ -15,32 +15,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MainActivity"
+            android:name="in.mitrev.mitrev19.activities.MainActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ProfileActivity"
+            android:name="in.mitrev.mitrev19.activities.ProfileActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName="in.mitrev.mitrev19.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.FavouritesActivity"
+            android:name="in.mitrev.mitrev19.activities.FavouritesActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"
             android:launchMode="singleTop"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName="in.mitrev.mitrev19.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.AboutUsActivity"
+            android:name="in.mitrev.mitrev19.activities.AboutUsActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName="in.mitrev.mitrev19.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.DevelopersActivity"
+            android:name="in.mitrev.mitrev19.activities.DevelopersActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName="in.mitrev.mitrev19.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name="in.mitrev.mitrev19.activities.LoginActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -50,15 +50,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.CategoryActivity"
+            android:name="in.mitrev.mitrev19.activities.CategoryActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName="in.mitrev.mitrev19.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="in.mitrev.mitrev19.activities.SplashActivity"
             android:configChanges="smallestScreenSize|screenLayout|orientation|screenSize" />
 
-        <activity android:name=".activities.AddTeammateActivity"></activity>
+        <activity android:name="in.mitrev.mitrev19.activities.AddTeammateActivity"></activity>
     </application>
 
 </manifest>
