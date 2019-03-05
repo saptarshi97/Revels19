@@ -279,8 +279,9 @@ public class FavouritesActivity extends AppCompatActivity {
                 .equalTo("eventId", eventID)
                 .findAll();
         ScheduleModel eventSchedule = null;
-        for(int i = 0; i < eventSchedules.size(); i++) {
-            if(eventSchedules.get(i).getDay().equals(event.getDay()))
+        for (int i = 0; i < eventSchedules.size(); i++) {
+            ScheduleModel temp = eventSchedules.get(i);
+            if (temp.getDay().equals(event.getDay()) && temp.getRound().equals(event.getRound()))
                 eventSchedule = eventSchedules.get(i);
         }
         Log.d(TAG, "displayBottomSheet: eventID " + eventID);
