@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"
-            tools:context=".fragments.ResultsFragment">
+            tools:context="in.mitrev.mitrev19.fragments.ResultsFragment">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/results_recycler_view"
@@ -35,7 +35,7 @@
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:padding="@dimen/padding_quarter"
-                tools:context=".fragments.ResultsFragment" />
+                tools:context="in.mitrev.mitrev19.fragments.ResultsFragment" />
 
         </FrameLayout>
 

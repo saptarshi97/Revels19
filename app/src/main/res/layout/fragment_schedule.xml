@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<in.mitrev.revels19.views.SwipeScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<in.mitrev.mitrev19.views.SwipeScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/schedule_swipe_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
-    tools:context=".fragments.ScheduleFragment">
+    tools:context="in.mitrev.mitrev19.fragments.ScheduleFragment">
 
     <LinearLayout
         android:id="@+id/schedule_linear_layout"
@@ -52,4 +52,4 @@
     </LinearLayout>
 
 
-</in.mitrev.revels19.views.SwipeScrollView>
+</in.mitrev.mitrev19.views.SwipeScrollView>
