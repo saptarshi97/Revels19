@@ -30,6 +30,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,6 +39,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.TimeZone;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,12 +47,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import in.mitrev.mitrev19.R;
 import in.mitrev.mitrev19.activities.FavouritesActivity;
 import in.mitrev.mitrev19.activities.LoginActivity;
 import in.mitrev.mitrev19.activities.ProfileActivity;
-import in.mitrev.mitrev19.application.Revels19;
-import in.mitrev.mitrev19.R;
 import in.mitrev.mitrev19.adapters.ScheduleAdapter;
+import in.mitrev.mitrev19.application.Revels19;
 import in.mitrev.mitrev19.models.events.ScheduleModel;
 import in.mitrev.mitrev19.views.SwipeScrollView;
 import io.realm.Realm;
@@ -76,8 +78,8 @@ public class ScheduleFragment extends Fragment {
     private String filterCategory = "All";
     private String filterVenue = "All";
     private String filterEventType = "All";
-    private int filterStartHour = 12;
-    private int filterStartMinute = 30;
+    private int filterStartHour = 0;
+    private int filterStartMinute = 0;
     private int filterEndHour = 23;
     private int filterEndMinute = 59;
     private String[] sortCriteria = {"startTime", "eventName", "catName"};
@@ -99,7 +101,7 @@ public class ScheduleFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static ScheduleFragment newInstance(){
+    public static ScheduleFragment newInstance() {
         return new ScheduleFragment();
     }
 
@@ -226,14 +228,18 @@ public class ScheduleFragment extends Fragment {
             String sTime;
             String eTime;
 
-            if (filterStartHour < 12)
+            if (filterStartHour == 0)
+                sTime = 12 + ":" + (filterStartMinute < 10 ? "0" + filterStartMinute : filterStartMinute) + " AM";
+            else if (filterStartHour < 12)
                 sTime = filterStartHour + ":" + (filterStartMinute < 10 ? "0" + filterStartMinute : filterStartMinute) + " AM";
             else if (filterStartHour == 12)
                 sTime = filterStartHour + ":" + (filterStartMinute < 10 ? "0" + filterStartMinute : filterStartMinute) + " PM";
             else
                 sTime = (filterStartHour - 12) + ":" + (filterStartMinute < 10 ? "0" + filterStartMinute : filterStartMinute) + " PM";
 
-            if (filterEndHour < 12)
+            if (filterEndHour == 0)
+                eTime = 12 + ":" + (filterEndMinute < 10 ? "0" + filterEndMinute : filterEndMinute) + " AM";
+            else if (filterEndHour < 12)
                 eTime = filterEndHour + ":" + (filterEndMinute < 10 ? "0" + filterEndMinute : filterEndMinute) + " AM";
             else if (filterEndHour == 12)
                 eTime = filterEndHour + ":" + (filterEndMinute < 10 ? "0" + filterEndMinute : filterEndMinute) + " PM";
@@ -289,7 +295,9 @@ public class ScheduleFragment extends Fragment {
                     String startTime;
                     filterStartHour = hourOfDay;
                     filterStartMinute = minute;
-                    if (hourOfDay < 12)
+                    if (hourOfDay == 0)
+                        startTime = 12 + ":" + (minute < 10 ? "0" + minute : minute) + " AM";
+                    else if (hourOfDay < 12)
                         startTime = hourOfDay + ":" + (minute < 10 ? "0" + minute : minute) + " AM";
                     else if (hourOfDay == 12)
                         startTime = hourOfDay + ":" + (minute < 10 ? "0" + minute : minute) + " PM";
@@ -307,7 +315,9 @@ public class ScheduleFragment extends Fragment {
                     String endTime;
                     filterEndHour = hourOfDay;
                     filterEndMinute = minute;
-                    if (hourOfDay < 12)
+                    if (hourOfDay == 0)
+                        endTime = 12 + ":" + (minute < 10 ? "0" + minute : minute) + " AM";
+                    else if (hourOfDay < 12)
                         endTime = hourOfDay + ":" + (minute < 10 ? "0" + minute : minute) + " AM";
                     else if (hourOfDay == 12)
                         endTime = hourOfDay + ":" + (minute < 10 ? "0" + minute : minute) + " PM";
@@ -363,8 +373,8 @@ public class ScheduleFragment extends Fragment {
     }
 
     private void clearFilters() {
-        filterStartHour = 12;
-        filterStartMinute = 30;
+        filterStartHour = 0;
+        filterStartMinute = 0;
         filterEndHour = 23;
         filterEndMinute = 59;
         filterCategory = "All";
@@ -532,12 +542,26 @@ public class ScheduleFragment extends Fragment {
         }
     }
 
+    private String getTimeFromTimestamp(String time) {
+        SimpleDateFormat sdf_24h = new SimpleDateFormat("H:mm", Locale.getDefault());
+        sdf_24h.setTimeZone(TimeZone.getTimeZone("IST"));
+        SimpleDateFormat sdf_12h = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
+//        sdf_12h.setTimeZone(TimeZone.getTimeZone("IST"));
+        try {
+            Date date = sdf_24h.parse(time);
+            time = sdf_12h.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return time;
+    }
+
     private void applyFilters() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
         Date startDate;
         Date endDate;
 
-            dayFilter(tabs.getSelectedTabPosition() + 1);
+        dayFilter(tabs.getSelectedTabPosition() + 1);
         List<ScheduleModel> tempList = new ArrayList<>(currentDayEvents);
 
         for (ScheduleModel event : currentDayEvents) {
@@ -566,8 +590,9 @@ public class ScheduleFragment extends Fragment {
                     }
                 }
 
-                startDate = dateFormat.parse(event.getStartTime());
-                endDate = dateFormat.parse(event.getEndTime());
+                startDate = dateFormat.parse(getTimeFromTimestamp(event.getStartTime().substring(11, 16)));
+                endDate = dateFormat.parse(getTimeFromTimestamp(event.getEndTime().substring(11, 16)));
+
 
                 Calendar c1 = Calendar.getInstance();
                 Calendar c2 = Calendar.getInstance();
@@ -577,12 +602,23 @@ public class ScheduleFragment extends Fragment {
                 c1.setTime(startDate);
                 c2.setTime(endDate);
 
+                Log.d(TAG, "applyFilters: " + event.getEventName() + " startTime " + startDate);
+                Log.d(TAG, "applyFilters: " + event.getEventName() + " endTime " + endDate);
+
+
                 c3.set(c1.get(Calendar.YEAR), c1.get(Calendar.MONTH), c1.get(Calendar.DATE), filterStartHour,
                         filterStartMinute, c1.get(Calendar.SECOND));
                 c3.set(Calendar.MILLISECOND, c1.get(Calendar.MILLISECOND));
                 c4.set(c2.get(Calendar.YEAR), c2.get(Calendar.MONTH), c2.get(Calendar.DATE), filterEndHour,
                         filterEndMinute, c2.get(Calendar.SECOND));
                 c4.set(Calendar.MILLISECOND, c2.get(Calendar.MILLISECOND));
+
+                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy, hh:mm aa", Locale.getDefault());
+
+
+                Log.d(TAG, "applyFilters: filterStartTime :" + df.format(c3.getTime()));
+
+                Log.d(TAG, "applyFilters: filterEndTime :" + df.format(c4.getTime()));
 
                 if (!((c1.getTimeInMillis() >= c3.getTimeInMillis()) && (c2.getTimeInMillis() <= c4.getTimeInMillis()))) {
                     tempList.remove(event);
