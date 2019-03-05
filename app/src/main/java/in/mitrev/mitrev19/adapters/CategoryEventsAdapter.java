@@ -25,15 +25,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import in.mitrev.mitrev19.models.registration.CreateLeaveTeamResponse;
-import in.mitrev.mitrev19.receivers.NotificationReceiver;
-import in.mitrev.mitrev19.utilities.IconCollection;
 import in.mitrev.mitrev19.R;
 import in.mitrev.mitrev19.models.events.EventDetailsModel;
 import in.mitrev.mitrev19.models.events.EventModel;
 import in.mitrev.mitrev19.models.events.ScheduleModel;
 import in.mitrev.mitrev19.models.favourites.FavouritesModel;
+import in.mitrev.mitrev19.models.registration.CreateLeaveTeamResponse;
 import in.mitrev.mitrev19.network.RegistrationClient;
+import in.mitrev.mitrev19.receivers.NotificationReceiver;
+import in.mitrev.mitrev19.utilities.IconCollection;
 import in.mitrev.mitrev19.views.TabbedDialog;
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -344,7 +344,7 @@ public class CategoryEventsAdapter extends
             ScheduleModel eventSchedule = new ScheduleModel();
             for (int i = 0; i < eventScheduleList.size(); i++) {
                 ScheduleModel model = eventScheduleList.get(i);
-                if (model.getDay().equals(dayOfEvent))
+                if (model.getDay().equals(dayOfEvent) && model.getRound().equals(event.getRound()))
                     eventSchedule = model;
             }
             Log.d(TAG, "onClick: Using schedule" + eventSchedule.getEventName());
