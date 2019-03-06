@@ -350,7 +350,7 @@ public class HomeFragment extends Fragment {
                                     .cancelable(false)                  // Whether tapping outside the outer circle dismisses the view
                                     .tintTarget(true)                   // Whether to tint the target view's color
                                     .transparentTarget(true)           // Specify whether the target is transparent (displays the content underneath)
-                                    .targetRadius(60),                  // Specify the target radius (in dp)
+                                    .targetRadius(50),                  // Specify the target radius (in dp)
                             new TapTargetView.Listener() {          // The listener can listen for regular clicks, long clicks or cancels
                                 //(android.widget.Toolbar) ((MainActivity)getActivity()).findViewById(R.id.toolbar))
                                 @Override
@@ -481,31 +481,35 @@ public class HomeFragment extends Fragment {
     public void fetchResults() {
         processes++;
         Call<ResultsListModel> callResultsList = APIClient.getAPIInterface().getResultsList();
-        callResultsList.enqueue(new Callback<ResultsListModel>() {
-            List<ResultModel> results = new ArrayList<>();
+        try {
+            callResultsList.enqueue(new Callback<ResultsListModel>() {
+                List<ResultModel> results = new ArrayList<>();
 
-            @Override
-            public void onResponse(Call<ResultsListModel> call, Response<ResultsListModel> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    results = response.body().getData();
-                    mDatabase.beginTransaction();
-                    mDatabase.where(ResultModel.class).findAll().deleteAllFromRealm();
-                    mDatabase.copyToRealm(results);
-                    mDatabase.commitTransaction();
-                    //homeResultsItem.setVisibility(View.VISIBLE);
-                    updateResultsList();
-                    resultsNone.setVisibility(View.GONE);
-                    resultsNone.setText("");
+                @Override
+                public void onResponse(Call<ResultsListModel> call, Response<ResultsListModel> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        results = response.body().getData();
+                        mDatabase.beginTransaction();
+                        mDatabase.where(ResultModel.class).findAll().deleteAllFromRealm();
+                        mDatabase.copyToRealm(results);
+                        mDatabase.commitTransaction();
+                        //homeResultsItem.setVisibility(View.VISIBLE);
+                        updateResultsList();
+                        resultsNone.setVisibility(View.GONE);
+                        resultsNone.setText("");
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<ResultsListModel> call, Throwable t) {
-                if (homeResultsItem.getVisibility() == View.VISIBLE)
-                    //homeResultsItem.setVisibility(View.GONE);
-                    processes--;
-            }
-        });
+                @Override
+                public void onFailure(Call<ResultsListModel> call, Throwable t) {
+                    if (homeResultsItem.getVisibility() == View.VISIBLE)
+                        //homeResultsItem.setVisibility(View.GONE);
+                        processes--;
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public boolean isFavourite(ScheduleModel event) {

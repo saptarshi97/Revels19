@@ -66,13 +66,16 @@ public class ResultsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        getActivity().setTitle(R.string.results);
         mDatabase = Realm.getDefaultInstance();
-
-        if (getActivity() != null) {
-            getActivity().setTitle(R.string.bottom_nav_results);
-            AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
-            appBarLayout.setExpanded(true, true);
+        try {
+            getActivity().setTitle(R.string.results);
+            if (getActivity() != null) {
+                getActivity().setTitle(R.string.bottom_nav_results);
+                AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
+                appBarLayout.setExpanded(true, true);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
     }
