@@ -99,10 +99,13 @@ public class CategoryEventsAdapter extends
             holder.eventRound.setVisibility(View.GONE);
         }
 
+        holder.itemView.setTag(event.getEventID());
+
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                registerForEvent(event.getEventID());
+                Log.d(TAG, "onLongClick: tag"+v.getTag().toString());
+                registerForEvent(v.getTag().toString());
                 return true;
             }
         });
