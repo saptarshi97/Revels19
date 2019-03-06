@@ -104,7 +104,6 @@ public class CategoryEventsAdapter extends
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Log.d(TAG, "onLongClick: tag"+v.getTag().toString());
                 registerForEvent(v.getTag().toString());
                 return true;
             }
