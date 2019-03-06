@@ -106,52 +106,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         return false;
     }
 
-//
-//    private String getTag(Fragment fragment) {
-//        if (fragment instanceof HomeFragment)
-//            return TAG_HOME;
-//        else if (fragment instanceof ScheduleFragment)
-//            return TAG_SCHEDULE;
-//        else if (fragment instanceof CategoriesFragment)
-//            return TAG_CATEGORIES;
-//        else
-//            return TAG_RESULTS;
-//    }
-//
-//    private String getTag(int fragmentIndex) {
-//        switch (fragmentIndex) {
-//            case 0:
-//                return TAG_HOME;
-//            case 1:
-//                return TAG_SCHEDULE;
-//            case 2:
-//                return TAG_CATEGORIES;
-//            default:
-//                return TAG_RESULTS;
-//        }
-//    }
 
-
-//    /**
-//     * Set the fragment for this activity
-//     *
-//     * @param fragment to set
-//     */
-//    public boolean setFragment(Fragment fragment) {
-//        Fragment temp = getSupportFragmentManager().findFragmentByTag(getTag(fragment));
-//        if (temp == null)
-//            getSupportFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.fragment_container, fragment, getTag(fragment))
-//                    .addToBackStack(getTag(fragmentIndex))
-//                    .commit();
-//        else
-//            getSupportFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.fragment_container, temp)
-//                    .commit();
-//        return true;
-//    }
 
     public void setTitle() {
         switch (fragmentIndex) {
@@ -185,13 +140,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
     }
 
-    public int getBottomNavId() {
-        switch (fragmentIndex) {
-            case 0:
+    public int getBottomNavId(String tag) {
+        switch (tag) {
+            case TAG_HOME:
                 return R.id.action_home;
-            case 1:
+            case TAG_SCHEDULE:
                 return R.id.action_schedule;
-            case 2:
+            case TAG_CATEGORIES:
                 return R.id.action_categories;
             default:
                 return R.id.action_results;
@@ -200,8 +155,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     public boolean setFragment(String tag) {
         setFragmentIndex(tag);
-        //TODO: set selected item in bottom nav
-        // setBottomNavSelectedItem(getBottomNavId());
         setTitle();
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
         Log.e(TAG, "setFragment");

@@ -23,7 +23,6 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.crashlytics.android.Crashlytics;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.material.appbar.AppBarLayout;
@@ -47,12 +46,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import in.mitrev.mitrev19.R;
 import in.mitrev.mitrev19.activities.FavouritesActivity;
 import in.mitrev.mitrev19.activities.LoginActivity;
 import in.mitrev.mitrev19.activities.MainActivity;
 import in.mitrev.mitrev19.activities.ProfileActivity;
-import in.mitrev.mitrev19.network.RevelsLiveAPIClient;
-import in.mitrev.mitrev19.R;
 import in.mitrev.mitrev19.adapters.HomeAdapter;
 import in.mitrev.mitrev19.adapters.HomeCategoriesAdapter;
 import in.mitrev.mitrev19.adapters.HomeEventsAdapter;
@@ -65,6 +63,7 @@ import in.mitrev.mitrev19.models.results.ResultModel;
 import in.mitrev.mitrev19.models.results.ResultsListModel;
 import in.mitrev.mitrev19.models.revels_live.RevelsLiveListModel;
 import in.mitrev.mitrev19.network.APIClient;
+import in.mitrev.mitrev19.network.RevelsLiveAPIClient;
 import in.mitrev.mitrev19.utilities.NetworkUtils;
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -206,7 +205,8 @@ public class HomeFragment extends Fragment {
         updateResultsList();
         resultsMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Results Fragment
-            ((MainActivity) getActivity()).setFragment(MainActivity.TAG_RESULTS);
+            MainActivity activity = (MainActivity) getActivity();
+            activity.setBottomNavSelectedItem(activity.getBottomNavId(MainActivity.TAG_RESULTS));
         });
 
         //Display Categories
@@ -224,7 +224,8 @@ public class HomeFragment extends Fragment {
         categoriesAdapter.notifyDataSetChanged();
         categoriesMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Categories Fragment
-            ((MainActivity) getActivity()).setFragment(MainActivity.TAG_CATEGORIES);
+            MainActivity activity = (MainActivity) getActivity();
+            activity.setBottomNavSelectedItem(activity.getBottomNavId(MainActivity.TAG_CATEGORIES));
         });
         if (categoriesList.size() == 0) {
             view.findViewById(R.id.home_categories_none_text_view).setVisibility(View.VISIBLE);
@@ -305,7 +306,8 @@ public class HomeFragment extends Fragment {
         eventsAdapter.notifyDataSetChanged();
         eventsMore.setOnClickListener(v -> {
             //MORE Clicked - Take user to Events Fragment
-            ((MainActivity) getActivity()).setFragment(MainActivity.TAG_SCHEDULE);
+            MainActivity activity = (MainActivity) getActivity();
+            activity.setBottomNavSelectedItem(activity.getBottomNavId(MainActivity.TAG_SCHEDULE));
 
         });
         if (eventsList.size() == 0) {
@@ -357,25 +359,25 @@ public class HomeFragment extends Fragment {
                                 public void onTargetClick(TapTargetView view) {
                                     super.onTargetClick(view);      // This call is optional
                                     TapTargetView.showFor(getActivity(),                 // `this` is an Activity
-                                            TapTarget.forToolbarMenuItem((Toolbar) getActivity().findViewById(R.id.toolbar) ,
+                                            TapTarget.forToolbarMenuItem((Toolbar) getActivity().findViewById(R.id.toolbar),
                                                     R.id.action_profile, "This takes you to your Profile",
                                                     "You can add events you've registered for, add team members or leave a team")
-                                    // All options below are optional
+                                                    // All options below are optional
                                                     .outerCircleColor(R.color.colorPrimary)      // Specify a color for the outer circle
-                                            .outerCircleAlpha(0.96f)            // Specify the alpha amount for the outer circle
-                                            .targetCircleColor(R.color.white)   // Specify a color for the target circle
-                                            .titleTextSize(20)                  // Specify the size (in sp) of the title text
-                                            .titleTextColor(R.color.white)      // Specify the color of the title text
-                                            .descriptionTextSize(15)            // Specify the size (in sp) of the description text
-                                            .descriptionTextColor(R.color.white)  // Specify the color of the description text
-                                            .textColor(R.color.white)            // Specify a color for both the title and description text
-                                            .textTypeface(Typeface.SANS_SERIF)  // Specify a typeface for the text
-                                            .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
-                                            .drawShadow(true)                   // Whether to draw a drop shadow or not
-                                            .cancelable(false)                  // Whether tapping outside the outer circle dismisses the view
-                                            .tintTarget(true)                   // Whether to tint the target view's color
-                                            .transparentTarget(true)           // Specify whether the target is transparent (displays the content underneath)
-                                            .targetRadius(35),                  // Specify the target radius (in dp)
+                                                    .outerCircleAlpha(0.96f)            // Specify the alpha amount for the outer circle
+                                                    .targetCircleColor(R.color.white)   // Specify a color for the target circle
+                                                    .titleTextSize(20)                  // Specify the size (in sp) of the title text
+                                                    .titleTextColor(R.color.white)      // Specify the color of the title text
+                                                    .descriptionTextSize(15)            // Specify the size (in sp) of the description text
+                                                    .descriptionTextColor(R.color.white)  // Specify the color of the description text
+                                                    .textColor(R.color.white)            // Specify a color for both the title and description text
+                                                    .textTypeface(Typeface.SANS_SERIF)  // Specify a typeface for the text
+                                                    .dimColor(R.color.black)            // If set, will dim behind the view with 30% opacity of the given color
+                                                    .drawShadow(true)                   // Whether to draw a drop shadow or not
+                                                    .cancelable(false)                  // Whether tapping outside the outer circle dismisses the view
+                                                    .tintTarget(true)                   // Whether to tint the target view's color
+                                                    .transparentTarget(true)           // Specify whether the target is transparent (displays the content underneath)
+                                                    .targetRadius(35),                  // Specify the target radius (in dp)
                                             new TapTargetView.Listener() {          // The listener can listen for regular clicks, long clicks or cancels
                                                 @Override
                                                 public void onTargetClick(TapTargetView view) {
@@ -507,7 +509,7 @@ public class HomeFragment extends Fragment {
                         processes--;
                 }
             });
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

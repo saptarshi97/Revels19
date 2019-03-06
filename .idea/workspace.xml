@@ -6,8 +6,8 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -21,15 +21,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoryEventsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoryEventsAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/HomeFragment.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,26 +54,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="12" />
+          <entry key="java" value="18" />
           <entry key="json" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="12" />
+          <entry key="JAVA" value="18" />
           <entry key="JSON" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1144" />
+          <entry key="java" value="1252" />
           <entry key="json" value="1" />
           <entry key="txt" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1144" />
+          <entry key="JAVA" value="1252" />
           <entry key="JSON" value="1" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
@@ -89,32 +83,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoryEventsAdapter.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="92" column="74" selection-start-line="92" selection-start-column="74" selection-end-line="92" selection-end-column="74" />
-              <folding>
-                <element signature="e#6123#6124#0" expanded="true" />
-                <element signature="e#6163#6164#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="339">
+              <caret line="145" column="28" lean-forward="true" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/HomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="403">
+              <caret line="209" column="11" lean-forward="true" selection-start-line="209" selection-start-column="11" selection-end-line="209" selection-end-column="11" />
+              <folding>
+                <element signature="e#29173#29174#0" expanded="true" />
+                <element signature="e#29205#29206#0" expanded="true" />
+                <element signature="e#29247#29248#0" expanded="true" />
+                <element signature="e#29277#29278#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,6 +114,10 @@
       <find>addNo</find>
       <find>addNot</find>
       <find>register</find>
+      <find>more</find>
+      <find>SETf</find>
+      <find>setB</find>
+      <find>GEt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2319,9 +2310,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/FavouritesActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/HomeEventsAdapter.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoryEventsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/HomeFragment.java" />
       </list>
     </option>
   </component>
@@ -2495,6 +2487,15 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <layout>
@@ -2508,12 +2509,12 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Run" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Logcat" order="3" weight="0.44045678" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32952693" />
+      <window_info anchor="bottom" id="Logcat" order="3" weight="0.31647635" />
       <window_info anchor="bottom" id="TODO" order="4" />
-      <window_info anchor="bottom" id="Debug" order="5" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4812398" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.7553018" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.7553018" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -2663,10 +2664,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="55" column="86" lean-forward="true" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/adapters/CategoryEventsAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="92" column="74" selection-start-line="92" selection-start-column="74" selection-end-line="92" selection-end-column="74" />
+        <state relative-caret-position="-2862">
+          <caret line="68" column="31" lean-forward="true" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
           <folding>
             <element signature="e#6123#6124#0" expanded="true" />
             <element signature="e#6163#6164#0" expanded="true" />
@@ -2674,17 +2682,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/MainActivity.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.1.0-alpha02/db21c8e1cc379ff872410d142156b32d9a69aa2b/material-1.1.0-alpha02-sources.jar!/com/google/android/material/bottomnavigation/BottomNavigationView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="133">
+          <caret line="404" selection-start-line="404" selection-end-line="404" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/receivers/NotificationReceiver.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.1.0-alpha01/7d1adf1f577b2c9c6ee06d1797a9d1a1169f14a9/appcompat-1.1.0-alpha01-sources.jar!/androidx/appcompat/view/menu/MenuBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
+        <state relative-caret-position="196">
+          <caret line="990" selection-start-line="990" selection-end-line="990" />
+          <folding>
+            <element signature="e#23918#23919#0" expanded="true" />
+            <element signature="e#23954#23955#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.1.0-alpha01/7d1adf1f577b2c9c6ee06d1797a9d1a1169f14a9/appcompat-1.1.0-alpha01-sources.jar!/androidx/appcompat/view/menu/MenuItemImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
+          <folding>
+            <element signature="e#6168#6169#0" expanded="true" />
+            <element signature="e#6214#6215#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
+            <element signature="e#6638#6639#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="145" column="28" lean-forward="true" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/in/mitrev/mitrev19/fragments/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="209" column="11" lean-forward="true" selection-start-line="209" selection-start-column="11" selection-end-line="209" selection-end-column="11" />
+          <folding>
+            <element signature="e#29173#29174#0" expanded="true" />
+            <element signature="e#29205#29206#0" expanded="true" />
+            <element signature="e#29247#29248#0" expanded="true" />
+            <element signature="e#29277#29278#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
