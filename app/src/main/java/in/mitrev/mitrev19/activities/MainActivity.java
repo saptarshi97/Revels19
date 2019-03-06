@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 setBottomNavSelectedItem(R.id.action_home);
                 break;
             default:
-//                super.onBackPressed();
                 finish();
         }
     }

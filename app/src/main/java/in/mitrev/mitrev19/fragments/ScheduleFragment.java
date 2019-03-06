@@ -114,12 +114,15 @@ public class ScheduleFragment extends Fragment {
         venueList.add("All");
 
         realm = Realm.getDefaultInstance();
-
-        if (getActivity() != null) {
-            getActivity().setTitle(R.string.bottom_nav_schedule);
-            AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
-            appBarLayout.setExpanded(true, true);
-            appBarLayout.setElevation(0);
+        try {
+            if (getActivity() != null) {
+                getActivity().setTitle(R.string.bottom_nav_schedule);
+                AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
+                appBarLayout.setExpanded(true, true);
+                appBarLayout.setElevation(0);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 
